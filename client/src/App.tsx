@@ -1,7 +1,12 @@
 import React from "react";
+import NavBar from "./state/components/NavBar";
 
-const App = function x() {
-  return <div className="App">hello world</div>;
+const App = function () {
+  return (
+    <div className="App">
+      <NavBar />
+    </div>
+  );
 };
 
 export default App;
