@@ -6,7 +6,7 @@ import passport from "passport";
 import cookieSession from "cookie-session";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
-import GoogleRouter from "./routes/googleRouter";
+import GoogleRouter from "./routes/auth/googleRouter";
 import "./utils/config/passport/google-setup";
 
 const app = express();
