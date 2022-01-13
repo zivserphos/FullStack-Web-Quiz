@@ -6,8 +6,8 @@ import passport from "passport";
 import cookieSession from "cookie-session";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
-import GoogleRouter from "./routes/auth/googleRouter";
-import "./utils/config/passport/google-setup";
+import authRouter from "./routes/authRouter";
+import "./utils/config/passport";
 
 const app = express();
 
@@ -27,18 +27,12 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/google", GoogleRouter);
+app.use("/auth", authRouter);
 
 app.get("/", (_req, res) => {
   console.log("im here");
   res.send("hello world");
 });
-
-app.get("/failed", (_req, res) => {
-  res.send("you failed to authenticate with google");
-});
-
-app.get("/good", (req, res) => res.send(`welcome mr. ${req.params}`));
 
 app.use(errorHandler);
 
