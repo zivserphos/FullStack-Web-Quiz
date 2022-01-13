@@ -22,6 +22,7 @@ app.use(
   cookieSession({
     name: "quiz-session",
     keys: ["key1", "key2"],
+    maxAge: 4 * 60 * 60 * 100,
   })
 );
 app.use(passport.initialize());
