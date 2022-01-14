@@ -9,7 +9,6 @@ router.get(
   "/callback",
   passport.authenticate("linkedin", { failureRedirect: "auth/failed" }),
   (_req, res) => {
-    console.log(res.photos);
     // Successful authentication, redirect home.
     res.redirect("/");
   }
