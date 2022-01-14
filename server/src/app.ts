@@ -32,7 +32,7 @@ app.use(passport.session());
 app.use("/auth", authRouter);
 app.use(express.static(path.resolve("../client/build")));
 
-app.use("/", homePage);
+app.get("/", homePage);
 
 app.use(errorHandler);
 

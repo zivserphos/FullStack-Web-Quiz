@@ -13,7 +13,7 @@ router.get(
   passport.authenticate("google", { failureRedirect: "auth/failed" }),
   (_req, res) => {
     // Successful authentication, redirect home.
-    res.redirect("/");
+    res.redirect("/sign-up");
   }
 );
 
