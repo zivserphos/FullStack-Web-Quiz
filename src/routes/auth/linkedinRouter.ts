@@ -3,15 +3,13 @@ import passport from "passport";
 
 const router = Router();
 
-router.get(
-  "/",
-  passport.authenticate("linkedin", { scope: ["profile", "email"] })
-);
+router.get("/", passport.authenticate("linkedin", { state: "SOME STATE" }));
 
 router.get(
   "/callback",
   passport.authenticate("linkedin", { failureRedirect: "auth/failed" }),
   (_req, res) => {
+    console.log(res.photos);
     // Successful authentication, redirect home.
     res.redirect("/");
   }
@@ -20,7 +18,7 @@ router.get(
 router.get("/logout", (req, res) => {
   req.session = null;
   req.logout();
-  res.redirect("/");
+  res.redirect("/sign-up");
 });
 
 export default router;

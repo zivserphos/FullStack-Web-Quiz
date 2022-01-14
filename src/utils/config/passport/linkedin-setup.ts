@@ -5,9 +5,10 @@ import config from "../index";
 passport.use(
   new LinkedinStrategy(
     {
-      clientID: config.facebookClientId,
-      clientSecret: config.facebookSecret,
-      callbackURL: "http://localhost:3001/google/callback",
+      clientID: config.linkedinClientId,
+      clientSecret: config.linkedinSecret,
+      callbackURL: "http://localhost:3001/auth/linkedin/callback",
+      scope: ["r_emailaddress", "r_liteprofile"],
     },
     (_accessToken, _refreshToken, profile, done) =>
       /*
