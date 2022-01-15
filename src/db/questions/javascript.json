@@ -1098,7 +1098,6 @@
         ],
         "correctAns": 1
     },
-    null,
     {
         "query": " Q107. What will be the output of this code?",
         "code": "js\r\nconst arr1 = [2, 4, 6];\r\nconst arr2 = [3, 5, 7];\r\n\r\nconsole.log([...arr1, ...arr2]);\r\n",
