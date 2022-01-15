@@ -8,8 +8,10 @@ declare global {
   }
 }
 
-// declare global {
-//   interface session {
-//     Session: null;
+// declare module "express-session" {
+//   interface Session {
+//     function destroy {
+//       s
+//     }
 //   }
 // }
