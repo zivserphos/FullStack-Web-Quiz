@@ -7,11 +7,3 @@ declare global {
     }
   }
 }
-
-// declare module "express-session" {
-//   interface Session {
-//     function destroy {
-//       s
-//     }
-//   }
-// }
