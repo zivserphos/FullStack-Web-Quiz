@@ -13,7 +13,7 @@ passport.use(
     (_accessToken, _refreshToken, profile, done) =>
       process.nextTick(() => {
         // eslint-disable-next-line no-underscore-dangle
-        console.log(JSON.parse(profile));
+        console.log(JSON.parse(profile._raw));
         return done(null, profile);
       })
     /*
