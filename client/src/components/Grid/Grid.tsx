@@ -1,20 +1,29 @@
 /* eslint-disable react/require-default-props */
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { FunctionComponent, ReactNode } from "react";
 import cn from "classnames";
 import styles from "./grid.module.scss";
 
-const Grid: FunctionComponent<{
-  children: ReactNode;
-  item?: boolean;
-  container?: boolean;
-  xs?: Cols;
-  sm?: Cols;
-  md?: Cols;
-  lg?: Cols;
-  spacing?: Spacing;
-  alignItems?: AlignItems;
-  justifyContent: JustifyContent;
-}> = function ({
+type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Spacing = "sm" | "md" | "lg";
+
+type JustifyContent = "flex-start" | "center" | "flex-end" | "space-between";
+type AlignItems = "flex-start" | "center" | "flex-end";
+
+const Grid: FunctionComponent<
+  {
+    children: ReactNode;
+    container?: boolean;
+    item?: boolean;
+    xs?: Cols;
+    sm?: Cols;
+    md?: Cols;
+    lg?: Cols;
+    spacing?: Spacing;
+    justifyContent?: JustifyContent;
+    alignItems?: AlignItems;
+  } & React.HTMLAttributes<HTMLDivElement>
+> = function ({
   children,
   container,
   item,
@@ -22,22 +31,28 @@ const Grid: FunctionComponent<{
   sm,
   md,
   lg,
-  alignItems,
   spacing,
   justifyContent,
+  alignItems,
+  ...props
 }) {
   const classNames = cn({
     [styles.Grid_container]: container,
     [styles.Grid_item]: item,
     [styles[`Grid_xs_${xs}`]]: xs,
-    [styles[`Grid_xs_${sm}`]]: sm,
-    [styles[`Grid_xs_${md}`]]: md,
-    [styles[`Grid_xs_${lg}`]]: lg,
+    [styles[`Grid_sm_${sm}`]]: sm,
+    [styles[`Grid_md_${md}`]]: md,
+    [styles[`Grid_lg_${lg}`]]: lg,
     [styles[`Grid_spacing_${spacing}`]]: spacing,
     [styles[`Grid_justifyContent_${justifyContent}`]]: justifyContent,
     [styles[`Grid_alignItems_${alignItems}`]]: alignItems,
   });
-  return <div className={classNames}>{children}</div>;
+
+  return (
+    <div className={classNames} {...props}>
+      {children}
+    </div>
+  );
 };
 
 export default Grid;

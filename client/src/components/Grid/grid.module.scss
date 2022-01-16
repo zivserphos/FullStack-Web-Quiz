@@ -13,12 +13,20 @@ $breakpoints: (
 $justifyContent: (flex-start, flex-end, center, space-between);
 $alignItems: (flex-start, flex-end, center);
 
+@mixin breakpoint($name) {
+        @media screen and (min-width: map-get($breakpoints, $name )) {
+                @content;
+        }
+}
+
 .Grid {
         &_container {
                 display: flex;
                 flex-wrap: wrap;
+
                 height: 100%;
         }
+
         &_item {
                 display: block;
         }
@@ -37,13 +45,14 @@ $alignItems: (flex-start, flex-end, center);
                 }
         }
 
-        @include breakpoint("sm") {
+        @include breakpoint("md") {
                 @for $i from 1 to 13 {
                         &_md_#{$i} {
                                 flex-basis: $i/12 * 100%;
                         }
                 }
         }
+
         @include breakpoint("lg") {
                 @for $i from 1 to 13 {
                         &_lg_#{$i} {
@@ -51,10 +60,12 @@ $alignItems: (flex-start, flex-end, center);
                         }
                 }
         }
+
         @each $name, $value in $spacing {
                 &_spacing_#{$name} {
                         margin: -$value;
                 }
+
                 &_spacing_#{$name} > &_item {
                         padding: $value;
                 }
