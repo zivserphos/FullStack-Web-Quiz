@@ -1,11 +1,11 @@
 import React from "react";
-import QuizCard from "../components/QuizCard";
+// import QuizCard from "../components/QuizCard";
 
 const Home = function () {
   return (
     <div>
       <h1>Full stack web quizzes</h1>
-      <QuizCard />
+      {/* <QuizCard /> */}
       {/* <div
         style={{
           display: "flex",
