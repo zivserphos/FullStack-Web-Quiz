@@ -1,6 +1,10 @@
-import passport from "passport";
-import { Strategy as GoogleStrategy } from "passport-google-oauth20";
+import passport, { Profile } from "passport";
+import {
+  Strategy as GoogleStrategy,
+  VerifyCallback,
+} from "passport-google-oauth20";
 import config from "../index";
+import User from "../../../db/models/User";
 
 passport.serializeUser((user, done) => {
   console.log("hello from serialize");
@@ -29,12 +33,23 @@ passport.use(
       clientSecret: config.googleSecret,
       callbackURL: "http://localhost:3001/auth/google/callback",
     },
-    (_accessToken, _refreshToken, profile, done) =>
+    (
+      _accessToken: string,
+      _refreshToken: string,
+      profile: Profile,
+      done: VerifyCallback
+    ) => {
+      User.findOne({ email: profile.emails?.values }).then((currentUser) => {
+        if (currentUser) {
+          console.log("gg");
+        }
+      });
       /*
      use the profile info (mainly profile id) to check if the user is registerd in ur db
      If yes select the user and pass him to the done callback
      If not create the user and then select him and pass to callback
     */
-      done(null, profile)
+      done(null, profile);
+    }
   )
 );
