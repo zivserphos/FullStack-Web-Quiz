@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-param-reassign */
 import mongoose, { Schema } from "mongoose";
-import User from "../../@types/user";
 
 const UserSchema: Schema = new mongoose.Schema({
   email: {
@@ -39,5 +38,5 @@ UserSchema.set("toJSON", {
   },
 });
 
-const User = mongoose.model<User>("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
 export default User;
