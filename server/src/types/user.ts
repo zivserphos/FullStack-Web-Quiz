@@ -1,4 +1,4 @@
-interface User {
+export interface UserInt {
   id: string;
   firstName: string;
   lastName: string;
@@ -8,4 +8,4 @@ interface User {
   secret2FA?: string;
 }
 
-export default User;
+export type NewUser = Omit<UserInt, "id">;
