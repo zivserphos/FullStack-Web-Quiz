@@ -11,22 +11,13 @@ import User from "../../../db/models/User";
 
 passport.serializeUser((user: Express.User, done) => {
   console.log("hello from serialize");
-  console.log(user.id);
-  /*
-    From the user take just the id (to minimize the cookie size) and just pass the id of the user
-    to the done callback
-    PS: You dont have to do it like this its just usually done like this
-    */
-  done(null, user);
+  console.log(user);
+  done(null, user.id);
 });
 
-passport.deserializeUser((user: Express.User, done) => {
-  console.log(user, "hello from deserialize");
-  /*
-    Instead of user this function usually recives the id
-    then you use the id to select the user from the db and pass the user obj to the done callback
-    PS: You can later access this data in any routes in: req.user
-    */
+passport.deserializeUser(async (id: string, done) => {
+  console.log(id, "hello from deserialize");
+  const user = await User.findById(id);
   done(null, user);
 });
 
@@ -46,9 +37,8 @@ passport.use(
       const user = await User.findOne({ email: profile.emails?.values });
       if (!user) {
         try {
-          console.log("Zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
           console.log(profile);
-          console.log("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
+
           // await signUp({
           //   first_name:
           // })
@@ -56,7 +46,7 @@ passport.use(
           console.log(err);
         }
         console.log("user is:");
-        done(null, user);
+        // done(null, profile);
       }
       /*
      use the profile info (mainly profile id) to check if the user is registerd in ur db

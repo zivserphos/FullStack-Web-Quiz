@@ -28,6 +28,9 @@ const UserSchema: Schema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  // quizzes: {
+  //   type:
+  // },
 });
 
 UserSchema.set("toJSON", {
