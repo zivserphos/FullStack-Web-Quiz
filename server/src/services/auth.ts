@@ -1,4 +1,4 @@
-import { NewUser } from "../@types/user";
+import { NewUser } from "../types/user";
 import User from "../db/models/User";
 
 const signUp = async (
