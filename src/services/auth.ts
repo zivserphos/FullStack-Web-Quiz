@@ -6,7 +6,6 @@ const signUp = async ({
   lastName,
   email,
   password,
-  googleId,
 }: NewUser): Promise<UserInt> => {
   //   const exists = await UserModel.find({ email });
 
@@ -17,7 +16,6 @@ const signUp = async ({
     last_name: lastName,
     email,
     password,
-    googleId,
   });
   return user;
 };
