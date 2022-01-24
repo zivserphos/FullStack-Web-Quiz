@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/extensions */
 import passport, { Profile } from "passport";
 import {
@@ -6,19 +7,15 @@ import {
 } from "passport-google-oauth20";
 import config from "../index";
 import User from "../../../db/models/User";
-
-// import signUp from "../../../services/auth";
+import signUp from "../../../services/auth";
 
 passport.serializeUser((user: Express.User, done) => {
-  console.log("hello from serialize");
-  console.log(user);
   done(null, user.id);
 });
 
 passport.deserializeUser(async (id: string, done) => {
-  console.log(id, "hello from deserialize");
   const user = await User.findById(id);
-  done(null, user);
+  done(null, user || null);
 });
 
 passport.use(
@@ -34,26 +31,19 @@ passport.use(
       profile: Profile,
       done: VerifyCallback
     ) => {
-      const user = await User.findOne({ email: profile.emails?.values });
+      const user = await User.findOne({ googleId: profile.id });
       if (!user) {
-        try {
-          console.log(profile);
-
-          // await signUp({
-          //   first_name:
-          // })
-        } catch (err) {
-          console.log(err);
-        }
-        console.log("user is:");
-        // done(null, profile);
+        const newUser = await signUp({
+          googleId: profile.id,
+          firstName: profile.name?.givenName || "",
+          lastName: profile.name?.familyName || "",
+          email: "zivfromisraelGmail.com",
+          password: "ggggg",
+        });
+        return done(null, newUser);
       }
-      /*
-     use the profile info (mainly profile id) to check if the user is registerd in ur db
-     If yes select the user and pass him to the done callback
-     If not create the user and then select him and pass to callback
-    */
-      done(null, profile);
+      console.log("ffffffffffff", user);
+      return done(null, user);
     }
   )
 );

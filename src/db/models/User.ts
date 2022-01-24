@@ -16,6 +16,7 @@ const UserSchema: Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
   last_name: {
     type: String,
     required: true,
@@ -28,21 +29,25 @@ const UserSchema: Schema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  googleId: {
+    type: String,
+  },
   quizzes: [
     {
       type: Schema.Types.ObjectId,
       ref: "Quiz",
+      default: [],
     },
   ],
 });
 
-UserSchema.set("toJSON", {
-  transform: (_, returnedObject) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    returnedObject.id = <string>returnedObject._id.toString();
-    delete returnedObject._id;
-  },
-});
+// UserSchema.set("toJSON", {
+//   transform: (_, returnedObject) => {
+//     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+//     returnedObject.id = <string>returnedObject._id.toString();
+//     delete returnedObject._id;
+//   },
+// });
 
 const User = mongoose.model("User", UserSchema);
 export default User;

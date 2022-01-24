@@ -29,8 +29,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use("/auth", authRouter);
 app.use(express.static(path.resolve("../client/build")));
+app.use("/auth", authRouter);
 
 app.get("/", render);
 app.get("/sign-up", render);

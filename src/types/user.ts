@@ -4,8 +4,9 @@ export interface UserInt {
   lastName: string;
   email: string;
   password: string;
-  verifiedEmail: boolean;
+  verifiedEmail?: boolean;
   secret2FA?: string;
+  googleId?: string;
 }
 
 export type NewUser = Omit<UserInt, "id">;
