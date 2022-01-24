@@ -9,15 +9,6 @@ import config from "../index";
 import User from "../../../db/models/User";
 import signUp from "../../../services/auth";
 
-passport.serializeUser((user: Express.User, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser(async (id: string, done) => {
-  const user = await User.findById(id);
-  done(null, user || null);
-});
-
 passport.use(
   new GoogleStrategy(
     {
@@ -31,18 +22,18 @@ passport.use(
       profile: Profile,
       done: VerifyCallback
     ) => {
-      const user = await User.findOne({ googleId: profile.id });
+      if (!profile.emails) return done();
+      const email = profile.emails[0].value;
+      const user = await User.findOne({ email });
       if (!user) {
         const newUser = await signUp({
-          googleId: profile.id,
           firstName: profile.name?.givenName || "",
           lastName: profile.name?.familyName || "",
-          email: "zivfromisraelGmail.com",
+          email,
           password: "ggggg",
         });
         return done(null, newUser);
       }
-      console.log("ffffffffffff", user);
       return done(null, user);
     }
   )
