@@ -2,41 +2,33 @@
 /* eslint-disable no-param-reassign */
 import mongoose, { Schema } from "mongoose";
 
-const UserSchema: Schema = new mongoose.Schema({
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
+const QuizSchema: Schema = new mongoose.Schema({
+  subject: {
     type: String,
     required: true,
   },
-  first_name: {
+  difficulty: {
     type: String,
-    required: true,
+    enum: ["Easy", "Medium", "Hard"],
   },
-  last_name: {
-    type: String,
-    required: true,
+  num_of_questions: {
+    type: Number,
   },
-  secret2FA: {
+  result: {
+    type: Number,
+  },
+  time: {
     type: String,
     default: "",
   },
-  verifiedEmail: {
-    type: Boolean,
-    default: false,
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    default: "",
   },
-  quizzes: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Quiz",
-    },
-  ],
 });
 
-UserSchema.set("toJSON", {
+QuizSchema.set("toJSON", {
   transform: (_, returnedObject) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     returnedObject.id = <string>returnedObject._id.toString();
@@ -44,5 +36,5 @@ UserSchema.set("toJSON", {
   },
 });
 
-const User = mongoose.model("User", UserSchema);
+const User = mongoose.model("Quiz", QuizSchema);
 export default User;
