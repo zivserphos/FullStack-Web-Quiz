@@ -2,6 +2,7 @@ import { Router } from "express";
 import GoogleRouter from "./auth/googleRouter";
 import FacebookRouter from "./auth/facebookRouter";
 import LinkedinRouter from "./auth/linkedinRouter";
+import "./api/aaa";
 // import { logout, signIn } from "../controllers/auth";
 
 const router = Router();

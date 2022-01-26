@@ -7,7 +7,7 @@ import path from "path";
 import cookieSession from "cookie-session";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
-import authRouter from "./routes/authRouter";
+import authRouter from "./routes/auth";
 import "./utils/config/passport";
 import render from "./middlewares/render";
 
