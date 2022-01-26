@@ -7,4 +7,4 @@ export const logout: Handler = (req, res) => {
   res.redirect("/sign-up");
 };
 
-export const signIn: Handler = (_req, res) => res.redirect("/sign-up");
+export const signIn: Handler = (_req, res) => res.redirect("/");
