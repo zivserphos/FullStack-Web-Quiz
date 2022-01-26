@@ -1,7 +1,8 @@
 import { Handler } from "express";
 
 export const logout: Handler = (req, res) => {
-  req.session = null;
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  req.session = null!;
   req.logout();
   res.redirect("/sign-up");
 };
