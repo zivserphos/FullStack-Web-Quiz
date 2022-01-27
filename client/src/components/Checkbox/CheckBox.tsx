@@ -1,8 +1,13 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React from "react";
+import React, { useRef, useState } from "react";
 import "./checkbox.scss";
 
 const CheckBox = function () {
+  const [currentAnswer, setCurrentAnswer] = useState<null | options>(null);
+  const ref = useRef("");
+  const checked = () => (ref.current = "checked");
   return (
     <div className="checkbox-container">
       <div className="checkboxes">
@@ -74,7 +79,11 @@ const CheckBox = function () {
           <input type="checkbox" />
           <span>Checkbox 4</span>
           <div className="flipBox_boxOuter">
-            <div className="flipBox_box">
+            <div
+              className={`flipBox_box ${ref.current}`}
+              onClick={checked}
+              ref!={ref}
+            >
               <div />
               <div />
               <div />
