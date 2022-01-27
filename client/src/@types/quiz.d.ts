@@ -1,1 +1,1 @@
-type options = 1 | 2 | 3 | 4;
+type Option = 0 | 1 | 2 | 3 | 4;

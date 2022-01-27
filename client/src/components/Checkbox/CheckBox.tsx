@@ -1,22 +1,35 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-param-reassign */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable no-return-assign */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import "./checkbox.scss";
+import isValidOption from "./helpers";
 
 const CheckBox = function () {
-  const [currentAnswer, setCurrentAnswer] = useState<null | options>(null);
-  const ref = useRef("");
-  const checked = () => (ref.current = "checked");
+  const [optionSelected, setOptionSelected] = useState<Option>(0);
+
+  const chooseAns = (target: HTMLInputElement) => {
+    const option = Number(target.name);
+    if (isValidOption(option))
+      option === optionSelected
+        ? setOptionSelected(0)
+        : setOptionSelected(option);
+  };
   return (
     <div className="checkbox-container">
       <div className="checkboxes">
         <label className="flipBox">
-          <input type="checkbox" />
+          <input
+            name="1"
+            type="checkbox"
+            checked={optionSelected === 1}
+            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+          />
           <span>Checkbox 1</span>
           <div className="flipBox_boxOuter">
-            <div className="flipBox_box">
+            <div role="button" className="flipBox_box">
               <div />
               <div />
               <div />
@@ -29,7 +42,12 @@ const CheckBox = function () {
         </label>
 
         <label className="flipBox">
-          <input type="checkbox" />
+          <input
+            name="2"
+            type="checkbox"
+            checked={optionSelected === 2}
+            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+          />
           <span>Checkbox 2</span>
           <div className="flipBox_boxOuter">
             <div className="flipBox_box">
@@ -45,7 +63,12 @@ const CheckBox = function () {
         </label>
 
         <label className="flipBox">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            name="3"
+            checked={optionSelected === 3}
+            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+          />
           <span>Checkbox 3</span>
           <div className="flipBox_boxOuter">
             <div className="flipBox_box">
@@ -77,7 +100,12 @@ const CheckBox = function () {
         </label>
 
         <label className="flipBox">
-          <input type="checkbox" />
+          <input
+            name="4"
+            type="checkbox"
+            checked={optionSelected === 4}
+            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+          />
           <span>Checkbox 4</span>
           <div className="flipBox_boxOuter">
             <div className="flipBox_box">
