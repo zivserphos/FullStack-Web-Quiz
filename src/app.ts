@@ -11,6 +11,7 @@ import AuthRouter from "./routes/auth";
 import ApiRouter from "./routes/api";
 import "./utils/config/passport";
 import render from "./middlewares/render";
+import unknownEndPoint from "./middlewares/unknownEndpoint";
 
 const app = express();
 
@@ -41,5 +42,6 @@ app.get("/services", render);
 app.get("/contact-us", render);
 
 app.use(errorHandler);
+app.use(unknownEndPoint);
 
 export default app;
