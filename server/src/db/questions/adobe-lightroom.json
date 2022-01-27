@@ -29,7 +29,6 @@
         ],
         "correctAns": 2
     },
-    null,
     {
         "query": " Q5. Adjusting the exposure of a raw file by -1 is the equivalent of doing what in the camera?",
         "options": [
@@ -40,7 +39,6 @@
         ],
         "correctAns": 2
     },
-    null,
     {
         "query": " Q7. Suppose you want to migrate a selection of images to another machine. How can you create a new catalog that contains a copy of all the images?",
         "options": [
@@ -81,7 +79,6 @@
         ],
         "correctAns": 1
     },
-    null,
     {
         "query": " Q12. When exporting an image, which sharpening method is best for use on displays?",
         "options": [
@@ -122,7 +119,6 @@
         ],
         "correctAns": 1
     },
-    null,
     {
         "query": " Q17. Which criteria CANNOT be used with a smart collection?",
         "options": [
