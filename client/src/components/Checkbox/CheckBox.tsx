@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import "./checkbox.scss";
 import isValidOption from "./helpers";
 
-const CheckBox = function () {
+const CheckBox = function ({ options }: { options: string[] }) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
 
   const chooseAns = (target: HTMLInputElement) => {
@@ -27,7 +27,7 @@ const CheckBox = function () {
             checked={optionSelected === 1}
             onClick={(e) => chooseAns(e.target as HTMLInputElement)}
           />
-          <span>Checkbox 1</span>
+          <span>{options[0]}</span>
           <div className="flipBox_boxOuter">
             <div role="button" className="flipBox_box">
               <div />
@@ -40,7 +40,6 @@ const CheckBox = function () {
           </div>
           <div className="flipBox_shadow" />
         </label>
-
         <label className="flipBox">
           <input
             name="2"
@@ -48,7 +47,7 @@ const CheckBox = function () {
             checked={optionSelected === 2}
             onClick={(e) => chooseAns(e.target as HTMLInputElement)}
           />
-          <span>Checkbox 2</span>
+          <span>{options[1]}</span>
           <div className="flipBox_boxOuter">
             <div className="flipBox_box">
               <div />
@@ -69,7 +68,7 @@ const CheckBox = function () {
             checked={optionSelected === 3}
             onClick={(e) => chooseAns(e.target as HTMLInputElement)}
           />
-          <span>Checkbox 3</span>
+          <span>{options[2]}</span>
           <div className="flipBox_boxOuter">
             <div className="flipBox_box">
               <div />
@@ -106,7 +105,7 @@ const CheckBox = function () {
             checked={optionSelected === 4}
             onClick={(e) => chooseAns(e.target as HTMLInputElement)}
           />
-          <span>Checkbox 4</span>
+          <span>{options[3]}</span>
           <div className="flipBox_boxOuter">
             <div className="flipBox_box">
               <div />
