@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
 
 const Quiz = function () {
@@ -20,7 +21,7 @@ const Quiz = function () {
   }, [navigate, subject]);
 
   return questions ? (
-    <div>
+    <div className="quiz">
       <h1>{questions[0]?.query || ""}</h1>
       <h2>{questions[0]?.code || ""}</h2>
       <CheckBox options={questions[0]?.options || ""} />
