@@ -1,10 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import QuizCard from "../components/QuizCard";
-import images from "../assests";
 import quizzesInfo from "../utils/quizzesInfo";
-
-console.log(quizzesInfo);
 
 const Home = function () {
   return (
