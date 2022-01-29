@@ -4,12 +4,22 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./checkbox.scss";
 import isValidOption from "./helpers";
 
-const CheckBox = function ({ options }: { options: string[] }) {
+const CheckBox = function ({
+  options,
+  sendAns,
+}: {
+  options: string[];
+  sendAns: (optionSelected: Option) => void;
+}) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
+
+  useEffect(() => {
+    setOptionSelected(0);
+  }, [options]);
 
   const chooseAns = (target: HTMLInputElement) => {
     const option = Number(target.name);
@@ -83,7 +93,6 @@ const CheckBox = function ({ options }: { options: string[] }) {
           </div>
           <div className="flipBox_shadow" />
         </label>
-
         <label className="flipBox">
           <input
             name="4"
@@ -107,8 +116,10 @@ const CheckBox = function ({ options }: { options: string[] }) {
         <div className="send-ans">
           <Button
             variant="contained"
+            className="send-ans"
             style={{ backgroundColor: "green" }}
             disabled={!optionSelected}
+            onClick={() => sendAns(optionSelected)}
           >
             Next Question
           </Button>

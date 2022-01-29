@@ -6,7 +6,6 @@ import SignUp from "./pages/SignUp";
 import NavBar from "./components/NavBar";
 import Services from "./pages/Services";
 import ContactUs from "./pages/ContactUs";
-import CheckBox from "./components/Checkbox/CheckBox";
 import Quiz from "./pages/Quiz";
 
 const App = function () {
