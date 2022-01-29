@@ -3,6 +3,8 @@ import Grid from "@mui/material/Grid";
 import QuizCard from "../components/QuizCard";
 import images from "../assests/assets";
 
+console.log(Object.keys(images));
+
 const Home = function () {
   return (
     <div>
