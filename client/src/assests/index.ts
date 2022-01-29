@@ -69,15 +69,6 @@ import vue from "./images/vue.png";
 import windowsServer from "./images/windows-server.png";
 import wordpress from "./images/wordpress.png";
 import xml from "./images/xml.png";
-// import from "./images"
-// import from "./images"
-// import from "./images"
-// import from "./images"
-// import from "./images"
-// import from "./images"
-// import from "./images"
-// import from "./images"
-// import from "./images"
 
 export default {
   adobeAcrobat,
