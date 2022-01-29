@@ -19,7 +19,6 @@ const App = function () {
           <Route path="/services" element={<Services />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/sign-up" element={<SignUp />} />
-          {/* <Route path="/checkbox" element={<CheckBox />} /> */}
           <Route path="/:subject" element={<Quiz />} />
         </Routes>
       </Router>
