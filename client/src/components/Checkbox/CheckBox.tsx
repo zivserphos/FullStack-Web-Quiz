@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { Button } from "@mui/material";
 import React, { useState } from "react";
 import "./checkbox.scss";
 import isValidOption from "./helpers";
@@ -40,6 +41,7 @@ const CheckBox = function ({ options }: { options: string[] }) {
           </div>
           <div className="flipBox_shadow" />
         </label>
+
         <label className="flipBox">
           <input
             name="2"
@@ -83,22 +85,6 @@ const CheckBox = function ({ options }: { options: string[] }) {
         </label>
 
         <label className="flipBox">
-          <input type="checkbox" disabled />
-          <span>Disabled checkbox</span>
-          <div className="flipBox_boxOuter">
-            <div className="flipBox_box">
-              <div />
-              <div />
-              <div />
-              <div />
-              <div />
-              <div />
-            </div>
-          </div>
-          <div className="flipBox_shadow" />
-        </label>
-
-        <label className="flipBox">
           <input
             name="4"
             type="checkbox"
@@ -118,6 +104,15 @@ const CheckBox = function ({ options }: { options: string[] }) {
           </div>
           <div className="flipBox_shadow" />
         </label>
+        <div className="send-ans">
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "green" }}
+            disabled={!optionSelected}
+          >
+            Next Question
+          </Button>
+        </div>
       </div>
     </div>
   );

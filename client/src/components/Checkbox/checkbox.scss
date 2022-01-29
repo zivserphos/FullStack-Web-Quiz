@@ -10,9 +10,8 @@
     font-family: "Sora", sans-serif;
     background-color: #ddd;
     color: #000;
-    min-height: 100vh;
     margin: 0;
-    // padding: 3em 1em;
+    padding: 3em 1em;
     display: grid;
     place-items: center;
     perspective: 750px;
@@ -252,5 +251,10 @@
         .flipBox_boxOuter {
             transition: none;
         }
+    }
+
+    .send-ans {
+        display: flex;
+        justify-content: space-around;
     }
 }

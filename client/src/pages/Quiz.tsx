@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./styles/quiz.scss";
+import Button from "@mui/material/Button";
 import CheckBox from "../components/Checkbox/CheckBox";
 
 const Quiz = function () {
