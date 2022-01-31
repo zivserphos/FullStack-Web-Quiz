@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
 
@@ -33,6 +34,7 @@ const Quiz = function () {
 
   return questions ? (
     <div className="quiz">
+      <MyModal />
       <h1>{questions[currentQuestion]?.query || ""}</h1>
       <h2>{questions[currentQuestion]?.code || ""}</h2>
       <CheckBox
