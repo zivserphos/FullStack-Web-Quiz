@@ -1,11 +1,13 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
+import { NavLink } from "react-router-dom";
 import QuizCard from "../components/QuizCard";
-import images from "../assests/assets";
+import quizzesInfo from "../utils/quizzesInfo";
+import "./styles/home.scss";
 
 const Home = function () {
   return (
-    <div>
+    <div className="home">
       <h1>Full stack web quizzes</h1>
       <Grid
         container
@@ -15,104 +17,17 @@ const Home = function () {
         alignItems="streach"
         style={{ height: "100%", width: "100%", minHeight: "280px" }}
       >
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.angular}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.html}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.react}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.vue}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.javascript}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.json}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.aws}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.cSharp}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.bash}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.azure}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.autocad}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.agile}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.git}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
-        <Grid item xs={6} sm={4} md={3} lg={2}>
-          <QuizCard
-            logoImg={images.go}
-            subject="angular"
-            description="lurem ipsum lurm ipsum"
-          />
-        </Grid>
+        {quizzesInfo.map((quizInfo) => (
+          <Grid item xs={6} sm={4} md={3} lg={2}>
+            <NavLink className="navlink" to={`/${quizInfo.subject}`}>
+              <QuizCard
+                logoImg={quizInfo.img}
+                subject={quizInfo.subject}
+                description="lurem ipsum lurm ipsum"
+              />
+            </NavLink>
+          </Grid>
+        ))}
       </Grid>
     </div>
   );
