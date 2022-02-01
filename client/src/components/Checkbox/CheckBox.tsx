@@ -11,15 +11,14 @@ import isValidOption from "./helpers";
 const CheckBox = function ({
   options,
   sendAns,
-}: {
-  options: string[];
-  sendAns: (optionSelected: Option) => void;
-}) {
+  displayAns,
+  index,
+}: CheckBoxProps) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
 
   useEffect(() => {
-    setOptionSelected(0);
-  }, [options]);
+    displayAns ? setOptionSelected(displayAns) : setOptionSelected(0);
+  }, [displayAns, options]);
 
   const chooseAns = (target: HTMLInputElement) => {
     const option = Number(target.name);
@@ -119,9 +118,13 @@ const CheckBox = function ({
             className="send-ans"
             style={{ backgroundColor: "green" }}
             disabled={!optionSelected}
-            onClick={() => sendAns(optionSelected)}
+            onClick={
+              sendAns
+                ? () => sendAns(optionSelected)
+                : (e) => e.preventDefault()
+            }
           >
-            Next Question
+            {index && index + 1 === 15 ? "Send Quiz" : "Next Question"}
           </Button>
         </div>
       </div>

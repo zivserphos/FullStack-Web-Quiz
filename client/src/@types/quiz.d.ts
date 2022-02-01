@@ -1,7 +1,14 @@
 type Option = 0 | 1 | 2 | 3 | 4;
-type CorrectAns = 1 | 2 | 3 | 4 | 5;
+type CorrectAns = 1 | 2 | 3 | 4;
 
 type Difficulty = "Easy" | "Medium" | "Hard";
+
+interface CheckBoxProps {
+  options: string[];
+  sendAns?: (optionSelected: Option) => void;
+  displayAns?: CorrectAns;
+  index?: number;
+}
 
 interface Question {
   difficulty?: Difficulty;
@@ -10,4 +17,5 @@ interface Question {
   options: string[];
   correctAns: CorrectAns;
   subject?: string;
+  isCorrect?: boolean;
 }
