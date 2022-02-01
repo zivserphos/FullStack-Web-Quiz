@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
@@ -127,9 +127,12 @@ const MydModalWithGrid = function (props: any) {
   );
 };
 
-const MyModal = function () {
+const MyModal = function ({ display }: { display: boolean }) {
   const [modalShow, setModalShow] = useState(false);
 
+  useEffect(() => {
+    setModalShow(display);
+  }, [display]);
   return (
     <div className="review-modal">
       <Button variant="primary" onClick={() => setModalShow(true)}>

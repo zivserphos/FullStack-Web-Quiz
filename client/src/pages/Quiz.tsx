@@ -13,6 +13,7 @@ const Quiz = function () {
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [correctAns, setCorrectAns] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [displayResult, setDisplayResult] = useState<boolean>(false);
 
   const sendAns = (optionSelected: Option) => {
     setQuestions(
@@ -23,7 +24,10 @@ const Quiz = function () {
       setCorrectAns(quizService.numOfCorrectAns(questions));
   };
 
-  const sendQuiz = () => setCorrectAns(quizService.numOfCorrectAns(questions));
+  const sendQuiz = () => {
+    setDisplayResult(true);
+    setCorrectAns(quizService.numOfCorrectAns(questions));
+  };
 
   useEffect(() => {
     const initialQuiz = async () => {
@@ -39,12 +43,14 @@ const Quiz = function () {
 
   return questions ? (
     <div className="quiz">
-      <MyModal />
+      <div style={{ display: displayResult ? "block" : "none" }}>
+        <MyModal display={displayResult} />
+      </div>
       <h1>{questions[currentQuestion]?.query || ""}</h1>
       <h2>{questions[currentQuestion]?.code || ""}</h2>
       <CheckBox
         options={questions[currentQuestion]?.options || ""}
-        sendAns={sendAns}
+        sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
         index={currentQuestion}
       />
     </div>
