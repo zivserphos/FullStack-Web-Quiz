@@ -5,6 +5,7 @@ import axios from "axios";
 import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
+import quizService from "../utils/quiz";
 
 const Quiz = function () {
   const navigate = useNavigate();
@@ -14,12 +15,15 @@ const Quiz = function () {
   const [questions, setQuestions] = useState<Question[]>([]);
 
   const sendAns = (optionSelected: Option) => {
-    if (optionSelected === questions[currentQuestion].correctAns)
-      setCorrectAns((prev) => prev + 1);
-    currentQuestion !== 14
-      ? setCurrentQuestion((prev) => prev + 1)
-      : console.log(correctAns);
+    setQuestions(
+      quizService.updateIfCorrect(questions, currentQuestion, optionSelected)
+    );
+    setCurrentQuestion((prev) => prev + 1);
+    if (currentQuestion === 14)
+      setCorrectAns(quizService.numOfCorrectAns(questions));
   };
+
+  const sendQuiz = () => setCorrectAns(quizService.numOfCorrectAns(questions));
 
   useEffect(() => {
     const initialQuiz = async () => {
@@ -41,6 +45,7 @@ const Quiz = function () {
       <CheckBox
         options={questions[currentQuestion]?.options || ""}
         sendAns={sendAns}
+        index={currentQuestion}
       />
     </div>
   ) : (

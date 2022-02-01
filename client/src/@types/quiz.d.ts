@@ -7,6 +7,7 @@ interface CheckBoxProps {
   options: string[];
   sendAns?: (optionSelected: Option) => void;
   displayAns?: CorrectAns;
+  index?: number;
 }
 
 interface Question {

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Col, Container, Row, Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import ModalQuestion from "./ModalQuestions";
 import "./modal.scss";
 
 const MydModalWithGrid = function (props: any) {
