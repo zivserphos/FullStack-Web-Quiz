@@ -2,6 +2,40 @@
     @import "~bootstrap/scss/bootstrap";
     .modal-content {
         position: absolute;
-        margin-top: -10rem;
+        margin-top: -6rem;
+        height: 90vh;
+        overflow: auto;
+        margin-bottom: 10rem;
+    }
+    .review-question {
+        // border-left: 10px solid green;
+        height: 10vh;
+        margin: 1rem;
+        // .col1 {
+        //     display: flex;
+        //     font-size: larger;
+        //     font-weight: 700;
+        //     flex-direction: row;
+        //     justify-content: space-between;
+        //     height: 100%;
+        //     background-color: gainsboro;
+        //     .songImg {
+        //         height: 100%;
+        //     }
+        // }
+        // .col2 {
+        //     border-right: 5px solid black;
+        //     background-color: darkgray;
+        //     font-size: larger;
+        //     font-weight: 700;
+        //     justify-content: space-evenly;
+        //     display: flex;
+        //     align-items: center;
+        // }
+        // .cubeName {
+        //     display: flex;
+        //     justify-content: center;
+        //     flex-direction: row;
+        // }
     }
 }

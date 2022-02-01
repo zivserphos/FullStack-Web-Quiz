@@ -16,60 +16,60 @@ const MydModalWithGrid = function (props: any) {
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>1</b> .col-md-8
             </Col>
           </Row>
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>2</b>.col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>3</b>.col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>4</b>.col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>5</b>.col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>6</b>.col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12<b>7</b> .col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12 <b>8</b>.col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12<b>9</b> .col-md-8
             </Col>
           </Row>
 
-          <Row>
+          <Row className="review-question">
             <Col xs={12}>
               .col-xs-12<b>10</b> .col-md-8
             </Col>
