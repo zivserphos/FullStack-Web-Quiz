@@ -26,6 +26,7 @@ const Quiz = function () {
       const quizQuestions = await axios.get(
         `http://localhost:3001/api/${subject}`
       );
+      console.log(quizQuestions.data);
       if (quizQuestions.data.length === 15)
         setQuestions(quizQuestions.data || []);
     };

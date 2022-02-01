@@ -1,9 +1,21 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from "react";
 import { Col, Container, Row, Modal, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import "./modal.scss";
 
 const MydModalWithGrid = function (props: any) {
+  const a: Question = {
+    query: " Q29. Who does an audit committee report to?",
+    options: [
+      " external auditors",
+      " senior management",
+      " board of directors",
+      " union of employee representatives",
+    ],
+    correctAns: 1,
+  };
   return (
     <Modal
       {...props}
@@ -18,7 +30,13 @@ const MydModalWithGrid = function (props: any) {
         <Container>
           <Row className="review-question">
             <Col xs={12}>
-              .col-xs-12 <b>1</b> .col-md-8
+              <b>
+                <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} />
+              </b>
+              <b>{a.query}</b>
+              <Button type="button" style={{ backgroundColor: "green" }}>
+                Review question
+              </Button>
             </Col>
           </Row>
           <Row className="review-question">
@@ -72,6 +90,31 @@ const MydModalWithGrid = function (props: any) {
           <Row className="review-question">
             <Col xs={12}>
               .col-xs-12<b>10</b> .col-md-8
+            </Col>
+          </Row>
+          <Row className="review-question">
+            <Col xs={12}>
+              .col-xs-12<b>11</b> .col-md-8
+            </Col>
+          </Row>
+          <Row className="review-question">
+            <Col xs={12}>
+              .col-xs-12<b>12</b> .col-md-8
+            </Col>
+          </Row>
+          <Row className="review-question">
+            <Col xs={12}>
+              .col-xs-12<b>13</b> .col-md-8
+            </Col>
+          </Row>
+          <Row className="review-question">
+            <Col xs={12}>
+              .col-xs-12<b>14</b> .col-md-8
+            </Col>
+          </Row>
+          <Row className="review-question">
+            <Col xs={12}>
+              .col-xs-12<b>15</b> .col-md-8
             </Col>
           </Row>
         </Container>
