@@ -1,24 +1,29 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Modal, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { Container, Modal, Button } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import ModalRow from "./ModalRow";
-import ModalQuestion from "./ModalQuestions";
 import "./modal.scss";
 
-const MydModalWithGrid = function (props: any) {
-  const { questions } = useSelector((state: Quiz) => state);
+const MydModalWithGrid = function ({
+  onHide,
+  show,
+}: {
+  onHide: () => void;
+  show: boolean;
+}) {
+  const { questions, numOfCorrectAns } = useSelector((state: Quiz) => state);
   return (
     <Modal
-      {...props}
+      show={show}
       aria-labelledby="contained-modal-title-vcenter"
       centered
       className="review-modal"
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Results</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">
+          {`Results: ${numOfCorrectAns}/15`}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
@@ -30,7 +35,7 @@ const MydModalWithGrid = function (props: any) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button>Close</Button>
+        <Button onClick={onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
@@ -39,13 +44,15 @@ const MydModalWithGrid = function (props: any) {
 const MyModal = function () {
   const [modalShow, setModalShow] = useState(true);
   const { numOfCorrectAns } = useSelector((state: Quiz) => state);
+  const onHide = () => setModalShow(false);
+
   return (
     <div className="review-modal">
       <Button variant="primary" onClick={() => setModalShow(true)}>
         {`Results: ${numOfCorrectAns} / 15`}
       </Button>
 
-      <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
+      <MydModalWithGrid onHide={onHide} show={modalShow} />
     </div>
   );
 };
