@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Modal, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
 import ModalRow from "./ModalRow";
 import ModalQuestion from "./ModalQuestions";
 import "./modal.scss";
 
 const MydModalWithGrid = function (props: any) {
+  const { questions } = useSelector((state: Quiz) => state);
   const a: Question = {
     query: " Q29. Who does an audit committee report to?",
     options: [
@@ -30,6 +32,10 @@ const MydModalWithGrid = function (props: any) {
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
+          {questions.map((question: Question, i: number) => (
+            <ModalRow question={question} i={i} />
+          ))}
+          <ModalRow />
           <Row className="review-question">
             <Col xs={12}>
               <b>

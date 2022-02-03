@@ -1,4 +1,4 @@
-import * as questionsTypes from "./questions-types";
+import * as questionsTypes from "./quiz-types";
 
 export {};
 
