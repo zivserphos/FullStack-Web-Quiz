@@ -2,12 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
 import quizService from "../utils/quiz";
+import {
+  updateQuiz,
+  numOfCorrectAns,
+  updateQuestion,
+} from "../state/quiz/quiz-actions";
 
 const Quiz = function () {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { subject } = useParams();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
@@ -16,17 +23,18 @@ const Quiz = function () {
   const [displayResult, setDisplayResult] = useState<boolean>(false);
 
   const sendAns = (optionSelected: Option) => {
-    setQuestions(
-      quizService.updateIfCorrect(questions, currentQuestion, optionSelected)
-    );
+    console.log(currentQuestion, optionSelected);
+    // setQuestions(
+    //   quizService.updateIfCorrect(questions, currentQuestion, optionSelected)
+    // );
+    dispatch(updateQuestion(currentQuestion, optionSelected));
     setCurrentQuestion((prev) => prev + 1);
-    if (currentQuestion === 14)
-      setCorrectAns(quizService.numOfCorrectAns(questions));
   };
 
   const sendQuiz = () => {
+    dispatch(numOfCorrectAns()); // update correct answers globally
     setDisplayResult(true);
-    setCorrectAns(quizService.numOfCorrectAns(questions));
+    // setCorrectAns(quizService.numOfCorrectAns(questions));
   };
 
   useEffect(() => {
@@ -34,24 +42,31 @@ const Quiz = function () {
       const quizQuestions = await axios.get(
         `http://localhost:3001/api/${subject}`
       );
-      if (quizQuestions.data.length === 15)
+      if (quizQuestions.data.length === 15) {
+        dispatch(
+          updateQuiz({
+            questions: quizQuestions.data.slice(4),
+            numOfCorrectAns: 0,
+          })
+        );
         setQuestions(quizQuestions.data || []);
+      }
     };
     initialQuiz();
   }, [navigate, subject]);
 
   return questions ? (
     <div className="quiz">
-      <div style={{ display: displayResult ? "block" : "none" }}>
-        <MyModal display={displayResult} />
-      </div>
       <h1>{questions[currentQuestion]?.query || ""}</h1>
       <h2>{questions[currentQuestion]?.code || ""}</h2>
       <CheckBox
         options={questions[currentQuestion]?.options || ""}
-        sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
+        sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
         index={currentQuestion}
       />
+      <div style={{ display: displayResult ? "block" : "none" }}>
+        {displayResult ? <MyModal /> : ""}
+      </div>
     </div>
   ) : (
     <div>

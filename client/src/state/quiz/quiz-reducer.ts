@@ -17,7 +17,7 @@ const quizReducer = (state = INITIAL_STATE, action: QuestionAction): Quiz => {
 
     case actionTypes.UPDATE_QUESTION:
       const { index, optionSelected } = action.payload;
-      if (!index || !optionSelected) return state;
+      if ((!index && index !== 0) || !optionSelected) return state;
       return questionService.updateIfCorrect(state, index, optionSelected);
 
     case actionTypes.NUM_OF_CORRECT_ANS:

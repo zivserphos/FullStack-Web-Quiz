@@ -4,11 +4,11 @@ const updateIfCorrect = (
   optionSelected: number
 ): Quiz => {
   const updatedQuestions = [...state.questions];
-  updatedQuestions[index].isCorrect =
-    optionSelected === updatedQuestions[index].correctAns;
+  const isCorrect = optionSelected === updatedQuestions[index].correctAns;
+  updatedQuestions[index] = { ...updatedQuestions[index], isCorrect };
   return {
+    ...state,
     questions: updatedQuestions,
-    numOfCorrectAns: state.numOfCorrectAns,
   };
 };
 

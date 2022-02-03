@@ -10,16 +10,6 @@ import "./modal.scss";
 
 const MydModalWithGrid = function (props: any) {
   const { questions } = useSelector((state: Quiz) => state);
-  const a: Question = {
-    query: " Q29. Who does an audit committee report to?",
-    options: [
-      " external auditors",
-      " senior management",
-      " board of directors",
-      " union of employee representatives",
-    ],
-    correctAns: 1,
-  };
   return (
     <Modal
       {...props}
@@ -32,99 +22,11 @@ const MydModalWithGrid = function (props: any) {
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
-          {questions.map((question: Question, i: number) => (
-            <ModalRow question={question} i={i} />
-          ))}
-          <ModalRow />
-          <Row className="review-question">
-            <Col xs={12}>
-              <b>
-                <FontAwesomeIcon icon={faTimes} style={{ color: "red" }} />
-              </b>
-              <b>{a.query}</b>
-              <Button type="button" style={{ backgroundColor: "green" }}>
-                Review question
-              </Button>
-            </Col>
-          </Row>
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12 <b>2</b>.col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12 <b>3</b>.col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12 <b>4</b>.col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12 <b>5</b>.col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12 <b>6</b>.col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>7</b> .col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12 <b>8</b>.col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>9</b> .col-md-8
-            </Col>
-          </Row>
-
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>10</b> .col-md-8
-            </Col>
-          </Row>
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>11</b> .col-md-8
-            </Col>
-          </Row>
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>12</b> .col-md-8
-            </Col>
-          </Row>
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>13</b> .col-md-8
-            </Col>
-          </Row>
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>14</b> .col-md-8
-            </Col>
-          </Row>
-          <Row className="review-question">
-            <Col xs={12}>
-              .col-xs-12<b>15</b> .col-md-8
-            </Col>
-          </Row>
+          {questions
+            ? questions.map((question: Question, i: number) => (
+                <ModalRow question={question} i={i + 1} />
+              ))
+            : ""}
         </Container>
       </Modal.Body>
       <Modal.Footer>
@@ -134,16 +36,13 @@ const MydModalWithGrid = function (props: any) {
   );
 };
 
-const MyModal = function ({ display }: { display: boolean }) {
-  const [modalShow, setModalShow] = useState(false);
-
-  useEffect(() => {
-    setModalShow(display);
-  }, [display]);
+const MyModal = function () {
+  const [modalShow, setModalShow] = useState(true);
+  const { numOfCorrectAns } = useSelector((state: Quiz) => state);
   return (
     <div className="review-modal">
       <Button variant="primary" onClick={() => setModalShow(true)}>
-        Results
+        {`Results: ${numOfCorrectAns} / 15`}
       </Button>
 
       <MydModalWithGrid show={modalShow} onHide={() => setModalShow(false)} />
