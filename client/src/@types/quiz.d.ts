@@ -19,3 +19,17 @@ interface Question {
   subject?: string;
   isCorrect?: boolean;
 }
+
+interface QuestionAction {
+  type: "UPDATE_QUIZ" | "UPDATE_QUESTION" | "NUM_OF_CORRECT_ANS";
+  payload: {
+    quiz?: Quiz;
+    index?: number;
+    optionSelected?: Option;
+  };
+}
+
+interface Quiz {
+  questions: Question[];
+  numOfCorrectAns: number;
+}
