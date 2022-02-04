@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -17,15 +16,10 @@ const Quiz = function () {
   const navigate = useNavigate();
   const { subject } = useParams();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [correctAns, setCorrectAns] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [displayResult, setDisplayResult] = useState<boolean>(false);
 
   const sendAns = (optionSelected: Option) => {
-    console.log(currentQuestion, optionSelected);
-    // setQuestions(
-    //   quizService.updateIfCorrect(questions, currentQuestion, optionSelected)
-    // );
     dispatch(updateQuestion(currentQuestion, optionSelected));
     setCurrentQuestion((prev) => prev + 1);
   };
@@ -33,7 +27,6 @@ const Quiz = function () {
   const sendQuiz = () => {
     dispatch(numOfCorrectAns()); // update correct answers globally
     setDisplayResult(true);
-    // setCorrectAns(quizService.numOfCorrectAns(questions));
   };
 
   useEffect(() => {
@@ -52,7 +45,7 @@ const Quiz = function () {
       }
     };
     initialQuiz();
-  }, [navigate, subject]);
+  }, [dispatch, navigate, subject]);
 
   return questions ? (
     <div className="quiz">

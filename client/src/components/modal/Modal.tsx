@@ -9,6 +9,7 @@ const MydModalWithGrid = function (props: ModalProps) {
   const { questions, numOfCorrectAns } = useSelector((state: Quiz) => state);
   return (
     <Modal
+      animation
       {...props}
       aria-labelledby="contained-modal-title-vcenter"
       centered
