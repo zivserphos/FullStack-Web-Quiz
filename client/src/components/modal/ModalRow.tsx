@@ -2,28 +2,30 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
+import setMarginBottom from "./helpers";
 
-const ModalRow = ({
-  question,
-  i,
-  isCorrect,
-}: {
-  question: Question;
-  i: number;
-  isCorrect: boolean;
-}) => {
-  <Row className="review-question" style={{ display: "flex" }}>
-    <Col xs={12}>
-      <b>
-        <FontAwesomeIcon
-          icon={isCorrect ? faCheck : faTimes}
-          style={{ color: isCorrect ? "green" : "red" }}
-        />
-      </b>
-      <b>{`Q${i}. ${question.query}`}</b>
-      <button type="button">.col-md-8</button>
-    </Col>
-  </Row>;
+const ModalRow = function ({ question, i }: { question: Question; i: number }) {
+  return (
+    <Row
+      className="review-question"
+      style={{
+        display: "flex",
+        marginBottom: setMarginBottom(question.query.length),
+      }}
+    >
+      <Col xs={12}>
+        <b>
+          <FontAwesomeIcon
+            icon={question.isCorrect ? faCheck : faTimes}
+            style={{
+              color: question.isCorrect ? "green" : "red",
+            }}
+          />
+        </b>
+        <b>{`Q${i}. ${question.query}`}</b>
+      </Col>
+    </Row>
+  );
 };
 
 export default ModalRow;
