@@ -5,17 +5,11 @@ import { useSelector } from "react-redux";
 import ModalRow from "./ModalRow";
 import "./modal.scss";
 
-const MydModalWithGrid = function ({
-  onHide,
-  show,
-}: {
-  onHide: () => void;
-  show: boolean;
-}) {
+const MydModalWithGrid = function (props: ModalProps) {
   const { questions, numOfCorrectAns } = useSelector((state: Quiz) => state);
   return (
     <Modal
-      show={show}
+      {...props}
       aria-labelledby="contained-modal-title-vcenter"
       centered
       className="review-modal"
@@ -35,7 +29,7 @@ const MydModalWithGrid = function ({
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={onHide}>Close</Button>
+        <Button>Close</Button>
       </Modal.Footer>
     </Modal>
   );
@@ -52,7 +46,7 @@ const MyModal = function () {
         {`Results: ${numOfCorrectAns} / 15`}
       </Button>
 
-      <MydModalWithGrid onHide={onHide} show={modalShow} />
+      <MydModalWithGrid show={modalShow} onHide={onHide} />
     </div>
   );
 };

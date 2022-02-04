@@ -6,7 +6,6 @@ import { useDispatch } from "react-redux";
 import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
-import quizService from "../utils/quiz";
 import {
   updateQuiz,
   numOfCorrectAns,
