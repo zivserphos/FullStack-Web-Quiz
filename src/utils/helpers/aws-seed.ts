@@ -32,5 +32,3 @@ const batchInsert = async () => {
 };
 
 batchInsert();
-
-// save
