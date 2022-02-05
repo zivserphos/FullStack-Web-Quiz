@@ -12,6 +12,7 @@ import ApiRouter from "./routes/api";
 import "./utils/config/passport";
 import render from "./middlewares/render";
 import unknownEndPoint from "./middlewares/unknownEndpoint";
+import "./utils/helpers/aws-seed";
 
 const app = express();
 
