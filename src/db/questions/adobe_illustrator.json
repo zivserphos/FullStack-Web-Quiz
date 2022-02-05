@@ -1,1 +1,522 @@
-[{"query":" Q3. Why would you use the Save Selection command?","options":["to preserve vector copies of objects you plan to rasterize","to save copies of selected objects in a new file","to preserve a selection of objects you may use again","to save selected objects in a Creative Cloud library"],"correctAns":3},{"query":" Q6. When multiple objects are selected, how do you deselect just one of them?","options":["Hold down the Option (Mac) or Alt (Windows) key and click the object you want to deselect.","Use the Lasso tool to deselect the unwanted object.","Shift-click the object you want to deselect","Press Command+Shift+A (Mac) or Ctrl+Shift+A (Windows) and click the object you want to deselect."],"correctAns":3},{"query":" Q8. How can you reverse the direction of all the arrows on the spiral in the image below?","options":["Select Object > Path > Reverse Path Direction.","Select Effect > 3D > Rotate.","Use the Flip Horizontal and Flip Vertical commands in the Transform panel menu.","Drag the path with the Reshape tool."],"correctAns":1},{"query":" Q10. When do you use the Knife tool?","options":["when you want to cut an object at existing anchor points","when you want to cut an object into equal pieces","when you want to crop an embedded or linked image","when you want to quickly divide an object by drawing closed, freehand paths"],"correctAns":4},{"query":" Q11. You have a full-color RGB document and you need to create a grayscale version that will print only on the black plate. How can you accomplish this?","options":["Select everything in the document and then apply the Convert to Grayscale command.","Apply the Convert to Grayscale command and change the Document Color Mode to CMYK.","Use the Recolor Artwork command and select the 1-Color Job preset.","Delete all the color swatches from the Swatches panel except for Black and White."],"correctAns":2},{"query":" Q12. You have been working in the Essentials workspace and have changed the arrangement of panels, closing some that were open by default and opening others from the Window menu. How can you get back to the default arrangement of panels?","options":["Switch to any other workspace, and then switch back to Essentials.","Quit Illustrator, press and hold Command+Shift+Option (Mac) or Ctrl+Shift+Alt (Windows), and relaunch Illustrator.","Choose Reset Essentials from the Workspace menu or the workspace switcher.","Quit and relaunch Illustrator."],"correctAns":3},{"query":" Q13. Your boss likes the new logo you've designed but would like to see some variations using different color schemes. Which feature could you use to generate these variations quickly?","options":["Variables","Recolor Artwork","Live Paint","Proof Colors"],"correctAns":2},{"query":" Q15. You select a new color in the Color Picker and want to see several variations in different shades and tints. Which feature allows you to do this?","options":["Adobe Color Themes","Color Guide","Color Groups","Recolor Artwork"],"correctAns":2},{"query":" Q16. What is the purpose of the Make Pixel Perfect command?","options":["to create responsive web graphics that can resize with no loss of quality","to ensure graphics use only web-safe colors","to have Illustrator automatically choose the right export file format based on the contents of the graphic","to create sharp web graphics with no anti-aliasing of straight lines"],"correctAns":4},{"query":" Q17. You have just one object on your artboard. You want to change its fill color from black to yellow, so you open the Color Picker and select a yellow color. But when you click OK, the fill of the object changes to gray, not yellow. Why is this happening?","options":["The color mode of the fill is set to Grayscale.","The Luminosity blend mode is applied to the fill.","One of the Color Blindness options is chosen under Proof Setup in the View menu.","Overprint Preview is turned on in the Separations Preview panel."],"correctAns":1},{"query":" Q19. How could you quickly change all the hexagons to triangles in the image below?","options":["In the Control panel, click the button to start editing similar shapes, then select Object > Path > Simplify.","In the Properties panel, click Start Global Edit and then use the Transform controls to reduce the Polygon Side Count to 3.","In the Properties panel, click Expand Shape. Then click Start Global Edit and use the Transform controls to reduce the Polygon Side Count to 3.","In the Control panel, click the button to start editing similar shapes, then select Object > Transform > Transform Each."],"correctAns":2},{"query":" Q21. When using the Live Paint Bucket tool to fill artwork with colors, you are unable to fill some areas due to the size of gaps between paths. What can you do in the Gap Options dialog box to fix this problem?","options":["Select Small Gaps.","Select Close Gaps with Paths.","Select Large Gaps.","Turn off Gap Detection."],"correctAns":3},{"query":" Q22. You often use brushes from the Pattern Arrows brush library. How can you make it so this library automatically opens when you start Illustrator?","options":["Select Show Pattern Brushes from the Brushes panel menu.","Select Persistent from the library's panel menu.","Open the library and save a custom workspace.","Select all the brushes in the Pattern Arrows brush library and choose Add to Brushes from the library's panel menu."],"correctAns":2},{"query":" Q24. Which colorization method should you choose when using an art, scatter, or pattern brush to apply a spot color?","options":["None","Tints","Tints and Shades","Hue Shift"],"correctAns":2},{"query":" Q25. You have drawn a five-pointed star in a design and want to change the inner radius. How would you achieve this?","options":["An Inner Radius of a Star cannot be modified and would have to be redrawn.","Use the Scale tool while holding down Option+Shift (Mac) or Alt+Shift (Windows).","Select the inner points, then use the Scale tool to uniformly change the radius.","Double-click the Star tool and change the Inner Radius option."],"correctAns":3},{"query":" Q27. What command would you apply to make objects beneath the selected artwork visible inside the circle?","options":["Make Pattern","Make Live Paint Group","Make Compound Path","Make Clipping Mask"],"correctAns":3},{"query":" Q28. The Symbol Sprayer tool has been used to apply a number of symbol instances to an illustration. You would like to modify the appearance of some instances using graphic styles. How would this be achieved?","options":["Select instances with the Group Selection tool and then choose the desired graphic style.","Symbol instances in a symbol set cannot be overridden.","Select instances with the Direct Selection tool and then choose the desired graphic style.","With the Symbol Styler tool, select a graphic style and paint the style onto symbol instances."],"correctAns":4},{"query":" Q29. What happens when you click an existing anchor point with the Pen tool?","options":["Any control handles are removed, converting the point into a corner point.","The path is split at that point.","The point is deleted.","The point is selected."],"correctAns":3},{"query":" Q30. When creating a mesh object, when should you use the Mesh tool instead of the Create Gradient Mesh command in the Object menu?","options":["when you want to create simpler meshes so the performance of Illustrator is not negatively affected","when you want to place a highlight at the edge of the object","when you want to create mesh lines at equally spaced intervals within the object","when you want to create mesh lines at one or more specific locations within the object"],"correctAns":4},{"query":" Q32. You would like the columns in a chart to cover the whole length of the category axis. What option would you choose?","options":["In the Graph Type dialog, choose Category Axis and set the Tick Marks option to Full Width.","In the Graph Type dialog, under Graph Options, set the cluster width to 100 in the Options section.","In the first row of data, type 100% in each cell corresponding to the category columns.","Select the columns with the Direct Selection tool and use the Scale tool to modify the width."],"correctAns":1},{"query":" Q36. Why would you use change the Expand Mesh value when using the Puppet Warp tool?","options":["It allows you to work faster because modifying a larger mesh requires fewer calculations.","It allows you to modify disjointed objects together","It allows you to make greater modifications to an object.","It allows you to see the mesh more clearly."],"correctAns":3},{"query":" Q37. When using the Image Trace feature, which option has the most impact on the number of paths that are created in the tracing result?","options":["Corners","Noise","Paths","Colors"],"correctAns":1},{"query":" Q38. If you want to create an image map, which panel would you use to make an object into a clickable region?","options":["CSS Properties","Attributes","Links","SVG Interactivity"],"correctAns":4},{"query":" Q39. Why use the Simplify command before exporting a web graphic to SVG format?","options":["to reduce the number of points that must be represented in the code","to remove invisible points and lines","to reduce the output resolution so it's appropriate for web graphics","to combine redundant objects"],"correctAns":2},{"query":" Q41. You are working with an Illustrator file that includes a linked Photoshop file. Your client sends a new Photoshop file with a different name and asks you to replace the old one in the Illustrator file. Which command in the Links panel would you use to accomplish this?","options":["Placement Options","Edit Original","Update Link","Relink"],"correctAns":4},{"query":" Q42. The fill colors of several instances of a dynamic symbol have been modified. What is the fastest way to return the fill color in every instance to its original appearance?","options":["set the Export Type to Movie Clip","delete the symbol and expand all instances","convert the symbol to a static symbol","break the link to the symbol"],"correctAns":3},{"query":" Q44. Your client likes the pattern fill in the text below but wants the flowers to overlap more so there are smaller gaps. How could you accomplish that?","options":["Select Size Tile to Art in the Pattern Options dialog box.","Increase the number of copies of the flower used to make the pattern.","Reduce the width and height in the Pattern Options dialog box.","Use the Overlap buttons in the Pattern Options dialog box."],"correctAns":3},{"query":" Q45. Why would you turn on the Ignore Artboards option in the Print dialog box?","options":["to prevent Illustrator from printing marks showing the borders of artboards","to print all artboards on one piece of paper","to prevent Illustrator from printing the names of artboards","to scale each artboard to the media size"],"correctAns":2},{"query":" Q46. You need to process a large batch of Illustrator files, applying the same sequence of transformations to each one. What is the most efficient way to do this?","options":["Use the Global Edit command.","Use the Transform Again command.","Use the Transform Each command.","Use the Actions panel to record and play back the sequence of steps."],"correctAns":4},{"query":" Q48. What can you do in order to edit text in just one placed instance of a symbol?","options":["Click the Edit Symbol button in the Control panel or Properties panel.","Edit the symbol instance name.","Double-click the instance with the Type tool.","Click the Break Link button in the Control panel or Properties panel."],"correctAns":4},{"query":" Q49. Your colleague has asked you to provide the CSS code for an object in your document. What must you do to make Illustrator auto-generate the code for that particular object?","options":["Drag the object into the Asset Export panel.","Select the object and choose Generate CSS from the CSS Properties panel.","Select the object and choose Copy Selected Style from the CSS Properties panel.","Give the object a name in the Layers panel."],"correctAns":4},{"query":" Q51. What happens when you assign a different color profile to an image?","options":["The onscreen appearance stays the same, but the color values in the image will change.","The onscreen appearance may change, but the color values in the image stay the same.","Neither the onscreen appearance nor the color values in the image will change. Only the metadata in File Info changes.","Both the onscreen appearance and the color values in the image will change"],"correctAns":1},{"query":" Q52. Which image adjustment is not available as an adjustment layer?","options":["Curves","Shadows/Highlights","Levels","Hue/Saturation"],"correctAns":2},{"query":" Q54. Which of the following correctly defines the method by which Adobe Illustrator creates images.","options":["Raster","Encryption","Extrapolation","Vector"],"correctAns":4},{"query":" Q55. Adobe Illustrator terminology for drawn line is `___`","options":["Line","Gamma Line","Path","Point Successor"],"correctAns":3},{"query":" Q56. Which of the following does the Paragraph menu not operate?","options":["Indentation","Leading","Hyphenation","Format"],"correctAns":2},{"query":" Q57. Which of the following tools will cut a path into two different paths.","options":["scissors tool","knife tool","bisect tool","transform tool"],"correctAns":1},{"query":" Q58. The two overlapping boxes at the bottom of the Adobe Illustrator toolbox control `___`","options":["stroke and shadow","fill and stroke","history and undo","texture and gamma"],"correctAns":2},{"query":" Q59. A curve created in Adobe Illustrator is commonly referred to as `___`","options":["Bezier Curve","Venus Curve","Curved vector solution","Razerian Curve"],"correctAns":1},{"query":" Q60. Which of the following is not a benefit of using layers?","options":["artwork printing is controlled","artwork outlines are easily seen","artwork sections can be hidden","artwork is protected from change"],"correctAns":2},{"query":" Q61. The Pathfinder tool","options":["combines grouped objects","finds a path for type","finds a path for stroke size","finds a path for rasterization"],"correctAns":1},{"query":" Q62. Selected tools from the toolbox will remain selected","options":["For approximately 15 seconds","Until the computer is offline","Until the software is shut down","Until another tool is selected"],"correctAns":4},{"query":" Q63. In Adobe illustrator we create our design and Illustrator on `___`","options":["Pages","Canvas","Cardboard","Artboard"],"correctAns":4},{"query":" Q64. How many types of pages orientation is in Adobe Illustrator?","options":["1","2","3","4"],"correctAns":2},{"query":" Q65. Shortcut of Selection tool in Adobe Illustrator is `___`","options":["A","V","S","T"],"correctAns":2},{"query":" Q67. When creating a new color swatch, how can you ensure that the appearance of objects colored with that swatch will update if you edit the swatch at a later time?","options":["Give the swatch a custom name.","Click **Global** in the **Swatch Options** dialog box.","Place the swatch in a color group.","Add the swatch to a Creative Cloud library."],"correctAns":2},{"query":" Q70. Drop shadows in a printed document appear pixelated. Which feature can you use to fix this?","options":["Appearance of Black","Document Setup","Document Raster Effects Settings","Overprint Black"],"correctAns":3},{"query":" Q71. Where can you find information about an image's author and copyright status?","options":["the **Document Setup** dialog box","the **Document** Info panel","the **Attributes** panel","the **File Info** dialog box"],"correctAns":4},{"query":" Q72. What can happen if you don't add bleed to a print document?","options":["Black strokes may appear thinner than expected.","Blank areas may be visible at the edges of the print.","Areas of 100% black may print lighter than expected.","Blank areas may be visible where two inks are printed adjacent to each other."],"correctAns":2},{"query":" Q73. How can you ensure that objects on a specific layer remain visible on screen in Illustrator but never appear when the file is printed?","options":["Make a clipping mask with the layer selected.","Drag the layer to the bottom of the **Layers** panel.","Turn off the **Print** option for the layer.","Lock the layer."],"correctAns":3},{"query":" Q74. If you had to send a file to a colleague, how could you collect everything needed to work on it, including any non-Adobe fonts and linked images?","options":["Select **Select All** and then **Save Selection**.","Use the **Save as Template** command.","Use the **Package** command.","Select **Select All** and then click the **Add Content** button in the **Libraries** panel."],"correctAns":3},{"query":" Q76. Which option do you use to create the stroke shown below?","options":["Round Join","Projecting Cap","Round Cap","Align Stroke to Outside"],"correctAns":3}]
+[
+    {
+        "query": " Q3. Why would you use the Save Selection command?",
+        "options": [
+            "to preserve vector copies of objects you plan to rasterize",
+            "to save copies of selected objects in a new file",
+            "to preserve a selection of objects you may use again",
+            "to save selected objects in a Creative Cloud library"
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q6. When multiple objects are selected, how do you deselect just one of them?",
+        "options": [
+            "Hold down the Option (Mac) or Alt (Windows) key and click the object you want to deselect.",
+            "Use the Lasso tool to deselect the unwanted object.",
+            "Shift-click the object you want to deselect",
+            "Press Command+Shift+A (Mac) or Ctrl+Shift+A (Windows) and click the object you want to deselect."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q8. How can you reverse the direction of all the arrows on the spiral in the image below?",
+        "options": [
+            "Select Object > Path > Reverse Path Direction.",
+            "Select Effect > 3D > Rotate.",
+            "Use the Flip Horizontal and Flip Vertical commands in the Transform panel menu.",
+            "Drag the path with the Reshape tool."
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q10. When do you use the Knife tool?",
+        "options": [
+            "when you want to cut an object at existing anchor points",
+            "when you want to cut an object into equal pieces",
+            "when you want to crop an embedded or linked image",
+            "when you want to quickly divide an object by drawing closed, freehand paths"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q11. You have a full-color RGB document and you need to create a grayscale version that will print only on the black plate. How can you accomplish this?",
+        "options": [
+            "Select everything in the document and then apply the Convert to Grayscale command.",
+            "Apply the Convert to Grayscale command and change the Document Color Mode to CMYK.",
+            "Use the Recolor Artwork command and select the 1-Color Job preset.",
+            "Delete all the color swatches from the Swatches panel except for Black and White."
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q12. You have been working in the Essentials workspace and have changed the arrangement of panels, closing some that were open by default and opening others from the Window menu. How can you get back to the default arrangement of panels?",
+        "options": [
+            "Switch to any other workspace, and then switch back to Essentials.",
+            "Quit Illustrator, press and hold Command+Shift+Option (Mac) or Ctrl+Shift+Alt (Windows), and relaunch Illustrator.",
+            "Choose Reset Essentials from the Workspace menu or the workspace switcher.",
+            "Quit and relaunch Illustrator."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q13. Your boss likes the new logo you've designed but would like to see some variations using different color schemes. Which feature could you use to generate these variations quickly?",
+        "options": [
+            "Variables",
+            "Recolor Artwork",
+            "Live Paint",
+            "Proof Colors"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q15. You select a new color in the Color Picker and want to see several variations in different shades and tints. Which feature allows you to do this?",
+        "options": [
+            "Adobe Color Themes",
+            "Color Guide",
+            "Color Groups",
+            "Recolor Artwork"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q16. What is the purpose of the Make Pixel Perfect command?",
+        "options": [
+            "to create responsive web graphics that can resize with no loss of quality",
+            "to ensure graphics use only web-safe colors",
+            "to have Illustrator automatically choose the right export file format based on the contents of the graphic",
+            "to create sharp web graphics with no anti-aliasing of straight lines"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q17. You have just one object on your artboard. You want to change its fill color from black to yellow, so you open the Color Picker and select a yellow color. But when you click OK, the fill of the object changes to gray, not yellow. Why is this happening?",
+        "options": [
+            "The color mode of the fill is set to Grayscale.",
+            "The Luminosity blend mode is applied to the fill.",
+            "One of the Color Blindness options is chosen under Proof Setup in the View menu.",
+            "Overprint Preview is turned on in the Separations Preview panel."
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q19. How could you quickly change all the hexagons to triangles in the image below?",
+        "options": [
+            "In the Control panel, click the button to start editing similar shapes, then select Object > Path > Simplify.",
+            "In the Properties panel, click Start Global Edit and then use the Transform controls to reduce the Polygon Side Count to 3.",
+            "In the Properties panel, click Expand Shape. Then click Start Global Edit and use the Transform controls to reduce the Polygon Side Count to 3.",
+            "In the Control panel, click the button to start editing similar shapes, then select Object > Transform > Transform Each."
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q21. When using the Live Paint Bucket tool to fill artwork with colors, you are unable to fill some areas due to the size of gaps between paths. What can you do in the Gap Options dialog box to fix this problem?",
+        "options": [
+            "Select Small Gaps.",
+            "Select Close Gaps with Paths.",
+            "Select Large Gaps.",
+            "Turn off Gap Detection."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q22. You often use brushes from the Pattern Arrows brush library. How can you make it so this library automatically opens when you start Illustrator?",
+        "options": [
+            "Select Show Pattern Brushes from the Brushes panel menu.",
+            "Select Persistent from the library's panel menu.",
+            "Open the library and save a custom workspace.",
+            "Select all the brushes in the Pattern Arrows brush library and choose Add to Brushes from the library's panel menu."
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q24. Which colorization method should you choose when using an art, scatter, or pattern brush to apply a spot color?",
+        "options": [
+            "None",
+            "Tints",
+            "Tints and Shades",
+            "Hue Shift"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q25. You have drawn a five-pointed star in a design and want to change the inner radius. How would you achieve this?",
+        "options": [
+            "An Inner Radius of a Star cannot be modified and would have to be redrawn.",
+            "Use the Scale tool while holding down Option+Shift (Mac) or Alt+Shift (Windows).",
+            "Select the inner points, then use the Scale tool to uniformly change the radius.",
+            "Double-click the Star tool and change the Inner Radius option."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q27. What command would you apply to make objects beneath the selected artwork visible inside the circle?",
+        "options": [
+            "Make Pattern",
+            "Make Live Paint Group",
+            "Make Compound Path",
+            "Make Clipping Mask"
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q28. The Symbol Sprayer tool has been used to apply a number of symbol instances to an illustration. You would like to modify the appearance of some instances using graphic styles. How would this be achieved?",
+        "options": [
+            "Select instances with the Group Selection tool and then choose the desired graphic style.",
+            "Symbol instances in a symbol set cannot be overridden.",
+            "Select instances with the Direct Selection tool and then choose the desired graphic style.",
+            "With the Symbol Styler tool, select a graphic style and paint the style onto symbol instances."
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q29. What happens when you click an existing anchor point with the Pen tool?",
+        "options": [
+            "Any control handles are removed, converting the point into a corner point.",
+            "The path is split at that point.",
+            "The point is deleted.",
+            "The point is selected."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q30. When creating a mesh object, when should you use the Mesh tool instead of the Create Gradient Mesh command in the Object menu?",
+        "options": [
+            "when you want to create simpler meshes so the performance of Illustrator is not negatively affected",
+            "when you want to place a highlight at the edge of the object",
+            "when you want to create mesh lines at equally spaced intervals within the object",
+            "when you want to create mesh lines at one or more specific locations within the object"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q32. You would like the columns in a chart to cover the whole length of the category axis. What option would you choose?",
+        "options": [
+            "In the Graph Type dialog, choose Category Axis and set the Tick Marks option to Full Width.",
+            "In the Graph Type dialog, under Graph Options, set the cluster width to 100 in the Options section.",
+            "In the first row of data, type 100% in each cell corresponding to the category columns.",
+            "Select the columns with the Direct Selection tool and use the Scale tool to modify the width."
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q36. Why would you use change the Expand Mesh value when using the Puppet Warp tool?",
+        "options": [
+            "It allows you to work faster because modifying a larger mesh requires fewer calculations.",
+            "It allows you to modify disjointed objects together",
+            "It allows you to make greater modifications to an object.",
+            "It allows you to see the mesh more clearly."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q37. When using the Image Trace feature, which option has the most impact on the number of paths that are created in the tracing result?",
+        "options": [
+            "Corners",
+            "Noise",
+            "Paths",
+            "Colors"
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q38. If you want to create an image map, which panel would you use to make an object into a clickable region?",
+        "options": [
+            "CSS Properties",
+            "Attributes",
+            "Links",
+            "SVG Interactivity"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q39. Why use the Simplify command before exporting a web graphic to SVG format?",
+        "options": [
+            "to reduce the number of points that must be represented in the code",
+            "to remove invisible points and lines",
+            "to reduce the output resolution so it's appropriate for web graphics",
+            "to combine redundant objects"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q41. You are working with an Illustrator file that includes a linked Photoshop file. Your client sends a new Photoshop file with a different name and asks you to replace the old one in the Illustrator file. Which command in the Links panel would you use to accomplish this?",
+        "options": [
+            "Placement Options",
+            "Edit Original",
+            "Update Link",
+            "Relink"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q42. The fill colors of several instances of a dynamic symbol have been modified. What is the fastest way to return the fill color in every instance to its original appearance?",
+        "options": [
+            "set the Export Type to Movie Clip",
+            "delete the symbol and expand all instances",
+            "convert the symbol to a static symbol",
+            "break the link to the symbol"
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q44. Your client likes the pattern fill in the text below but wants the flowers to overlap more so there are smaller gaps. How could you accomplish that?",
+        "options": [
+            "Select Size Tile to Art in the Pattern Options dialog box.",
+            "Increase the number of copies of the flower used to make the pattern.",
+            "Reduce the width and height in the Pattern Options dialog box.",
+            "Use the Overlap buttons in the Pattern Options dialog box."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q45. Why would you turn on the Ignore Artboards option in the Print dialog box?",
+        "options": [
+            "to prevent Illustrator from printing marks showing the borders of artboards",
+            "to print all artboards on one piece of paper",
+            "to prevent Illustrator from printing the names of artboards",
+            "to scale each artboard to the media size"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q46. You need to process a large batch of Illustrator files, applying the same sequence of transformations to each one. What is the most efficient way to do this?",
+        "options": [
+            "Use the Global Edit command.",
+            "Use the Transform Again command.",
+            "Use the Transform Each command.",
+            "Use the Actions panel to record and play back the sequence of steps."
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q48. What can you do in order to edit text in just one placed instance of a symbol?",
+        "options": [
+            "Click the Edit Symbol button in the Control panel or Properties panel.",
+            "Edit the symbol instance name.",
+            "Double-click the instance with the Type tool.",
+            "Click the Break Link button in the Control panel or Properties panel."
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q49. Your colleague has asked you to provide the CSS code for an object in your document. What must you do to make Illustrator auto-generate the code for that particular object?",
+        "options": [
+            "Drag the object into the Asset Export panel.",
+            "Select the object and choose Generate CSS from the CSS Properties panel.",
+            "Select the object and choose Copy Selected Style from the CSS Properties panel.",
+            "Give the object a name in the Layers panel."
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q51. What happens when you assign a different color profile to an image?",
+        "options": [
+            "The onscreen appearance stays the same, but the color values in the image will change.",
+            "The onscreen appearance may change, but the color values in the image stay the same.",
+            "Neither the onscreen appearance nor the color values in the image will change. Only the metadata in File Info changes.",
+            "Both the onscreen appearance and the color values in the image will change"
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q52. Which image adjustment is not available as an adjustment layer?",
+        "options": [
+            "Curves",
+            "Shadows/Highlights",
+            "Levels",
+            "Hue/Saturation"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q54. Which of the following correctly defines the method by which Adobe Illustrator creates images.",
+        "options": [
+            "Raster",
+            "Encryption",
+            "Extrapolation",
+            "Vector"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q55. Adobe Illustrator terminology for drawn line is `___`",
+        "options": [
+            "Line",
+            "Gamma Line",
+            "Path",
+            "Point Successor"
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q56. Which of the following does the Paragraph menu not operate?",
+        "options": [
+            "Indentation",
+            "Leading",
+            "Hyphenation",
+            "Format"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q57. Which of the following tools will cut a path into two different paths.",
+        "options": [
+            "scissors tool",
+            "knife tool",
+            "bisect tool",
+            "transform tool"
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q58. The two overlapping boxes at the bottom of the Adobe Illustrator toolbox control `___`",
+        "options": [
+            "stroke and shadow",
+            "fill and stroke",
+            "history and undo",
+            "texture and gamma"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q59. A curve created in Adobe Illustrator is commonly referred to as `___`",
+        "options": [
+            "Bezier Curve",
+            "Venus Curve",
+            "Curved vector solution",
+            "Razerian Curve"
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q60. Which of the following is not a benefit of using layers?",
+        "options": [
+            "artwork printing is controlled",
+            "artwork outlines are easily seen",
+            "artwork sections can be hidden",
+            "artwork is protected from change"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q61. The Pathfinder tool",
+        "options": [
+            "combines grouped objects",
+            "finds a path for type",
+            "finds a path for stroke size",
+            "finds a path for rasterization"
+        ],
+        "correctAns": 1
+    },
+    {
+        "query": " Q62. Selected tools from the toolbox will remain selected",
+        "options": [
+            "For approximately 15 seconds",
+            "Until the computer is offline",
+            "Until the software is shut down",
+            "Until another tool is selected"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q63. In Adobe illustrator we create our design and Illustrator on `___`",
+        "options": [
+            "Pages",
+            "Canvas",
+            "Cardboard",
+            "Artboard"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q64. How many types of pages orientation is in Adobe Illustrator?",
+        "options": [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q65. Shortcut of Selection tool in Adobe Illustrator is `___`",
+        "options": [
+            "A",
+            "V",
+            "S",
+            "T"
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q67. When creating a new color swatch, how can you ensure that the appearance of objects colored with that swatch will update if you edit the swatch at a later time?",
+        "options": [
+            "Give the swatch a custom name.",
+            "Click **Global** in the **Swatch Options** dialog box.",
+            "Place the swatch in a color group.",
+            "Add the swatch to a Creative Cloud library."
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q70. Drop shadows in a printed document appear pixelated. Which feature can you use to fix this?",
+        "options": [
+            "Appearance of Black",
+            "Document Setup",
+            "Document Raster Effects Settings",
+            "Overprint Black"
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q71. Where can you find information about an image's author and copyright status?",
+        "options": [
+            "the **Document Setup** dialog box",
+            "the **Document** Info panel",
+            "the **Attributes** panel",
+            "the **File Info** dialog box"
+        ],
+        "correctAns": 4
+    },
+    {
+        "query": " Q72. What can happen if you don't add bleed to a print document?",
+        "options": [
+            "Black strokes may appear thinner than expected.",
+            "Blank areas may be visible at the edges of the print.",
+            "Areas of 100% black may print lighter than expected.",
+            "Blank areas may be visible where two inks are printed adjacent to each other."
+        ],
+        "correctAns": 2
+    },
+    {
+        "query": " Q73. How can you ensure that objects on a specific layer remain visible on screen in Illustrator but never appear when the file is printed?",
+        "options": [
+            "Make a clipping mask with the layer selected.",
+            "Drag the layer to the bottom of the **Layers** panel.",
+            "Turn off the **Print** option for the layer.",
+            "Lock the layer."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q74. If you had to send a file to a colleague, how could you collect everything needed to work on it, including any non-Adobe fonts and linked images?",
+        "options": [
+            "Select **Select All** and then **Save Selection**.",
+            "Use the **Save as Template** command.",
+            "Use the **Package** command.",
+            "Select **Select All** and then click the **Add Content** button in the **Libraries** panel."
+        ],
+        "correctAns": 3
+    },
+    {
+        "query": " Q76. Which option do you use to create the stroke shown below?",
+        "options": [
+            "Round Join",
+            "Projecting Cap",
+            "Round Cap",
+            "Align Stroke to Outside"
+        ],
+        "correctAns": 3
+    }
+]
