@@ -1,8 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-param-reassign */
-/* eslint-disable jsx-a11y/interactive-supports-focus */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./checkbox.scss";
@@ -11,28 +6,26 @@ import isValidOption from "./helpers";
 const CheckBox = function ({
   options,
   sendAns,
-}: {
-  options: string[];
-  sendAns: (optionSelected: Option) => void;
-}) {
+  displayAns,
+  index,
+}: CheckBoxProps) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
 
   useEffect(() => {
-    setOptionSelected(0);
-  }, [options]);
+    setOptionSelected(displayAns || 0);
+  }, [displayAns, options]);
 
   const chooseAns = (target: HTMLInputElement) => {
     const option = Number(target.name);
     if (isValidOption(option))
-      option === optionSelected
-        ? setOptionSelected(0)
-        : setOptionSelected(option);
+      setOptionSelected(option === optionSelected ? 0 : option);
   };
   return (
     <div className="checkbox-container">
       <div className="checkboxes">
-        <label className="flipBox">
+        <label className="flipBox" htmlFor="option1">
           <input
+            id="option1"
             name="1"
             type="checkbox"
             checked={optionSelected === 1}
@@ -52,8 +45,9 @@ const CheckBox = function ({
           <div className="flipBox_shadow" />
         </label>
 
-        <label className="flipBox">
+        <label className="flipBox" htmlFor="option2">
           <input
+            id="option2"
             name="2"
             type="checkbox"
             checked={optionSelected === 2}
@@ -73,8 +67,9 @@ const CheckBox = function ({
           <div className="flipBox_shadow" />
         </label>
 
-        <label className="flipBox">
+        <label className="flipBox" htmlFor="option3">
           <input
+            id="option3"
             type="checkbox"
             name="3"
             checked={optionSelected === 3}
@@ -93,8 +88,9 @@ const CheckBox = function ({
           </div>
           <div className="flipBox_shadow" />
         </label>
-        <label className="flipBox">
+        <label className="flipBox" htmlFor="option4">
           <input
+            id="option4"
             name="4"
             type="checkbox"
             checked={optionSelected === 4}
@@ -119,9 +115,13 @@ const CheckBox = function ({
             className="send-ans"
             style={{ backgroundColor: "green" }}
             disabled={!optionSelected}
-            onClick={() => sendAns(optionSelected)}
+            onClick={
+              sendAns
+                ? () => sendAns(optionSelected)
+                : (e) => e.preventDefault()
+            }
           >
-            Next Question
+            {index && index + 1 === 15 ? "Send Quiz" : "Next Question"}
           </Button>
         </div>
       </div>

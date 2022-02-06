@@ -1,23 +1,32 @@
-/* eslint-disable no-unused-expressions */
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
+import {
+  updateQuiz,
+  numOfCorrectAns,
+  updateQuestion,
+} from "../state/quiz/quiz-actions";
 
 const Quiz = function () {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { subject } = useParams();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
-  const [correctAns, setCorrectAns] = useState<number>(0);
   const [questions, setQuestions] = useState<Question[]>([]);
+  const [displayResult, setDisplayResult] = useState<boolean>(false);
 
   const sendAns = (optionSelected: Option) => {
-    if (optionSelected === questions[currentQuestion].correctAns)
-      setCorrectAns((prev) => prev + 1);
-    currentQuestion !== 14
-      ? setCurrentQuestion((prev) => prev + 1)
-      : console.log(correctAns);
+    dispatch(updateQuestion(currentQuestion, optionSelected));
+    setCurrentQuestion((prev) => prev + 1);
+  };
+
+  const sendQuiz = () => {
+    dispatch(numOfCorrectAns()); // update correct answers globally
+    setDisplayResult(true);
   };
 
   useEffect(() => {
@@ -25,11 +34,18 @@ const Quiz = function () {
       const quizQuestions = await axios.get(
         `http://localhost:3001/api/${subject}`
       );
-      if (quizQuestions.data.length === 15)
+      if (quizQuestions.data.length === 15) {
+        dispatch(
+          updateQuiz({
+            questions: quizQuestions.data.slice(4),
+            numOfCorrectAns: 0,
+          })
+        );
         setQuestions(quizQuestions.data || []);
+      }
     };
     initialQuiz();
-  }, [navigate, subject]);
+  }, [dispatch, navigate, subject]);
 
   return questions ? (
     <div className="quiz">
@@ -37,8 +53,12 @@ const Quiz = function () {
       <h2>{questions[currentQuestion]?.code || ""}</h2>
       <CheckBox
         options={questions[currentQuestion]?.options || ""}
-        sendAns={sendAns}
+        sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
+        index={currentQuestion}
       />
+      <div style={{ display: displayResult ? "block" : "none" }}>
+        {displayResult ? <MyModal /> : ""}
+      </div>
     </div>
   ) : (
     <div>

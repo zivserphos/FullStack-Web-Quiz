@@ -1,7 +1,6 @@
-import { createStore } from "@reduxjs/toolkit";
-import { composeWithDevTools } from "redux-devtools-extension";
-import rootReducer from "./rootReducer";
+import { configureStore } from "@reduxjs/toolkit";
+import quizReducer from "./quiz/quiz-reducer";
 
-export const store = createStore(rootReducer, composeWithDevTools());
+const store = configureStore({ reducer: quizReducer });
 
 export default store;

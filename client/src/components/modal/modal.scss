@@ -1,0 +1,19 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+
+.review-modal {
+    * {
+        font-family: "Sora", sans-serif;
+    }
+    @import "~bootstrap/scss/bootstrap";
+    .modal-content {
+        position: absolute;
+        margin-bottom: -6rem;
+        height: 90vh;
+        overflow: auto;
+        margin-bottom: 10rem;
+    }
+    .review-question {
+        height: 10vh;
+        margin: 1rem;
+    }
+}
