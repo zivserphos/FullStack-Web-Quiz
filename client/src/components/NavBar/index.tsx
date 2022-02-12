@@ -20,7 +20,7 @@ const NavBar = function () {
           <FaBars className="bars" onClick={() => setSideBar(true)} />
         </div>
         {sideBar ? (
-          <TemporaryDrawer />
+          <TemporaryDrawer closeSideBar={() => setSideBar(false)} />
         ) : (
           <div className="navMenu">
             <NavLink to="/about" className="navLink">

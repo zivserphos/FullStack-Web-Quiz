@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -21,11 +21,19 @@ const useStyles = makeStyles({
   },
 });
 
-const TemporaryDrawer = function () {
+const TemporaryDrawer = function ({
+  closeSideBar,
+}: {
+  closeSideBar: () => void;
+}) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     left: true,
   });
+
+  useEffect(() => {
+    if (!state.left) closeSideBar();
+  }, [closeSideBar, state]);
 
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
