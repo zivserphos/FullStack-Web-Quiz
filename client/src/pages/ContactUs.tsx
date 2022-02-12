@@ -2,6 +2,7 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import {
   faGooglePlusG,
   faLinkedin,
@@ -29,7 +30,6 @@ const ContactUs = function () {
                 id="name"
                 placeholder="NAME"
                 name="name"
-                value=""
                 required
               />
             </div>
@@ -43,7 +43,6 @@ const ContactUs = function () {
                 id="email"
                 placeholder="EMAIL"
                 name="email"
-                value=""
                 required
               />
             </div>
