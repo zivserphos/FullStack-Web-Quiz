@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-no-duplicate-props */
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "axios";
 import {
   faGooglePlusG,
   faLinkedin,

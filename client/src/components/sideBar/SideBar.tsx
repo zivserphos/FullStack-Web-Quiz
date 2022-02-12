@@ -5,6 +5,7 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@mui/material/ListItemText";
+import { NavLink } from "react-router-dom";
 import "./side-bar.scss";
 
 const useStyles = makeStyles({
@@ -58,13 +59,20 @@ const TemporaryDrawer = function ({
     >
       <List>
         {["Home", "About", "Contact-us", "Sign-Up"].map((text) => (
-          <ListItem button key={text} className="li-item">
-            <ListItemText
-              primary={text}
-              sx={{ fontSize: "1.4rem" }}
-              classes={{ primary: classes.listItemText }}
-            />
-          </ListItem>
+          <nav>
+            <NavLink
+              className="navLink"
+              to={text === "Home" ? "/" : `/${text}`}
+            >
+              <ListItem button key={text} className="li-item">
+                <ListItemText
+                  primary={text}
+                  sx={{ fontSize: "1.4rem" }}
+                  classes={{ primary: classes.listItemText }}
+                />
+              </ListItem>
+            </NavLink>
+          </nav>
         ))}
       </List>
     </Box>
