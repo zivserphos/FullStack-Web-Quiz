@@ -1,14 +1,28 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
 import List from "@mui/material/List";
-import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
+import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@mui/material/ListItemText";
+import "./side-bar.scss";
+
+const useStyles = makeStyles({
+  listItemText: {
+    fontSize: "1.4rem",
+    color: "white",
+    textAlign: "center",
+  },
+  fullList: {
+    width: "auto",
+  },
+  paper: {
+    background: "#2a2e39",
+  },
+});
 
 const TemporaryDrawer = function () {
+  const classes = useStyles();
   const [state, setState] = React.useState({
     left: true,
   });
@@ -32,25 +46,16 @@ const TemporaryDrawer = function () {
       role="presentation"
       onClick={toggleDrawer(false)}
       onKeyDown={toggleDrawer(false)}
+      className="side-bar"
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? "InboxIcon" : "MailIcon "}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? "InboxIcon" : "MailIcon "}
-            </ListItemIcon>
-            <ListItemText primary={text} />
+        {["Home", "About", "Contact-us", "Sign-Up"].map((text) => (
+          <ListItem button key={text} className="li-item">
+            <ListItemText
+              primary={text}
+              sx={{ fontSize: "1.4rem" }}
+              classes={{ primary: classes.listItemText }}
+            />
           </ListItem>
         ))}
       </List>
@@ -58,9 +63,14 @@ const TemporaryDrawer = function () {
   );
 
   return (
-    <div>
+    <div style={{ background: "black" }}>
       <React.Fragment key="left">
-        <Drawer anchor="left" open={state.left} onClose={toggleDrawer(false)}>
+        <Drawer
+          anchor="left"
+          open={state.left}
+          onClose={toggleDrawer(false)}
+          classes={{ paper: classes.paper }}
+        >
           {list()}
         </Drawer>
       </React.Fragment>
