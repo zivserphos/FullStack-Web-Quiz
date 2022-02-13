@@ -13,4 +13,6 @@ export default {
   facebookSecret: process.env.FACEBOOK_CLIENT_SECRET || "",
   linkedinClientId: process.env.LINKEDIN_CLIENT_ID || "",
   linkedinSecret: process.env.LINKEDIN_SECRET || "",
+  z_s_email: process.env.ZS_EMAIL || "",
+  z_s_password: process.env.ZS_PASSWORD || "",
 };

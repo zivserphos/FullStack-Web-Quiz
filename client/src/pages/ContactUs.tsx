@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable react/jsx-no-duplicate-props */
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGooglePlusG,
@@ -14,8 +14,24 @@ import {
   faEnvelope,
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+
+const validDetails = true;
 
 const ContactUs = function () {
+  const name = useRef<HTMLInputElement>(null);
+  const email = useRef<HTMLInputElement>(null);
+  const message = useRef<HTMLTextAreaElement>(null);
+
+  const sendEmail = async () => {
+    if (validDetails && name && email && message) {
+      await axios.post("http://localhost:3001/email", {
+        name: name.current?.value,
+        email: email.current?.value,
+        message: message.current?.value,
+      });
+    }
+  };
   return (
     <section className="contact">
       <h1 className="section-header">Contact</h1>
@@ -24,6 +40,7 @@ const ContactUs = function () {
           <div className="form-group">
             <div className="col-sm-12">
               <input
+                ref={name}
                 type="text"
                 className="form-control"
                 id="name"
@@ -37,6 +54,7 @@ const ContactUs = function () {
           <div className="form-group">
             <div className="col-sm-12">
               <input
+                ref={email}
                 type="email"
                 className="form-control"
                 id="email"
@@ -48,6 +66,7 @@ const ContactUs = function () {
           </div>
 
           <textarea
+            ref={message}
             className="form-control"
             rows={10}
             placeholder="MESSAGE"
@@ -60,6 +79,7 @@ const ContactUs = function () {
             id="submit"
             type="submit"
             value="SEND"
+            onClick={sendEmail}
           >
             <div className="alt-send-button">
               <FontAwesomeIcon icon={faPaperPlane} size="lg" />
