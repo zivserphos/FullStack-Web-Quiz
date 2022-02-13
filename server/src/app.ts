@@ -9,10 +9,10 @@ import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
 import AuthRouter from "./routes/auth";
 import ApiRouter from "./routes/api";
+import EmailRouter from "./routes/email";
 import "./utils/config/passport";
 import render from "./middlewares/render";
 import unknownEndPoint from "./middlewares/unknownEndpoint";
-import "./utils/helpers/aws-seed";
 
 const app = express();
 
@@ -35,6 +35,7 @@ app.use(passport.session());
 app.use(express.static(path.resolve("../client/build")));
 app.use("/auth", AuthRouter);
 app.use("/api", ApiRouter);
+app.use("/email", EmailRouter);
 
 app.get("/", render);
 app.get("/sign-up", render);
