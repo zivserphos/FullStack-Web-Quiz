@@ -117,6 +117,22 @@ const CheckBox = function ({
           <div className="flipBox_shadow" />
         </label>
         <div className="send-ans">
+          {index ? (
+            <Button
+              variant="contained"
+              className="send-ans"
+              style={{ backgroundColor: "blue" }}
+              onClick={
+                sendAns
+                  ? () => sendAns(optionSelected)
+                  : (e) => e.preventDefault()
+              }
+            >
+              Previous Question
+            </Button>
+          ) : (
+            ""
+          )}
           <Button
             variant="contained"
             className="send-ans"
