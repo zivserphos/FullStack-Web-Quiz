@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable react/jsx-no-duplicate-props */
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGooglePlusG,
@@ -16,20 +17,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
-const validDetails = true;
-
 const ContactUs = function () {
-  const name = useRef<HTMLInputElement>(null);
-  const email = useRef<HTMLInputElement>(null);
-  const message = useRef<HTMLTextAreaElement>(null);
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [message, setMessage] = useState<string>("");
 
-  const sendEmail = async () => {
-    if (validDetails && name && email && message) {
+  const sendEmail = async (e: any) => {
+    e.preventDefault();
+    try {
       await axios.post("http://localhost:3001/email", {
-        name: name.current?.value,
-        email: email.current?.value,
-        message: message.current?.value,
+        name,
+        email,
+        message,
       });
+      setEmail("");
+      setMessage("");
+      setName("");
+      console.log("shti");
+    } catch (err) {
+      console.log(err);
     }
   };
   return (
@@ -40,12 +46,11 @@ const ContactUs = function () {
           <div className="form-group">
             <div className="col-sm-12">
               <input
-                ref={name}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 className="form-control"
-                id="name"
                 placeholder="NAME"
-                name="name"
+                value={name}
                 required
               />
             </div>
@@ -54,23 +59,22 @@ const ContactUs = function () {
           <div className="form-group">
             <div className="col-sm-12">
               <input
-                ref={email}
+                onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 className="form-control"
-                id="email"
                 placeholder="EMAIL"
-                name="email"
+                value={email}
                 required
               />
             </div>
           </div>
 
           <textarea
-            ref={message}
+            onChange={(e) => setMessage(e.target.value)}
             className="form-control"
             rows={10}
             placeholder="MESSAGE"
-            name="message"
+            value={message}
             required
           />
 
@@ -79,7 +83,7 @@ const ContactUs = function () {
             id="submit"
             type="submit"
             value="SEND"
-            onClick={sendEmail}
+            onClick={(e) => sendEmail(e)}
           >
             <div className="alt-send-button">
               <FontAwesomeIcon icon={faPaperPlane} size="lg" />
