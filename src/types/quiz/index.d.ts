@@ -19,6 +19,7 @@ declare global {
     code?: string;
     options: string[];
     correctAns: CorrectAns;
+    optionsAsCode?: boolean;
     id: number;
   }
 }
