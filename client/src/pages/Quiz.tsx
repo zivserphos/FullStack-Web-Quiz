@@ -49,18 +49,28 @@ const Quiz = function () {
 
   return questions ? (
     <div className="quiz">
-      <h1>{questions[currentQuestion]?.query || ""}</h1>
-      <h2>
-        <code>{questions[currentQuestion]?.code || ""}</code>
-      </h2>
-      <CheckBox
-        options={questions[currentQuestion]?.options || ""}
-        sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
-        index={currentQuestion}
-        optionsAsCode={questions[currentQuestion]?.optionsAsCode}
-      />
-      <div style={{ display: displayResult ? "block" : "none" }}>
-        {displayResult ? <MyModal /> : ""}
+      <div>
+        <h1>{questions[currentQuestion]?.query || ""}</h1>
+        <div className="display-code">
+          {questions[currentQuestion]?.code ? (
+            <h2>
+              <code>{questions[currentQuestion]?.code}</code>
+            </h2>
+          ) : (
+            ""
+          )}
+        </div>
+      </div>
+      <div>
+        <CheckBox
+          options={questions[currentQuestion]?.options || ""}
+          sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
+          index={currentQuestion}
+          optionsAsCode={questions[currentQuestion]?.optionsAsCode}
+        />
+        <div style={{ display: displayResult ? "block" : "none" }}>
+          {displayResult ? <MyModal /> : ""}
+        </div>
       </div>
     </div>
   ) : (
