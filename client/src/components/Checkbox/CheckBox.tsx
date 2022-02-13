@@ -32,7 +32,13 @@ const CheckBox = function ({
             checked={optionSelected === 1}
             onClick={(e) => chooseAns(e.target as HTMLInputElement)}
           />
-          <span>{optionsAsCode ? <code>{options[0]}</code> : options[0]}</span>
+          <span>
+            {optionsAsCode ? (
+              <code style={{ fontFamily: "monospace" }}>{options[0]}</code>
+            ) : (
+              options[0]
+            )}
+          </span>
           <div className="flipBox_boxOuter">
             <div role="button" className="flipBox_box">
               <div />

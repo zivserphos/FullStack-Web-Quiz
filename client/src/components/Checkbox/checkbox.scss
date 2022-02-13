@@ -25,6 +25,11 @@
         max-width: 420px;
     }
 
+    code {
+        font-family: monospace;
+        white-space: pre;
+    }
+
     .flipBox {
         position: relative;
         display: flex;

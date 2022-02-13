@@ -33,6 +33,7 @@ const Quiz = function () {
   useEffect(() => {
     const initialQuiz = async () => {
       const quizQuestions = await axios.get(`${config.baseUrl}/api/${subject}`);
+      console.log(quizQuestions.data[0].optionsAsCode);
       if (quizQuestions.data.length === 15) {
         dispatch(
           updateQuiz({
@@ -56,7 +57,7 @@ const Quiz = function () {
         options={questions[currentQuestion]?.options || ""}
         sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
         index={currentQuestion}
-        optionsAsCode={questions[currentQuestion].optionsAsCode}
+        optionsAsCode={questions[currentQuestion]?.optionsAsCode}
       />
       <div style={{ display: displayResult ? "block" : "none" }}>
         {displayResult ? <MyModal /> : ""}
