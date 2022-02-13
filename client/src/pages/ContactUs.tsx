@@ -15,6 +15,7 @@ import {
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import config from "../utils/config/index";
 
 const validDetails = true;
 
@@ -25,7 +26,7 @@ const ContactUs = function () {
 
   const sendEmail = async () => {
     if (validDetails && name && email && message) {
-      await axios.post("http://localhost:3001/email", {
+      await axios.post(`${config.baseUrl}/email`, {
         name: name.current?.value,
         email: email.current?.value,
         message: message.current?.value,

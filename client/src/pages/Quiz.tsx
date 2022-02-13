@@ -10,6 +10,7 @@ import {
   numOfCorrectAns,
   updateQuestion,
 } from "../state/quiz/quiz-actions";
+import config from "../utils/config/index";
 
 const Quiz = function () {
   const dispatch = useDispatch();
@@ -31,9 +32,7 @@ const Quiz = function () {
 
   useEffect(() => {
     const initialQuiz = async () => {
-      const quizQuestions = await axios.get(
-        `http://localhost:3001/api/${subject}`
-      );
+      const quizQuestions = await axios.get(`${config.baseUrl}/api/${subject}`);
       if (quizQuestions.data.length === 15) {
         dispatch(
           updateQuiz({
@@ -50,11 +49,14 @@ const Quiz = function () {
   return questions ? (
     <div className="quiz">
       <h1>{questions[currentQuestion]?.query || ""}</h1>
-      <h2>{questions[currentQuestion]?.code || ""}</h2>
+      <h2>
+        <code>{questions[currentQuestion]?.code || ""}</code>
+      </h2>
       <CheckBox
         options={questions[currentQuestion]?.options || ""}
         sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
         index={currentQuestion}
+        optionsAsCode={questions[currentQuestion].optionsAsCode}
       />
       <div style={{ display: displayResult ? "block" : "none" }}>
         {displayResult ? <MyModal /> : ""}
