@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable react/jsx-no-duplicate-props */
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGooglePlusG,
@@ -33,7 +33,6 @@ const ContactUs = function () {
       setEmail("");
       setMessage("");
       setName("");
-      console.log("shti");
     } catch (err) {
       console.log(err);
     }
