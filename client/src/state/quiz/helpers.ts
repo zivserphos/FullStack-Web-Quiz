@@ -13,6 +13,7 @@ const updateIfCorrect = (
 };
 
 const numOfCorrectAns = (state: Quiz) => ({
+  isOnQuiz: true,
   questions: state.questions,
   numOfCorrectAns: state.questions.reduce(
     (num, question) => (question.isCorrect ? num + 1 : num),
@@ -20,4 +21,12 @@ const numOfCorrectAns = (state: Quiz) => ({
   ),
 });
 
-export default { updateIfCorrect, numOfCorrectAns };
+const setIsOnQuiz = (state: Quiz, bool: boolean) => {
+  console.log(bool);
+  return {
+    ...state,
+    isOnQuiz: bool,
+  };
+};
+
+export default { updateIfCorrect, numOfCorrectAns, setIsOnQuiz };

@@ -8,7 +8,7 @@
     }
 
     font-family: "Sora", sans-serif;
-    background-color: #ddd;
+    background-color: #ccc;
     color: #000;
     margin: 0;
     padding: 3em 1em;
@@ -23,6 +23,11 @@
     .checkboxes {
         width: 100%;
         max-width: 420px;
+    }
+
+    code {
+        font-family: monospace;
+        white-space: pre;
     }
 
     .flipBox {
@@ -254,8 +259,10 @@
     }
 
     .send-ans {
-        font-family: "Sora", sans-serif;
         display: flex;
         justify-content: space-around;
+    }
+    .button {
+        font-family: "Sora", sans-serif;
     }
 }
