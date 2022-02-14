@@ -8,7 +8,7 @@ import "./styles/home.scss";
 const Home = function () {
   return (
     <div className="home">
-      <h1>Full stack web quizzes</h1>
+      <h1>All Linkedin quizzes</h1>
       <Grid
         container
         direction="row"
