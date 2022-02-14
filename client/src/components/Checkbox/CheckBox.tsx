@@ -8,6 +8,8 @@ const CheckBox = function ({
   sendAns,
   displayAns,
   index,
+  optionsAsCode,
+  prevQuestion,
 }: CheckBoxProps) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
 
@@ -31,7 +33,13 @@ const CheckBox = function ({
             checked={optionSelected === 1}
             onClick={(e) => chooseAns(e.target as HTMLInputElement)}
           />
-          <span>{options[0]}</span>
+          <span>
+            {optionsAsCode ? (
+              <code style={{ fontFamily: "monospace" }}>{options[0]}</code>
+            ) : (
+              options[0]
+            )}
+          </span>
           <div className="flipBox_boxOuter">
             <div role="button" className="flipBox_box">
               <div />
@@ -110,9 +118,25 @@ const CheckBox = function ({
           <div className="flipBox_shadow" />
         </label>
         <div className="send-ans">
+          {index ? (
+            <Button
+              variant="contained"
+              className="button"
+              style={{ backgroundColor: "blue" }}
+              onClick={
+                prevQuestion
+                  ? () => prevQuestion(optionSelected)
+                  : (e) => e.preventDefault()
+              }
+            >
+              Previous Question
+            </Button>
+          ) : (
+            ""
+          )}
           <Button
             variant="contained"
-            className="send-ans"
+            className="button"
             style={{ backgroundColor: "green" }}
             disabled={!optionSelected}
             onClick={

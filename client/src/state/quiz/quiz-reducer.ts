@@ -6,6 +6,7 @@ import questionService from "./helpers";
 const INITIAL_STATE: Quiz = {
   questions: [],
   numOfCorrectAns: 0,
+  isOnQuiz: false,
 };
 
 const quizReducer = (state = INITIAL_STATE, action: QuestionAction): Quiz => {
@@ -22,6 +23,10 @@ const quizReducer = (state = INITIAL_STATE, action: QuestionAction): Quiz => {
 
     case actionTypes.NUM_OF_CORRECT_ANS:
       return questionService.numOfCorrectAns(state);
+    case actionTypes.IS_ON_QUIZ:
+      const { bool } = action.payload;
+      if (bool === undefined) return state;
+      return questionService.setIsOnQuiz(state, bool);
     default:
       return state;
   }
