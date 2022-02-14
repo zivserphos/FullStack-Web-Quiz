@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, Modal, Button } from "react-bootstrap";
 import CheckBox from "../Checkbox/CheckBox";
 
@@ -43,8 +43,6 @@ const ModalQuestion = function ({
   question: Question;
   onHide: any;
 }) {
-  // const [modalShow, setModalShow] = useState(true);
-
   return (
     <div className="review-modal">
       <ModalData onHide={onHide} question={question} />
