@@ -9,6 +9,7 @@ const CheckBox = function ({
   displayAns,
   index,
   optionsAsCode,
+  prevQuestion,
 }: CheckBoxProps) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
 
@@ -120,11 +121,11 @@ const CheckBox = function ({
           {index ? (
             <Button
               variant="contained"
-              className="send-ans"
+              className="button"
               style={{ backgroundColor: "blue" }}
               onClick={
-                sendAns
-                  ? () => sendAns(optionSelected)
+                prevQuestion
+                  ? () => prevQuestion(optionSelected)
                   : (e) => e.preventDefault()
               }
             >
@@ -135,7 +136,7 @@ const CheckBox = function ({
           )}
           <Button
             variant="contained"
-            className="send-ans"
+            className="button"
             style={{ backgroundColor: "green" }}
             disabled={!optionSelected}
             onClick={

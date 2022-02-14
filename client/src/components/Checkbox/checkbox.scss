@@ -259,8 +259,10 @@
     }
 
     .send-ans {
-        font-family: "Sora", sans-serif;
         display: flex;
         justify-content: space-around;
+    }
+    .button {
+        font-family: "Sora", sans-serif;
     }
 }

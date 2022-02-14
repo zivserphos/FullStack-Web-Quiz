@@ -25,6 +25,11 @@ const Quiz = function () {
     setCurrentQuestion((prev) => prev + 1);
   };
 
+  const prevQuestion = (optionSelected: Option) => {
+    dispatch(updateQuestion(currentQuestion, optionSelected));
+    setCurrentQuestion((prev) => prev - 1);
+  };
+
   const sendQuiz = () => {
     dispatch(numOfCorrectAns()); // update correct answers globally
     setDisplayResult(true);
@@ -33,7 +38,7 @@ const Quiz = function () {
   useEffect(() => {
     const initialQuiz = async () => {
       const quizQuestions = await axios.get(`${config.baseUrl}/api/${subject}`);
-      console.log(quizQuestions.data[0].optionsAsCode);
+      console.log(quizQuestions.data.slice(0, 4));
       if (quizQuestions.data.length === 15) {
         dispatch(
           updateQuiz({
@@ -67,6 +72,7 @@ const Quiz = function () {
           sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
+          prevQuestion={prevQuestion}
         />
         <div style={{ display: displayResult ? "block" : "none" }}>
           {displayResult ? <MyModal /> : ""}

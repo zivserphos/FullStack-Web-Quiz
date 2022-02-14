@@ -9,6 +9,7 @@ interface CheckBoxProps {
   displayAns?: CorrectAns;
   index?: number;
   optionsAsCode?: boolean;
+  prevQuestion?: (optionSelected: Option) => void;
 }
 
 interface Question {
