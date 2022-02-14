@@ -9,6 +9,7 @@ const ModalQuestion = function ({ question }: { question: Question }) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
       fullscreen
+      full
       className="review-modal"
     >
       <Modal.Header closeButton>

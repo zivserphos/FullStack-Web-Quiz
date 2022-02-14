@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import ModalRow from "./ModalRow";
 import "./modal.scss";
 import ModalQuestion from "./ModalQuestions";
+import { genScores } from "../../utils/quiz";
 
 const MydModalWithGrid = function (props: ModalProps) {
   const [extraInfo, setExtraInfo] = useState<number | null>(null);
@@ -25,6 +26,7 @@ const MydModalWithGrid = function (props: ModalProps) {
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           {`Results: ${numOfCorrectAns}/15`}
+          <div className="scores">{genScores(numOfCorrectAns)}</div>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
