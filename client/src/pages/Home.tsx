@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Grid from "@mui/material/Grid";
 import { NavLink } from "react-router-dom";
 import QuizCard from "../components/QuizCard";
@@ -6,7 +6,6 @@ import quizzesInfo from "../utils/quizzesInfo";
 import "./styles/home.scss";
 
 const Home = function () {
-  const [isOnQuiz, setIsOnQuiz] = useState<boolean>(false);
   return (
     <div className="home">
       <h1>Full stack web quizzes</h1>

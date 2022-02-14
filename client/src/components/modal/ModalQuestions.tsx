@@ -41,7 +41,7 @@ const ModalQuestion = function ({
   onHide,
 }: {
   question: Question;
-  onHide: any;
+  onHide: () => void;
 }) {
   return (
     <div className="review-modal">
