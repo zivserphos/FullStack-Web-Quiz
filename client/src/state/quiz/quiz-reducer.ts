@@ -26,7 +26,7 @@ const quizReducer = (state = INITIAL_STATE, action: QuestionAction): Quiz => {
       return questionService.numOfCorrectAns(state);
     case actionTypes.IS_ON_QUIZ:
       const { bool } = action.payload;
-      if (!bool) return state;
+      if (bool === undefined) return state;
       return questionService.setIsOnQuiz(state, bool);
     default:
       return state;

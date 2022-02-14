@@ -3,7 +3,6 @@ const updateIfCorrect = (
   index: number,
   optionSelected: number
 ): Quiz => {
-  console.log(state.questions[index].correctAns);
   const updatedQuestions = [...state.questions];
   const isCorrect = optionSelected === updatedQuestions[index].correctAns;
   updatedQuestions[index] = { ...updatedQuestions[index], isCorrect };
@@ -22,9 +21,12 @@ const numOfCorrectAns = (state: Quiz) => ({
   ),
 });
 
-const setIsOnQuiz = (state: Quiz, bool: boolean) => ({
-  ...state,
-  isOnQUIZ: bool,
-});
+const setIsOnQuiz = (state: Quiz, bool: boolean) => {
+  console.log(bool);
+  return {
+    ...state,
+    isOnQuiz: bool,
+  };
+};
 
 export default { updateIfCorrect, numOfCorrectAns, setIsOnQuiz };
