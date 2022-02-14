@@ -7,7 +7,9 @@
             "the Product Owner with help from the Tech Lead",
             "the Tech Lead with help from Operations"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the Scrum Master's role during the daily stand-up?",
@@ -17,7 +19,9 @@
             "The Scrum Master should not attend—this meeting is for developers only.",
             "Ask each developer what they did since the last daily standup."
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which factor should not be considered during Sprint Planning?",
@@ -27,7 +31,9 @@
             "the stories that are ready",
             "the team's capacity"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "A team member has been showing signs of great personal distress: crying at work, snapping at colleagues, having heated phone conversations. As Team Facilitator, what should you do?",
@@ -37,7 +43,9 @@
             "Notify the team member's manager of your observations and ask the manager for help.",
             "Ask the team member if they would like to talk about what might be going on with them personally."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement describes the flow of work in the Scaled Agile Framework?",
@@ -47,7 +55,9 @@
             "It is a \"pull\" system.",
             "It is neither \"push\" nor \"pull.\""
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the Product Owner's role in deciding the priority of work in the sprint backlog?",
@@ -57,7 +67,9 @@
             "The developers prioritize work unless they cannot complete it, in which case the PO should prioritize the remaining work.",
             "None—the developers should prioritize the work in the sprint backlog."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The Scaled Agile Framework advocates that, if you measure only one thing, what should you measure?",
@@ -67,7 +79,9 @@
             "cost of delay",
             "return on investment"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Why should you apply Weighted Shortest Job First?",
@@ -77,7 +91,9 @@
             "to visualize queue length",
             "to fulfill a commitment to quality"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "You have classified the features in your backlog according to risk and value. Which features should the development team work on first?",
@@ -87,7 +103,9 @@
             "high-value and low-risk",
             "low-value and low-risk"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "In the Scaled Agile Framework, what is the role of Enablers?",
@@ -97,7 +115,9 @@
             "They support team building.",
             "They remove the impediments to quality."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which outcome is not expected of a Sprint Review?",
@@ -107,7 +127,9 @@
             "Items in the backlog may be reprioritized.",
             "Stakeholders give feedback about the work completed."
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is not a technique used for splitting user stories?",
@@ -117,7 +139,9 @@
             "split by alternative paths",
             "split by interface"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Who decides what the team will work on?",
@@ -127,7 +151,9 @@
             "the Product Owner",
             "the Product Manager"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which choice is not a Scrum value?",
@@ -137,7 +163,9 @@
             "courage",
             "commitment"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What should happen if the Product Owner does not accept a story by the end of the iteration?",
@@ -147,7 +175,9 @@
             "The acceptance criteria should be adjusted to reflect the work completed.",
             "The story should be shown to stakeholders for their feedback."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement is not true about the product backlog?",
@@ -157,7 +187,9 @@
             "Anyone on the team can propose an item for it.",
             "It includes all of the work to be done."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "A project has some major risks that the team wants to mitigate. What is the best way to monitor how well this effort is going?",
@@ -167,7 +199,9 @@
             "risk velocity chart",
             "risk burndown graph"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The VP of Engineering wants to start giving out a \"Team Member of the Sprint\" award to recognize a top performer in each group. What advice should you give this VP?",
@@ -177,7 +211,9 @@
             "This is a good idea because awards can motivate people to do their best.",
             "This is unhelpful because it can destroy the team unity essential to achieving high performance."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is a difference between a team's task board and a Kanban?",
@@ -187,7 +223,9 @@
             "A Kanban does not use a Definition of Done.",
             "A Kanban shows the status of the work items."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The team complains that \"things have been falling through the cracks lately.\" What should you do?",
@@ -197,7 +235,9 @@
             "Refer to the team's RACI (Responsible, Accountable, Consulted, Informed) assignments.",
             "Meet with the Tech Lead and Product Owner to try to identify what can be done."
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "In Large-Scale Scrum, what is the recommended ratio of Scrum Masters to teams?",
@@ -207,7 +247,9 @@
             "There should be one Scrum Master per team.",
             "One Scrum Master can support one to three teams."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "In the Cynefin framework, where are \"best practices\" most appropriate?",
@@ -217,7 +259,9 @@
             "in the Chaotic regime",
             "in the Obvious regime"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "A manager informs you that a developer from another team is between assignments, and she wants to place the developer on your team for a few sprints. What should you do?",
@@ -227,7 +271,9 @@
             "Explain the situation to your manager and ask them to resolve it.",
             "When the temporary developer shows up, assign them to write documentation."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The Product Owner complains to you that the team is not working hard enough and they need to increase their velocity by at least 50%. Which action should you not take?",
@@ -237,7 +283,9 @@
             "Explain the impact of technical debt to the PO and the benefits of devoting some capacity to reducing it.",
             "Hold a Value Stream Mapping workshop to identify and reduce waste."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the name of the practice in which a cross-functional team collaborates intensively to develop a new product idea?",
@@ -247,7 +295,9 @@
             "Innovation and Planning",
             "Magnum Focus"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The team's manager wants to attend the Sprint Retrospective. What should you do?",
@@ -257,7 +307,9 @@
             "Propose a different forum for the manager to meet with the team.",
             "Ask the team if it is okay with them that the manager attend."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Who is responsible for a Scrum team's performance?",
@@ -267,7 +319,9 @@
             "the Product Owner",
             "the Engineering Manager"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement concerning small, frequent releases of software is true?",
@@ -277,7 +331,9 @@
             "The administrative costs are high.",
             "Backward compatibility may be jeopardized."
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the activity of clarifying and expanding user stories called?",
@@ -287,7 +343,9 @@
             "user story expansion",
             "backlog refinement"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which strategy is preferred for development teams?",
@@ -297,7 +355,9 @@
             "Maximize outcome while minimizing output.",
             "Optimize for resource utilization"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement is true about the actor in a user story?",
@@ -307,7 +367,9 @@
             "The actor can be the system itself.",
             "The system cannot be the actor."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement is true about Agile?",
@@ -317,7 +379,9 @@
             "Agile requires a high degree of discipline.",
             "Agile works best when there is no contract."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement about burndown and burnup charts is not true?",
@@ -327,7 +391,9 @@
             "Burndown charts are more useful than burnup charts.",
             "Agile project management tools can produce these automatically."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the name for the practice of going to see a process in use at the point of value delivery?",
@@ -337,7 +403,9 @@
             "Total Quality Management",
             "Kaizen"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "When the team needs to make a decision, what is the best course of action?",
@@ -347,7 +415,9 @@
             "Identify the person who is most knowledgeable and ask them to decide.",
             "Let the most senior member of the team decide."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which action is something the Team Facillitator should NOT do?",
@@ -357,7 +427,9 @@
             "Celebrate successes.",
             "Remove impediments"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "A team needs to do research, design, prototyping. What is this type of story called?",
@@ -367,7 +439,9 @@
             "Functional decomposition",
             "R&D"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement about technical debt is true?",
@@ -377,7 +451,9 @@
             "Adding technical debt should be avoided at all costs.",
             "Technical debt is what the Product Owner owes to the developers if they work a lot of overtime to complete the sprint."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement about estimating is not true?",
@@ -387,7 +463,9 @@
             "In estimating, accuracy is more important than precision.",
             "In estimating, the effort is more important than the time required."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which ceremony should the Product Owner not attend?",
@@ -397,7 +475,9 @@
             "story point estimating",
             "code reviews"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which task is not the Product Owners responsibility?",
@@ -407,7 +487,9 @@
             "giving feedback to developers about the user stories",
             "demonstrating the work to stakeholders"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which choice is `_not_` considered during Sprint Planning?",
@@ -417,7 +499,9 @@
             "stories that meet the Definition of Ready",
             "team capacity"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "You have noticed a pattern that the most interesting stories on the Sprint Backlog get started right away, and the least interesting stories languish or don't get done. What should you do?",
@@ -427,7 +511,9 @@
             "During story point estimation increase the points assigned to the least interesting stories so the team can boost their velocity.",
             "Ask the Tech Lead to assign every story to a developer so they all get done efficiently and with accountability."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What Agile practice best supports this principle: \"At regular intervals, the team reflects on how to become more effective, then tunes and adjusts its behavior accordingly\"?",
@@ -437,7 +523,9 @@
             "daily stand-up",
             "Sprint Demo"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "On what are personas typically based?",
@@ -447,7 +535,9 @@
             "real people, archetypal users, or composites of multiple users",
             "descriptions of the product's functionality and use"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement describes Shu Ha Ri?",
@@ -457,7 +547,9 @@
             "It is a standard for interface design.",
             "It is a model for skill development and mastery."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What does the Agile Manifesto indicate?",
@@ -467,7 +559,9 @@
             "Following the plan is essential for not going over budget.",
             "Contract negotiation should be used to settle disputes."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the main benefit of a working agreement?",
@@ -477,7 +571,9 @@
             "It defines the culture that the team aspires to achieve.",
             "It compiles everyone's information."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the name of the information radiator that has multiple columns used to visualize the flow of work?",
@@ -487,7 +583,9 @@
             "Story Map",
             "Kanban Board"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which is the best definition of story points?",
@@ -497,7 +595,9 @@
             "They are a relative measure of the value of a story.",
             "They are a measure of time to complete a story."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is a Scrum of Scrums?",
@@ -507,7 +607,9 @@
             "It is an information radiator used to compare the velocity of several teams.",
             "It is the system demo for teams on the same release train."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the Product Owner's role regarding the product backlog?",
@@ -517,7 +619,9 @@
             "The PO must identify the dependencies that impact the backlog.",
             "The PO decides what to include in the backlog and what to exclude."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Why should a team do refactoring?",
@@ -527,7 +631,9 @@
             "It recalibrates the success criteria for the product in the marketplace.",
             "It improves the design, which can lead improved development efficiency and maintainability."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which choice is not a benefit generally associated with product demonstrations?",
@@ -537,7 +643,9 @@
             "Learn about feature usability.",
             "Learn about feature estimates."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is an information radiator?",
@@ -547,7 +655,9 @@
             "the task board",
             "a highly visible display of key performance data"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "According to the Agile Manifesto, your highest priority is to \\_.",
@@ -557,7 +667,9 @@
             "get the job done on time",
             "achieve the desired ROI"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Product development organizations sometimes use descriptions of archetypal users and their values so that developers can design the system to meet their needs and wants. What are these descriptions called?",
@@ -567,7 +679,9 @@
             "agents",
             "personas"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The Product Owner is focused on testing a new system concept in the marketplace as quickly and inexpensively as possible. What is this first-generation product called?",
@@ -577,7 +691,9 @@
             "Generation 1 product",
             "minimum viable product"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "To whom should the Product Owner report?",
@@ -587,7 +703,9 @@
             "the Scrum Master",
             "the Engineering Manager"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What happens in Sprint 0?",
@@ -597,7 +715,9 @@
             "The team prepares to work on the product backlog.",
             "This is the time to inspect and adapt."
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What does the Definition of Done mean?",
@@ -607,7 +727,9 @@
             "The story has been handed off to the DevOps team.",
             "The team has agreed on the criteria for story completion."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which element is most important when describing your product?",
@@ -617,7 +739,9 @@
             "its benefits",
             "its features"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which choice best describes the Team Facilitator?",
@@ -627,7 +751,9 @@
             "a project manager",
             "an Agile coach"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the name of the technique that divides a story into smaller pieces?",
@@ -637,7 +763,9 @@
             "disaggregation",
             "Divide and Conquer"
         ],
-        "correctAns": 3
+        "correctAns": 3,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "A team member comes to you with a complaint about another team member. What should you do?",
@@ -647,7 +775,9 @@
             "Notify HR of the problem and ask them to handle it.",
             "Invite both people a meeting and try mediate the conflict."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the forming-storming-norming, performing model of team development known as?",
@@ -657,7 +787,9 @@
             "Moore's Team Framework",
             "the Siebert model"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the name of the ceremony in which you inspect the work completed during the sprint?",
@@ -667,7 +799,9 @@
             "Next-Sprint Planning",
             "Velocity Confirmation"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which choice best describes an Agile Release Train (ART)?",
@@ -677,7 +811,9 @@
             "DevOps Center of Excellence",
             "Scrum of Scrums"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "As an Agile coach, what should be your attitude toward your team members individual goals and motivations?",
@@ -687,7 +823,9 @@
             "Disregard them—personal views have no bearing on reaching the project goals.",
             "Leverage them—use personal goals encourage team members raise their performance levels."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which phrase best describes an Agile team?",
@@ -697,7 +835,9 @@
             "self-sustaining",
             "self-organizing"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which technique does not help prioritize the backlog?",
@@ -707,7 +847,9 @@
             "WSJF",
             "Kaizen"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What does the Definition of Ready mean?",
@@ -717,7 +859,9 @@
             "The stakeholders are ready to discuss their requirements for story.",
             "The team has completed sprint 0 and is ready to work."
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which is NOT a principle of the Scaled Agile Framework?",
@@ -727,7 +871,9 @@
             "Take an economic view",
             "Unlock the intrinsic motivation of knowledge workers"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which statement concerning small, frequent releases of software is true?",
@@ -737,7 +883,9 @@
             "Backward compatibility may be jeopardized",
             "The administrative costs are high"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the definition of capacity?",
@@ -747,7 +895,9 @@
             "It is an adjustment to velocity, used in Spring Planning, to account for reduced availability of team members during the upcoming sprint.",
             "It is the maximum number of stories that will be allowed in a sprint."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which action is something the Team Facilitator should not do?",
@@ -757,7 +907,9 @@
             "Remove impediments",
             "Estimate story points."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "The team is complaining that they send request for clarification to the Product Owner, but these requests go unanswered. What action should you take?",
@@ -767,7 +919,9 @@
             "Develop a service-level agree (SLA) that defines certain response times for different types of request and ask the Product Owner to sign off on it.",
             "Schedule a problem-solving session with the Product Owner and the other team members."
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "Which choice is a pillar of Lean?",
@@ -777,7 +931,9 @@
             "Courage",
             "Sustainable pace"
         ],
-        "correctAns": 2
+        "correctAns": 2,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is a user story?",
@@ -787,7 +943,9 @@
             "A report from the field about a user's experience with the product",
             "The Agile term for a requirement"
         ],
-        "correctAns": 4
+        "correctAns": 4,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the expected output of a Planning Poker meeting?",
@@ -797,7 +955,9 @@
             "The team decided what stories should be developed within the same sprint.",
             "The team made a preliminary plan for which stories will be completed in the next quarter."
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     },
     {
         "query": "What is the definition of velocity?",
@@ -807,6 +967,8 @@
             "The average wait time for a story to move from the product backlog to the sprint backlog",
             "The time it takes a developer to complete a story divided by its relative value"
         ],
-        "correctAns": 1
+        "correctAns": 1,
+        "difficulty": null,
+        "optionsAsCode": false
     }
 ]

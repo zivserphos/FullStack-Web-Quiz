@@ -7,6 +7,7 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import "./styles/sign-up.scss";
+import config from "../utils/config/index";
 
 const SignUp = function () {
   const [container, setContainer] = useState<string>("");
@@ -24,7 +25,7 @@ const SignUp = function () {
           <form action="#">
             <h1>Create Account</h1>
             <div className="social-container">
-              <a href="http://localhost:3001/auth/facebook">
+              <a href={`${config.baseUrl}/auth/facebook`}>
                 <div className="social">
                   <FontAwesomeIcon
                     icon={faFacebook}
@@ -32,7 +33,7 @@ const SignUp = function () {
                   />
                 </div>
               </a>
-              <a href="http://localhost:3001/auth/google">
+              <a href={`${config.baseUrl}/auth/google`}>
                 <div className="social">
                   <FontAwesomeIcon
                     icon={faGooglePlusG}
@@ -40,7 +41,7 @@ const SignUp = function () {
                   />
                 </div>
               </a>
-              <a href="http://localhost:3001/auth/linkedin">
+              <a href={`${config.baseUrl}/auth/linkedin`}>
                 <div className="social">
                   <FontAwesomeIcon
                     icon={faLinkedin}
@@ -60,7 +61,7 @@ const SignUp = function () {
           <form action="#">
             <h1>Sign in</h1>
             <div className="social-container">
-              <a href="http://localhost:3001/auth/facebook">
+              <a href={`${config.baseUrl}/auth/facebook`}>
                 <div className="social">
                   <FontAwesomeIcon
                     icon={faFacebook}
@@ -68,7 +69,7 @@ const SignUp = function () {
                   />
                 </div>
               </a>
-              <a href="http://localhost:3001/auth/google">
+              <a href={`${config.baseUrl}/auth/google`}>
                 <div className="social">
                   <FontAwesomeIcon
                     icon={faGooglePlusG}
@@ -76,7 +77,7 @@ const SignUp = function () {
                   />
                 </div>
               </a>
-              <a href="http://localhost:3001/auth/linkedin">
+              <a href={`${config.baseUrl}/auth/linkedin`}>
                 <div className="social">
                   <FontAwesomeIcon
                     icon={faLinkedin}
