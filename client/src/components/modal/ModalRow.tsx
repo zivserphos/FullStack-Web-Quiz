@@ -1,10 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
   faTimes,
-  faSquare,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import setMarginBottom from "./helpers";

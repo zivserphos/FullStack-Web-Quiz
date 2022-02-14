@@ -1,19 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container, Modal, Button } from "react-bootstrap";
 import CheckBox from "../Checkbox/CheckBox";
 
-const ModalQuestion = function ({ question }: { question: Question }) {
+const ModalData = function ({
+  question,
+  onHide,
+}: {
+  question: Question;
+  onHide: () => void;
+}) {
   return (
     <Modal
+      onHide={onHide}
       show
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      fullscreen
-      full
       className="review-modal"
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">Results</Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Question/{question.isCorrect ? "correct" : "not correct"}
+        </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
@@ -23,10 +30,25 @@ const ModalQuestion = function ({ question }: { question: Question }) {
         </Container>
       </Modal.Body>
       <Modal.Footer>
-        <Button>Close</Button>
+        <Button onClick={onHide}>Close</Button>
       </Modal.Footer>
     </Modal>
   );
 };
 
+const ModalQuestion = function ({
+  question,
+  onHide,
+}: {
+  question: Question;
+  onHide: any;
+}) {
+  // const [modalShow, setModalShow] = useState(true);
+
+  return (
+    <div className="review-modal">
+      <ModalData onHide={onHide} question={question} />
+    </div>
+  );
+};
 export default ModalQuestion;

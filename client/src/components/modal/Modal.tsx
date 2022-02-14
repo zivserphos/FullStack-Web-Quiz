@@ -11,11 +11,11 @@ const MydModalWithGrid = function (props: ModalProps) {
   const [extraInfo, setExtraInfo] = useState<number | null>(null);
   const { questions, numOfCorrectAns } = useSelector((state: Quiz) => state);
 
-  // const changeExtraInfo = (i: number) => setExtraInfo(i);
+  const onHide = () => setExtraInfo(null);
+
   return extraInfo ? (
-    <ModalQuestion question={questions[extraInfo]} />
+    <ModalQuestion question={questions[extraInfo]} onHide={onHide} />
   ) : (
-    // <ModalQuestion question={questions[extraInfo]} />
     <Modal
       animation
       {...props}
@@ -26,7 +26,8 @@ const MydModalWithGrid = function (props: ModalProps) {
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
           {`Results: ${numOfCorrectAns}/15`}
-          <div className="scores">{genScores(numOfCorrectAns)}</div>
+          <br />
+          <span className="scores">{genScores(numOfCorrectAns)}</span>
         </Modal.Title>
       </Modal.Header>
       <Modal.Body className="show-grid">

@@ -21,3 +21,10 @@ export const numOfCorrectAns = () => ({
   type: questionsTypes.NUM_OF_CORRECT_ANS,
   payload: {},
 });
+
+export const setIsOnQuiz = (bool: boolean) => ({
+  type: questionsTypes.IS_ON_QUIZ,
+  payload: {
+    bool,
+  },
+});

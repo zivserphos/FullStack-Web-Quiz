@@ -25,10 +25,11 @@ interface Question {
 }
 
 interface QuestionAction {
-  type: "UPDATE_QUIZ" | "UPDATE_QUESTION" | "NUM_OF_CORRECT_ANS";
+  type: "UPDATE_QUIZ" | "UPDATE_QUESTION" | "NUM_OF_CORRECT_ANS" | "IS_ON_QUIZ";
   payload: {
     quiz?: Quiz;
     index?: number;
+    bool: boolean;
     optionSelected?: Option;
   };
 }
@@ -36,4 +37,5 @@ interface QuestionAction {
 interface Quiz {
   questions: Question[];
   numOfCorrectAns: number;
+  isOnQuiz: boolean;
 }

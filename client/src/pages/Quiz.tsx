@@ -20,6 +20,16 @@ const Quiz = function () {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [displayResult, setDisplayResult] = useState<boolean>(false);
 
+  window.onbeforeunload = (event) => {
+    const e = event || window.event;
+    // Cancel the event
+    e.preventDefault();
+    if (e) {
+      e.returnValue = ""; // Legacy method for cross browser support
+    }
+    return ""; // Legacy method for cross browser support
+  };
+
   const sendAns = (optionSelected: Option) => {
     dispatch(updateQuestion(currentQuestion, optionSelected));
     setCurrentQuestion((prev) => prev + 1);
@@ -44,6 +54,7 @@ const Quiz = function () {
           updateQuiz({
             questions: quizQuestions.data,
             numOfCorrectAns: 0,
+            isOnQuiz: true,
           })
         );
         setQuestions(quizQuestions.data || []);
@@ -69,7 +80,7 @@ const Quiz = function () {
       <div>
         <CheckBox
           options={questions[currentQuestion]?.options || ""}
-          sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
+          sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
           prevQuestion={prevQuestion}
