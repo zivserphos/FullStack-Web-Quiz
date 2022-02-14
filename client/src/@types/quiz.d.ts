@@ -19,6 +19,7 @@ interface Question {
   options: string[];
   correctAns: CorrectAns;
   subject?: string;
+  optionSeleceted?: Option;
   isCorrect?: boolean;
   optionsAsCode?: boolean;
 }

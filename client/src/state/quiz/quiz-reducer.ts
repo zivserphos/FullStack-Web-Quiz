@@ -12,6 +12,7 @@ const quizReducer = (state = INITIAL_STATE, action: QuestionAction): Quiz => {
   switch (action.type) {
     case actionTypes.UPDATE_QUIZ:
       const { quiz } = action.payload;
+      console.log("Hey");
       if (!quiz) return state;
       return quiz;
 

@@ -5,8 +5,10 @@ import CheckBox from "../Checkbox/CheckBox";
 const ModalQuestion = function ({ question }: { question: Question }) {
   return (
     <Modal
+      show
       aria-labelledby="contained-modal-title-vcenter"
       centered
+      fullscreen
       className="review-modal"
     >
       <Modal.Header closeButton>

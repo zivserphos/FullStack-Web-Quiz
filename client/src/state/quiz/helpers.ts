@@ -3,6 +3,7 @@ const updateIfCorrect = (
   index: number,
   optionSelected: number
 ): Quiz => {
+  console.log(state.questions[index].correctAns);
   const updatedQuestions = [...state.questions];
   const isCorrect = optionSelected === updatedQuestions[index].correctAns;
   updatedQuestions[index] = { ...updatedQuestions[index], isCorrect };

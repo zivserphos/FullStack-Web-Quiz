@@ -10,10 +10,16 @@
         margin-bottom: -6rem;
         height: 90vh;
         overflow: auto;
-        margin-bottom: 10rem;
+        margin-bottom: 30rem;
     }
     .review-question {
         height: 10vh;
         margin: 1rem;
+    }
+    .extra-info {
+        cursor: pointer;
+    }
+    .extra-info:hover {
+        transform: scale(1.3);
     }
 }
