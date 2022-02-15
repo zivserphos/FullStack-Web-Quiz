@@ -12,7 +12,6 @@ const Home = function () {
       <Grid
         container
         direction="row"
-        // justifyContent="space-between"
         spacing={{ xs: 2, sm: 3, md: 4, lg: 6 }}
         alignItems="streach"
         style={{ height: "100%", width: "100%", minHeight: "280px" }}
