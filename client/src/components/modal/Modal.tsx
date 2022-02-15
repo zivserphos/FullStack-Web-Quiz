@@ -35,6 +35,7 @@ const MydModalWithGrid = function (props: ModalProps) {
           {questions
             ? questions.map((question: Question, i: number) => (
                 <ModalRow
+                  key={question.query}
                   question={question}
                   i={i + 1}
                   openQuestionInfo={setExtraInfo}

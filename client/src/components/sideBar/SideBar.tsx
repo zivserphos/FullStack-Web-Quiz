@@ -76,21 +76,20 @@ const TemporaryDrawer = function ({
     >
       <List>
         {["Home", "About", "Contact-us", "Sign-Up"].map((text) => (
-          <nav>
-            <NavLink
-              className="navLink"
-              to={text === "Home" ? "/" : `/${text}`}
-              onClick={(e) => leaveRouter(e as unknown as Event, "/")}
-            >
-              <ListItem button key={text} className="li-item">
-                <ListItemText
-                  primary={text}
-                  sx={{ fontSize: "1.4rem" }}
-                  classes={{ primary: classes.listItemText }}
-                />
-              </ListItem>
-            </NavLink>
-          </nav>
+          <NavLink
+            key={text}
+            className="navLink"
+            to={text === "Home" ? "/" : `/${text}`}
+            onClick={(e) => leaveRouter(e as unknown as Event, "/")}
+          >
+            <ListItem button key={text} className="li-item">
+              <ListItemText
+                primary={text}
+                sx={{ fontSize: "1.4rem" }}
+                classes={{ primary: classes.listItemText }}
+              />
+            </ListItem>
+          </NavLink>
         ))}
       </List>
     </Box>

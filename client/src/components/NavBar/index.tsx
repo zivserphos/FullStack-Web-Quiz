@@ -49,34 +49,16 @@ const NavBar = function () {
           <TemporaryDrawer closeSideBar={() => setSideBar(false)} />
         ) : (
           <div className="navMenu">
-            <NavLink
-              to="/about"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/about")}
-            >
-              About
-            </NavLink>
-            <NavLink
-              to="/contact-us"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/contact-us")}
-            >
-              Contact-us
-            </NavLink>
-            <NavLink
-              to="/services"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/services")}
-            >
-              Services
-            </NavLink>
-            <NavLink
-              to="/sign-up"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/sign-up")}
-            >
-              Sign Up
-            </NavLink>
+            {["About", "Contact-us", "Services", "Sign-up"].map((text) => (
+              <NavLink
+                key={text}
+                className="navLink"
+                to={`/${text.toLowerCase()}`}
+                onClick={(e) => leaveRouter(e as unknown as Event, "/")}
+              >
+                {text}
+              </NavLink>
+            ))}
           </div>
         )}
       </nav>

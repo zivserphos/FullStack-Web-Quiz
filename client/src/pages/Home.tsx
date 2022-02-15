@@ -18,7 +18,7 @@ const Home = function () {
         style={{ height: "100%", width: "100%", minHeight: "280px" }}
       >
         {quizzesInfo.map((quizInfo) => (
-          <Grid item xs={6} sm={4} md={3} lg={2}>
+          <Grid item xs={6} sm={4} md={3} lg={2} key={quizInfo.subject}>
             <NavLink className="navlink" to={`/${quizInfo.subject}`}>
               <QuizCard
                 logoImg={quizInfo.img}
