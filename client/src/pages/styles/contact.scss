@@ -51,7 +51,7 @@
     .send-button {
         margin-top: 15px;
         // height: 34px;
-        width: 99%;
+        width: 300px;
         overflow: hidden;
         transition: all 0.2s ease-in-out;
     }
@@ -111,6 +111,9 @@
         .gmail {
             margin-left: 3%;
         }
+        .send-button {
+            width: 99%;
+        }
     }
     @media (max-width: 560px) {
         .contact-text {
@@ -127,19 +130,24 @@
         .gmail {
             margin-left: 10%;
         }
+        .send-button {
+            width: 99%;
+        }
     }
 
-    // .place {
-    //     margin-left: 30%;
-    // }
+    @media (min-width: 850px) {
+        .place {
+            margin-left: 20%;
+        }
 
-    // .phone {
-    //     margin-left: 30%;
-    // }
+        .phone {
+            margin-left: 20%;
+        }
 
-    // .gmail {
-    //     margin-left: 30%;
-    // }
+        .gmail {
+            margin-left: 1rem;
+        }
+    }
 
     .contact-text a {
         color: #bbb;

@@ -10,15 +10,15 @@ import "./side-bar.scss";
 
 const useStyles = makeStyles({
   listItemText: {
-    fontSize: "1.4rem",
-    color: "white",
+    fontSize: "1.4rem !important",
+    color: "white !important",
     textAlign: "center",
   },
   fullList: {
-    width: "auto",
+    width: "auto !important",
   },
   paper: {
-    background: "#2a2e39",
+    background: "#2a2e39 !important",
   },
 });
 
@@ -79,7 +79,7 @@ const TemporaryDrawer = function ({
   );
 
   return (
-    <div style={{ background: "black" }}>
+    <div>
       <React.Fragment key="left">
         <Drawer
           anchor="left"
