@@ -49,16 +49,18 @@ const NavBar = function () {
           <TemporaryDrawer closeSideBar={() => setSideBar(false)} />
         ) : (
           <div className="navMenu">
-            {["About", "Contact-us", "Services", "Sign-up"].map((text) => (
-              <NavLink
-                key={text}
-                className="navLink"
-                to={`/${text.toLowerCase()}`}
-                onClick={(e) => leaveRouter(e as unknown as Event, "/")}
-              >
-                {text}
-              </NavLink>
-            ))}
+            {["About", "Contact-us", "Services", "Sign-up", "Dashboard"].map(
+              (text) => (
+                <NavLink
+                  key={text}
+                  className="navLink"
+                  to={`/${text.toLowerCase()}`}
+                  onClick={(e) => leaveRouter(e as unknown as Event, "/")}
+                >
+                  {text}
+                </NavLink>
+              )
+            )}
           </div>
         )}
       </nav>
