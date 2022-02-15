@@ -32,7 +32,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(express.static(path.resolve("../client/build")));
+app.use(express.static(path.resolve("./client")));
 app.use("/auth", AuthRouter);
 app.use("/api", ApiRouter);
 app.use("/email", EmailRouter);
