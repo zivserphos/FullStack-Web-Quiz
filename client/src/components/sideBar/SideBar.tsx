@@ -5,8 +5,11 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@mui/material/ListItemText";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./side-bar.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { confirmAlert } from "../../utils/alerts";
+import { setIsOnQuiz } from "../../state/quiz/quiz-actions";
 
 const useStyles = makeStyles({
   listItemText: {
@@ -28,6 +31,9 @@ const TemporaryDrawer = function ({
   closeSideBar: () => void;
 }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isOnQuiz } = useSelector((state: Quiz) => state);
   const [state, setState] = React.useState({
     left: true,
   });
@@ -49,6 +55,17 @@ const TemporaryDrawer = function ({
       setState({ ...state, left: open });
     };
 
+  const leaveRouter = async (e: Event, link: string) => {
+    if (isOnQuiz) {
+      e.preventDefault();
+      const confirm = await confirmAlert();
+      if (confirm) {
+        dispatch(setIsOnQuiz(false));
+        navigate(link);
+      }
+    }
+  };
+
   const list = () => (
     <Box
       sx={{ width: 250 }}
@@ -63,6 +80,7 @@ const TemporaryDrawer = function ({
             <NavLink
               className="navLink"
               to={text === "Home" ? "/" : `/${text}`}
+              onClick={(e) => leaveRouter(e as unknown as Event, "/")}
             >
               <ListItem button key={text} className="li-item">
                 <ListItemText
