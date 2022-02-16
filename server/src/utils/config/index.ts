@@ -7,6 +7,7 @@ export default {
   dbUrl: process.env.MONGO_URI || "",
   secret: process.env.SECRET || "secret",
   accessTime: process.env.ACCESS_TIME || "5m",
+  refreshTime: process.env.REFRESH_TOKEN || "30m",
   googleSecret: process.env.GOOGLE_CLIENT_SECRET || "",
   googleClientId: process.env.GOOGLE_CLIENT_ID || "",
   facebookClientId: process.env.FACEBOOK_CLIENT_ID || "",

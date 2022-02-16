@@ -5,4 +5,11 @@ declare global {
     }
   }
 }
+
+declare global {
+  interface ValidLogin {
+    accessToken: string;
+    refreshToken: string;
+  }
+}
 export {};
