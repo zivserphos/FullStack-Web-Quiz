@@ -7,7 +7,7 @@ import {
 } from "passport-google-oauth20";
 import config from "../index";
 import User from "../../../db/models/User";
-import signUp from "../../../services/auth";
+import Auth from "../../../services/auth";
 
 passport.use(
   new GoogleStrategy(
@@ -26,7 +26,7 @@ passport.use(
       const email = profile.emails[0].value;
       const user = await User.findOne({ email });
       if (!user) {
-        const newUser = await signUp({
+        const newUser = await Auth.signUpWithPassport({
           firstName: profile.name?.givenName || "",
           lastName: profile.name?.familyName || "",
           email,
