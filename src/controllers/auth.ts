@@ -1,10 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { Handler } from "express";
-import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
 import AuthService from "../services/auth";
-import User from "../db/models/User";
-import config from "../utils/config/index";
 
 export const logout: Handler = async (req, res, next) => {
   if (!req.user) return res.redirect("/");
@@ -16,29 +12,16 @@ export const logout: Handler = async (req, res, next) => {
   return res.redirect("/sign-up");
 };
 
-const login: Handler = async (req, res) => {
-  const { userName, password } = req.body;
-  const user = await User.findOne({ userName });
-  const passwordCorrect =
-    user === null ? false : await bcrypt.compare(password, user.hashPassword);
+const login: Handler = (_req, res) => res.redirect("/");
 
-  if (!(user && passwordCorrect)) {
-    return res.status(401).json({
-      error: "invalid username or password",
-    });
+const loginJWT: Handler = async (req, res, next) => {
+  const { email, password } = req.body;
+  try {
+    const tokens = await AuthService.login(email, password);
+    return res.status(200).send(tokens).redirect("/");
+  } catch (err) {
+    return next(err);
   }
-
-  const userForToken = {
-    username: user.username,
-    id: user._id,
-  };
-
-  const token = jwt.sign(userForToken, config.secret);
-
-  return res
-    .status(200)
-    .send({ token, username: user.username, name: user.name, id: user._id })
-    .redirect("/");
 };
 
-export default { logout, login };
+export default { logout, login, loginJWT };

@@ -3,7 +3,6 @@ import GoogleRouter from "./auth/googleRouter";
 import FacebookRouter from "./auth/facebookRouter";
 import LinkedinRouter from "./auth/linkedinRouter";
 import Auth from "../controllers/auth";
-// import jwtAuth from "../controllers/auth/jwt";
 
 const router = Router();
 
@@ -11,7 +10,7 @@ router.use("/google", GoogleRouter);
 router.use("/linkedin", LinkedinRouter);
 router.use("/facebook", FacebookRouter);
 
-router.post("/login", Auth.login);
+router.post("/login", Auth.loginJWT);
 router.delete("/logout", Auth.logout);
 
 router.get("/failed", (_req, res) => res.send("authentication failed"));
