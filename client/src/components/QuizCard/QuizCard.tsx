@@ -20,12 +20,18 @@ const QuizCard = function ({
         <CardMedia
           component="img"
           style={{ aspectRatio: "1", objectFit: "unset" }}
-          height="100%"
+          // height="100%"
           image={logoImg}
           alt={`${subject} logo`}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            fontSize={subject.length > 10 ? 18.5 : 25}
+            component="div"
+            className="fonty"
+          >
             {subject}
           </Typography>
           <Typography variant="body2" color="text.secondary">

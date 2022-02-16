@@ -72,6 +72,18 @@ import wordpress from "./images/wordpress.png";
 import xml from "./images/xml.png";
 
 export default {
+  nodejs,
+  mysql,
+  javascript,
+  react,
+  angular,
+  python,
+  html,
+  aws,
+  css,
+  java,
+  linux,
+  mongodb,
   accounting,
   adobe_acrobat,
   adobe_illustrator,
@@ -79,14 +91,11 @@ export default {
   adobe_premiere,
   agile,
   android,
-  angular,
   autocad,
-  aws,
   azure,
   bash,
   c_plusplus,
   c_sharp,
-  css,
   cyberSecurity,
   django,
   dotnet,
@@ -97,15 +106,11 @@ export default {
   google_ads,
   google_analytics,
   google_cloud,
-  html,
   IT,
-  java,
-  javascript,
   jquery,
   json,
   kotlin,
   lambda,
-  linux,
   machine_learning,
   matlab,
   maven,
@@ -117,18 +122,13 @@ export default {
   microsoftVba,
   microsoftVision,
   microsoftWord,
-  mongodb,
-  mysql,
-  nodejs,
   nosql,
   objC,
   oop,
   outlook,
   php,
-  python,
   quickBooks,
   rails,
-  react,
   restApi,
   rProgramming,
   rust,
@@ -145,4 +145,40 @@ export default {
   xml,
 };
 
-export {};
+// { subject: "accounting", img: accounting, description: "" },
+// {
+//   subject: "acrobat",
+//   img: adobe_acrobat,
+//   description:
+//     "Adobe Acrobat is a family of application software and Web services developed by Adobe Inc. to view, create, manipulate, print and manage Portable Document Format (PDF) files",
+// },
+// {
+//   subject: "illistrator",
+//   img: adobe_illustrator,
+//   description:
+//     "Adobe Illustrator is a vector graphics editor and design program developed and marketed by Adobe Inc.",
+// },
+// {
+//   subject: "ad-photoshop",
+//   img: adobe_photoshop,
+//   description:
+//     "Adobe Photoshop is a raster graphics editor developed and published by Adobe Inc",
+// },
+// {
+//   subject: "adobe premiere",
+//   img: adobe_premiere,
+//   description:
+//     "Adobe Premiere Pro is a timeline-based video editing software application developed by Adobe Inc.",
+// },
+// {
+//   subject: "agile",
+//   img: agile,
+//   description:
+//     "continuous incremental improvement through small and frequent releases",
+// },
+// {
+//   subject: "android",
+//   img: android,
+//   description:
+//     "mobile operating system based on a modified version of the Linux kernel and other open source software, designed primarily for touchscreen mobile",
+// },

@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { NavLink } from "react-router-dom";
-import QuizCard from "../components/QuizCard";
+import QuizCard from "../components/QuizCard/QuizCard";
 import quizzesInfo from "../utils/quizzesInfo";
 import "./styles/home.scss";
 
@@ -22,7 +22,7 @@ const Home = function () {
               <QuizCard
                 logoImg={quizInfo.img}
                 subject={quizInfo.subject}
-                description="lurem ipsum lurm ipsum"
+                description=""
               />
             </NavLink>
           </Grid>
