@@ -1,5 +1,15 @@
 import { NewUser, UserInt } from "../types/user";
 import User from "../db/models/User";
+import bcryptService from "./bcrypt";
+
+const badRequest = (cause: string) => ({
+  status: 400,
+  message: { error: cause },
+});
+const conflict = (cause: string) => ({
+  status: 409,
+  message: { error: cause },
+});
 
 const signUp = async ({
   firstName,
@@ -18,6 +28,26 @@ const signUp = async ({
     password,
   });
   return user;
+};
+
+export const createUser = async (
+  name: string,
+  userName: string,
+  password: string
+) => {
+  if (!userName || !name || !password) {
+    throw badRequest("missing parameters");
+  }
+  if (userName.trim().length < 3 || password.trim().length < 3) {
+    throw badRequest("Username or password too short");
+  }
+
+  if (await User.findOne({ userName }))
+    throw conflict("userName already exist");
+  const hashPassword = await bcryptService.genHashPass(password);
+  const newUser = new User({ name, userName, hashPassword });
+  const result = await newUser.save();
+  // res.status(201).send(result);
 };
 
 export default signUp;
