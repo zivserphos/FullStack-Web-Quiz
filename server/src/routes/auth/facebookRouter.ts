@@ -1,6 +1,6 @@
 import { Router } from "express";
 import passport from "passport";
-import { signIn, logout } from "../../controllers/auth";
+import Auth from "../../controllers/auth";
 
 const router = Router();
 
@@ -12,9 +12,7 @@ router.get(
 router.get(
   "/callback",
   passport.authenticate("facebook", { failureRedirect: "auth/failed" }),
-  signIn
+  Auth.login
 );
-
-router.get("/logout", logout);
 
 export default router;

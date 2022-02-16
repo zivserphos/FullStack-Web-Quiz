@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 import accounting from "./images/accounting.png";
 import adobe_acrobat from "./images/adobe-acrobat.png";

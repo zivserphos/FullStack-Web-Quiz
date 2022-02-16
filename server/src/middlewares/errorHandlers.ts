@@ -11,9 +11,11 @@ const errorHandler: ErrorRequestHandler = (
   res,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _next
-) =>
-  "status" in err
+) => {
+  console.log(err);
+  return "status" in err
     ? res.status(err.status).send(err.message)
     : res.status(500).send("internal serverError");
+};
 
 export default errorHandler;

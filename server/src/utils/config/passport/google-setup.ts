@@ -5,9 +5,10 @@ import {
   Strategy as GoogleStrategy,
   VerifyCallback,
 } from "passport-google-oauth20";
+import { nanoid } from "nanoid";
 import config from "../index";
 import User from "../../../db/models/User";
-import signUp from "../../../services/auth";
+import Auth from "../../../services/auth";
 
 passport.use(
   new GoogleStrategy(
@@ -26,11 +27,11 @@ passport.use(
       const email = profile.emails[0].value;
       const user = await User.findOne({ email });
       if (!user) {
-        const newUser = await signUp({
-          firstName: profile.name?.givenName || "",
-          lastName: profile.name?.familyName || "",
+        const newUser = await Auth.signUpWithPassport({
+          first_name: profile.name?.givenName || "",
+          last_name: profile.name?.familyName || "",
           email,
-          password: "ggggg",
+          password: nanoid().slice(8),
         });
         return done(null, newUser);
       }
