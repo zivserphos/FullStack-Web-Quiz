@@ -21,8 +21,8 @@ passport.use(
         console.log("linkedin");
         if (!user) {
           const newUser = await Auth.signUpWithPassport({
-            firstName: profile.name?.givenName || "",
-            lastName: profile.name?.familyName || "",
+            first_name: profile.name?.givenName || "",
+            last_name: profile.name?.familyName || "",
             email,
             password: nanoid().slice(8),
           });

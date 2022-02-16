@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-throw-literal */
 /* eslint-disable no-shadow */
 import jwt from "jsonwebtoken";
@@ -20,8 +21,11 @@ const login = async (email: string, password: string): Promise<ValidLogin> => {
   const user: UserInt | null = await UserModel.findOne({ email });
 
   if (!user) throw { status: 400, message: "No such email or username" };
-  if (!(await bcryptService.compreHashPASS(user.password, password)))
-    throw { status: 400, message: "Bad password" };
+  const correctPassword = await bcryptService.compreHashPASS(
+    user.password,
+    password
+  );
+  if (!correctPassword) throw { status: 400, message: "Bad password" };
 
   const userId = user.id;
 
@@ -47,8 +51,8 @@ const logout = async (userId: string): Promise<boolean> => {
 };
 
 const signUpWithPassport = async ({
-  firstName,
-  lastName,
+  first_name,
+  last_name,
   email,
   password,
 }: NewUser): Promise<UserInt> => {
@@ -58,30 +62,37 @@ const signUpWithPassport = async ({
   const hashPassword = await bcryptService.genHashPass(password);
 
   const user: UserInt = await UserModel.create({
-    first_name: firstName,
-    last_name: lastName,
+    first_name,
+    last_name,
     email,
     password: hashPassword,
   });
   return user;
 };
 
-const signUpJWT = async (email: string, username: string, password: string) => {
-  if (!username || !email || !password) {
+const signUpJWT = async ({
+  first_name,
+  last_name,
+  email,
+  password,
+}: NewUser) => {
+  if (!first_name || !last_name || !email || !password) {
     throw badRequest("missing parameters");
   }
-  if (username.trim().length < 3 || password.trim().length < 3) {
-    throw badRequest("Username or password too short");
+  if (password.trim().length < 3) {
+    throw badRequest("password too short");
   }
   if (!validator.validate(email)) throw badRequest("Invalid email");
   const exists = await UserModel.find({ email });
   if (exists.length > 0) throw conflict("email already exists");
 
   const hashPassword = await bcryptService.genHashPass(password);
+
   const user: UserInt = await UserModel.create({
-    username,
+    first_name,
+    last_name,
     email,
-    passwrod: hashPassword,
+    password: hashPassword,
   });
   return user;
 };
