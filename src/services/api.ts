@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import fs from "fs";
 
 const genQuestions = (subject: string, limit: number) => {
@@ -6,7 +7,7 @@ const genQuestions = (subject: string, limit: number) => {
   );
 
   const fileCopy = [...contentFile];
-  const quiz = [];
+  const quiz: Question[] = [];
   for (let i = 0; i < limit; i += 1) {
     const randomNum = Math.floor(Math.random() * fileCopy.length);
     quiz.push(fileCopy[randomNum]);

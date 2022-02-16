@@ -11,8 +11,7 @@ router.use("/google", GoogleRouter);
 router.use("/linkedin", LinkedinRouter);
 router.use("/facebook", FacebookRouter);
 
-router.get("/signIn", cookieAuth.signIn);
-router.get("/logout", cookieAuth.logout);
+router.delete("/logout", cookieAuth.logout);
 
 router.get("/failed", (_req, res) => res.send("authentication failed"));
 
