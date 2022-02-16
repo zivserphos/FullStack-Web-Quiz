@@ -46,7 +46,7 @@ export const createUser = async (
     throw conflict("userName already exist");
   const hashPassword = await bcryptService.genHashPass(password);
   const newUser = new User({ name, userName, hashPassword });
-  const result = await newUser.save();
+  return newUser.save();
   // res.status(201).send(result);
 };
 
