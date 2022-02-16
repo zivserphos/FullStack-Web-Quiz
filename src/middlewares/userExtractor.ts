@@ -14,7 +14,7 @@ const userExtractor: Handler = async (req, _res, next) => {
     if (req.token) {
       const id = jwt.verify(req.token, config.secret);
       const user = await User.findById(id);
-      req.user = user.userName;
+      req.email = user.email;
     }
   } catch (err) {
     if (err instanceof JsonWebTokenError) next(jwtError);

@@ -5,6 +5,7 @@ import {
   Strategy as GoogleStrategy,
   VerifyCallback,
 } from "passport-google-oauth20";
+import { nanoid } from "nanoid";
 import config from "../index";
 import User from "../../../db/models/User";
 import Auth from "../../../services/auth";
@@ -30,7 +31,7 @@ passport.use(
           firstName: profile.name?.givenName || "",
           lastName: profile.name?.familyName || "",
           email,
-          password: "ggggg",
+          password: nanoid().slice(8),
         });
         return done(null, newUser);
       }

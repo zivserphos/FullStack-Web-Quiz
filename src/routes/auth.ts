@@ -2,7 +2,7 @@ import { Router } from "express";
 import GoogleRouter from "./auth/googleRouter";
 import FacebookRouter from "./auth/facebookRouter";
 import LinkedinRouter from "./auth/linkedinRouter";
-import cookieAuth from "../controllers/auth/passport";
+import Auth from "../controllers/auth";
 // import jwtAuth from "../controllers/auth/jwt";
 
 const router = Router();
@@ -11,7 +11,8 @@ router.use("/google", GoogleRouter);
 router.use("/linkedin", LinkedinRouter);
 router.use("/facebook", FacebookRouter);
 
-router.delete("/logout", cookieAuth.logout);
+router.post("/login", Auth.login);
+router.delete("/logout", Auth.logout);
 
 router.get("/failed", (_req, res) => res.send("authentication failed"));
 
