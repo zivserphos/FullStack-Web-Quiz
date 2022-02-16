@@ -1,5 +1,6 @@
 import passport from "passport";
 import { Strategy as LinkedinStrategy } from "passport-linkedin-oauth2";
+import { nanoid } from "nanoid";
 import config from "../index";
 import User from "../../../db/models/User";
 import Auth from "../../../services/auth";
@@ -17,12 +18,13 @@ passport.use(
         if (!profile.emails) return done("linkedin authentication failed");
         const email = profile.emails[0].value;
         const user = await User.findOne({ email });
+        console.log("linkedin");
         if (!user) {
           const newUser = await Auth.signUpWithPassport({
             firstName: profile.name?.givenName || "",
             lastName: profile.name?.familyName || "",
             email,
-            password: "ggggg",
+            password: nanoid().slice(8),
           });
           return done(null, newUser);
         }

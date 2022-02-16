@@ -11,3 +11,12 @@ Content-Type: application/json
     "email": "shalom@gmail.com",
     "message": "im here guys"
 }
+
+###
+POST  http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+    "email": "zivfromisrael@gmail.com",
+    "password": "gggg"
+}

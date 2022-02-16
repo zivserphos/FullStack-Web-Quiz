@@ -61,7 +61,7 @@ const signUpWithPassport = async ({
     first_name: firstName,
     last_name: lastName,
     email,
-    hashPassword,
+    password: hashPassword,
   });
   return user;
 };
@@ -81,10 +81,9 @@ const signUpJWT = async (email: string, username: string, password: string) => {
   const user: UserInt = await UserModel.create({
     username,
     email,
-    hashPassword,
+    passwrod: hashPassword,
   });
   return user;
-  // res.status(201).send(result);
 };
 
 export default {
