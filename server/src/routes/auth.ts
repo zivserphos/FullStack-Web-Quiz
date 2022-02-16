@@ -11,6 +11,7 @@ router.use("/linkedin", LinkedinRouter);
 router.use("/facebook", FacebookRouter);
 
 router.post("/login", Auth.loginJWT);
+router.post("/sign-up", Auth.signUp);
 router.delete("/logout", Auth.logout);
 
 router.get("/failed", (_req, res) => res.send("authentication failed"));

@@ -1,8 +1,8 @@
 declare global {
   interface UserInt {
     id: string;
-    firstName?: string;
-    lastName?: string;
+    first_name;
+    last_name;
     email: string;
     password: string;
     verifiedEmail?: boolean;
