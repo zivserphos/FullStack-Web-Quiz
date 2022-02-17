@@ -17,6 +17,8 @@ const Quiz = function () {
   const navigate = useNavigate();
   const { subject } = useParams();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [displayQuestionIndex, setDisplayQuestionIndex] =
+    useState<boolean>(true);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [displayResult, setDisplayResult] = useState<boolean>(false);
 
@@ -41,6 +43,7 @@ const Quiz = function () {
   };
 
   const sendQuiz = () => {
+    setDisplayQuestionIndex(false);
     dispatch(numOfCorrectAns()); // update correct answers globally
     setDisplayResult(true);
   };
@@ -80,12 +83,18 @@ const Quiz = function () {
         <CheckBox
           correctAns={questions[currentQuestion]?.correctAns}
           options={questions[currentQuestion]?.options || ""}
-          sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
+          sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
           prevQuestion={prevQuestion}
           asQuestion
         />
+        <h1
+          className="current-question"
+          style={{ display: displayQuestionIndex ? "block" : "none" }}
+        >
+          Q. {currentQuestion + 1}/15
+        </h1>
         <div style={{ display: displayResult ? "block" : "none" }}>
           {displayResult ? <MyModal /> : ""}
         </div>

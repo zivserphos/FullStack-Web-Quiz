@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-restricted-globals */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
@@ -27,10 +27,6 @@ const NavBar = function () {
       }
     }
   };
-
-  // useEffect(() => {
-  //   console.log("is on quiz use effecct");
-  // }, [isOnQuiz]);
 
   return (
     <div className="navBar">
