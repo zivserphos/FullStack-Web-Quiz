@@ -1,4 +1,15 @@
 import fs from "fs";
+import QuizModel from "../db/models/Quiz";
+
+const sendQuiz = async (quiz: Quiz, userEmail: string) => {
+  const userId = await QuizModel.find({ email: userEmail });
+  await QuizModel.create({
+    userId,
+    result: quiz.result,
+    subject: quiz.subject,
+    questions: quiz.questions,
+  });
+};
 
 const genQuestions = (subject: string, limit: number) => {
   const contentFile = JSON.parse(
@@ -19,4 +30,4 @@ const genQuiz = (subject: string) => genQuestions(subject, 15);
 const genCustom = (subject: string, limit: number) =>
   genQuestions(subject, limit);
 
-export default { genQuiz, genCustom };
+export default { genQuiz, genCustom, sendQuiz };

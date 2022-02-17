@@ -13,7 +13,7 @@ export const logout: Handler = async (req, res, next) => {
   return res.redirect("/sign-up");
 };
 
-const login: Handler = (_req, res) => res.redirect("/");
+const login: Handler = (_req, res) => res.redirect("http://localhost:3000");
 
 const loginJWT: Handler = async (req, res, next) => {
   const { email, password } = req.body;

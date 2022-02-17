@@ -7,24 +7,20 @@ const QuizSchema: Schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  difficulty: {
-    type: String,
-    enum: ["Easy", "Medium", "Hard"],
-  },
-  num_of_questions: {
-    type: Number,
-  },
   result: {
     type: Number,
   },
-  time: {
-    type: String,
-    default: "",
-  },
+  questions: [
+    {
+      type: Object,
+      default: "",
+    },
+  ],
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     default: "",
+    required: true,
   },
 });
 
