@@ -23,7 +23,7 @@ const auth_1 = __importDefault(require("../../../services/auth"));
 passport_1.default.use(new passport_google_oauth20_1.Strategy({
     clientID: index_1.default.googleClientId,
     clientSecret: index_1.default.googleSecret,
-    callbackURL: "http://localhost:3001/auth/google/callback",
+    callbackURL: "/auth/google/callback",
 }, (_accessToken, _refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     if (!profile.emails)
