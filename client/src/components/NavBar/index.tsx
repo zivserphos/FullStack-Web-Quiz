@@ -28,9 +28,9 @@ const NavBar = function () {
     }
   };
 
-  useEffect(() => {
-    console.log("is on quiz use effecct");
-  }, [isOnQuiz]);
+  // useEffect(() => {
+  //   console.log("is on quiz use effecct");
+  // }, [isOnQuiz]);
 
   return (
     <div className="navBar">

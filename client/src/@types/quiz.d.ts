@@ -10,6 +10,8 @@ interface CheckBoxProps {
   index?: number;
   optionsAsCode?: boolean;
   prevQuestion?: (optionSelected: Option) => void;
+  asQuestion?: boolean;
+  correctAns?: CorrectAns;
 }
 
 interface Question {
@@ -28,7 +30,7 @@ interface QuestionAction {
   type: "UPDATE_QUIZ" | "UPDATE_QUESTION" | "NUM_OF_CORRECT_ANS" | "IS_ON_QUIZ";
   payload: {
     quiz?: Quiz;
-    index?: number;
+    index?: Option;
     bool: boolean;
     optionSelected?: Option;
   };

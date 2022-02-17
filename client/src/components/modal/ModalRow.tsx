@@ -8,6 +8,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import setMarginBottom from "./helpers";
+import "./modal.scss";
 
 const ModalRow = function ({
   question,
@@ -25,6 +26,7 @@ const ModalRow = function ({
         display: "flex",
         marginBottom: setMarginBottom(question.query.length),
       }}
+      id="review-question"
     >
       <div>
         <Col xs={12}>
@@ -36,7 +38,7 @@ const ModalRow = function ({
               }}
             />
           </b>
-          <b>{`Q${i}. ${question.query}`}</b>
+          <b>{`Q${i + 1}. ${question.query}`}</b>
           <FontAwesomeIcon
             icon={faInfoCircle}
             className="extra-info"

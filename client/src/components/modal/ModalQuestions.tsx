@@ -9,6 +9,7 @@ const ModalData = function ({
   question: Question;
   onHide: () => void;
 }) {
+  console.log(question);
   return (
     <Modal
       onHide={onHide}
@@ -35,7 +36,12 @@ const ModalData = function ({
             <h2>{question?.code || ""}</h2>
           )}
 
-          <CheckBox options={question?.options || ""} displayAns={2} />
+          <CheckBox
+            options={question?.options || ""}
+            displayAns={2}
+            asQuestion={false}
+            correctAns={question.correctAns}
+          />
         </Container>
       </Modal.Body>
       <Modal.Footer>

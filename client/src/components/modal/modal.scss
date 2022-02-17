@@ -12,10 +12,17 @@
         overflow: auto;
         margin-bottom: 30rem;
     }
-    .review-question {
-        height: 10vh;
-        margin: 1rem;
+
+    @media (max-width: 500px) {
+        #review-question {
+            height: 10vh;
+        }
+
+        .modal-content {
+            margin-bottom: 39rem;
+        }
     }
+
     .extra-info {
         cursor: pointer;
     }

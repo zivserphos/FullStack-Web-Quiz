@@ -80,11 +80,13 @@ const Quiz = function () {
       </div>
       <div>
         <CheckBox
+          correctAns={questions[currentQuestion]?.correctAns}
           options={questions[currentQuestion]?.options || ""}
           sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
           prevQuestion={prevQuestion}
+          asQuestion
         />
         <div style={{ display: displayResult ? "block" : "none" }}>
           {displayResult ? <MyModal /> : ""}

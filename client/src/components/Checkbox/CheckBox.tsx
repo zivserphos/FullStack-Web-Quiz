@@ -1,21 +1,30 @@
+/* eslint-disable consistent-return */
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./checkbox.scss";
 import isValidOption from "./helpers";
 
 const CheckBox = function ({
   options,
   sendAns,
-  displayAns,
   index,
   optionsAsCode,
   prevQuestion,
+  asQuestion,
+  correctAns,
 }: CheckBoxProps) {
   const [optionSelected, setOptionSelected] = useState<Option>(0);
+  const { questions } = useSelector((state: Quiz) => state);
 
   useEffect(() => {
-    setOptionSelected(displayAns || 0);
-  }, [displayAns, options]);
+    console.log(correctAns, index);
+    setOptionSelected(0);
+    if (index) return setOptionSelected(questions[index].optionSeleceted || 0);
+    if (!asQuestion && correctAns) return setOptionSelected(correctAns);
+  }, [asQuestion, correctAns, index, options, questions]);
+
+  useEffect;
 
   const chooseAns = (target: HTMLInputElement) => {
     const option = Number(target.name);
@@ -30,8 +39,9 @@ const CheckBox = function ({
             id="option1"
             name="1"
             type="checkbox"
-            checked={optionSelected === 1}
-            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+            checked={asQuestion ? optionSelected === 1 : correctAns === 1}
+            readOnly={!asQuestion}
+            onChange={(e) => chooseAns(e.target as HTMLInputElement)}
           />
           <span>
             {optionsAsCode ? (
@@ -58,8 +68,9 @@ const CheckBox = function ({
             id="option2"
             name="2"
             type="checkbox"
-            checked={optionSelected === 2}
-            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+            checked={asQuestion ? optionSelected === 2 : correctAns === 2}
+            readOnly={asQuestion}
+            onChange={(e) => chooseAns(e.target as HTMLInputElement)}
           />
           <span>{options[1]}</span>
           <div className="flipBox_boxOuter">
@@ -80,8 +91,9 @@ const CheckBox = function ({
             id="option3"
             type="checkbox"
             name="3"
-            checked={optionSelected === 3}
-            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+            checked={asQuestion ? optionSelected === 3 : correctAns === 3}
+            readOnly={asQuestion}
+            onChange={(e) => chooseAns(e.target as HTMLInputElement)}
           />
           <span>{options[2]}</span>
           <div className="flipBox_boxOuter">
@@ -101,8 +113,9 @@ const CheckBox = function ({
             id="option4"
             name="4"
             type="checkbox"
-            checked={optionSelected === 4}
-            onClick={(e) => chooseAns(e.target as HTMLInputElement)}
+            checked={asQuestion ? optionSelected === 4 : correctAns === 4}
+            readOnly={asQuestion}
+            onChange={(e) => chooseAns(e.target as HTMLInputElement)}
           />
           <span>{options[3]}</span>
           <div className="flipBox_boxOuter">
@@ -117,7 +130,10 @@ const CheckBox = function ({
           </div>
           <div className="flipBox_shadow" />
         </label>
-        <div className="send-ans">
+        <div
+          className="send-ans"
+          style={{ display: asQuestion ? "flex" : "none" }}
+        >
           {index ? (
             <Button
               variant="contained"
