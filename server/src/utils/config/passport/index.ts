@@ -9,6 +9,8 @@ passport.serializeUser((user: Express.User, done) => {
 });
 
 passport.deserializeUser(async (id: string, done) => {
+  console.log(id);
   const user = await User.findById(id);
+
   done(null, user || null);
 });

@@ -5,6 +5,7 @@ import morgan from "morgan";
 import passport from "passport";
 import path from "path";
 import cookieSession from "cookie-session";
+// import session from "express-session";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
 import AuthRouter from "./routes/auth";
@@ -33,6 +34,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.resolve("./client")));
+// app.use("/", tokenExtractor);
+// app.use("/", userExtractor);
 app.use("/auth", AuthRouter);
 app.use("/api", ApiRouter);
 app.use("/email", EmailRouter);

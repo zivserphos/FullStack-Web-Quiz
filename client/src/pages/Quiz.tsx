@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
@@ -9,6 +9,7 @@ import {
   updateQuiz,
   numOfCorrectAns,
   updateQuestion,
+  setIsOnQuiz,
 } from "../state/quiz/quiz-actions";
 import config from "../utils/config/index";
 
@@ -21,6 +22,7 @@ const Quiz = function () {
     useState<boolean>(true);
   const [questions, setQuestions] = useState<Question[]>([]);
   const [displayResult, setDisplayResult] = useState<boolean>(false);
+  const quiz = useSelector((state: Quiz) => state);
 
   window.onbeforeunload = (event) => {
     const e = event || window.event;
@@ -42,10 +44,26 @@ const Quiz = function () {
     setCurrentQuestion((prev) => prev - 1);
   };
 
-  const sendQuiz = () => {
+  const sendQuiz = async () => {
     setDisplayQuestionIndex(false);
     dispatch(numOfCorrectAns()); // update correct answers globally
+    dispatch(setIsOnQuiz(false));
     setDisplayResult(true);
+    await axios.post(
+      `${config.baseUrl}/api/send-quiz`,
+      {
+        quiz: {
+          questions: quiz.questions.slice(4),
+          result: 5,
+          subject,
+        },
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
   };
 
   useEffect(() => {
@@ -83,7 +101,7 @@ const Quiz = function () {
         <CheckBox
           correctAns={questions[currentQuestion]?.correctAns}
           options={questions[currentQuestion]?.options || ""}
-          sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
+          sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
           prevQuestion={prevQuestion}
