@@ -7,7 +7,8 @@ passport.use(
     {
       clientID: config.facebookClientId,
       clientSecret: config.facebookSecret,
-      callbackURL: "/auth/facebook/callback",
+      callbackURL:
+        "https://linkedin-quizzes.herokuapp.com/auth/facebook/callback",
     },
     (_accessToken, _refreshToken, profile, done) =>
       /*
