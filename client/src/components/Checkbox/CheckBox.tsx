@@ -18,7 +18,6 @@ const CheckBox = function ({
   const { questions } = useSelector((state: Quiz) => state);
 
   useEffect(() => {
-    console.log(correctAns, index);
     setOptionSelected(0);
     if (index) return setOptionSelected(questions[index].optionSeleceted || 0);
     if (!asQuestion && correctAns) return setOptionSelected(correctAns);

@@ -47,9 +47,7 @@ const Quiz = function () {
 
   useEffect(() => {
     const initialQuiz = async () => {
-      console.log(config.baseUrl);
       const quizQuestions = await axios.get(`${config.baseUrl}/api/${subject}`);
-      console.log(quizQuestions.data.length);
       if (quizQuestions.data.length === 15) {
         dispatch(
           updateQuiz({

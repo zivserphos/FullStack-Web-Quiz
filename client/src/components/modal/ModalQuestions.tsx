@@ -9,7 +9,6 @@ const ModalData = function ({
   question: Question;
   onHide: () => void;
 }) {
-  console.log(question);
   return (
     <Modal
       onHide={onHide}
