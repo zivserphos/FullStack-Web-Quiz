@@ -9,7 +9,7 @@ const index_1 = __importDefault(require("../index"));
 passport_1.default.use(new passport_facebook_1.Strategy({
     clientID: index_1.default.facebookClientId,
     clientSecret: index_1.default.facebookSecret,
-    callbackURL: "/auth/facebook/callback",
+    callbackURL: "https://linkedin-quizzes.herokuapp.com/auth/facebook/callback",
 }, (_accessToken, _refreshToken, profile, done) => 
 /*
 use the profile info (mainly profile id) to check if the user is registerd in ur db
