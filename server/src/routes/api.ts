@@ -8,7 +8,6 @@ const router = Router();
 
 router.get("/aaaa", (_req, res) => {
   passport.deserializeUser(async (id: string, done) => {
-    console.log("desiraus");
     const user = await User.findById(id);
 
     done(null, user || null);

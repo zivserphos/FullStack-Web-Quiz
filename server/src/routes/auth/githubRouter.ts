@@ -6,12 +6,12 @@ const router = Router();
 
 router.get(
   "/",
-  passport.authenticate("facebook", { scope: ["profile", "email"] })
+  passport.authenticate("github", { scope: ["profile", "email"] })
 );
 
 router.get(
   "/callback",
-  passport.authenticate("facebook", { failureRedirect: "auth/failed" }),
+  passport.authenticate("github", { failureRedirect: "auth/failed" }),
   Auth.login
 );
 

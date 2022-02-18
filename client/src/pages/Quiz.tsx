@@ -71,7 +71,6 @@ const Quiz = function () {
 
   useEffect(() => {
     const initialQuiz = async () => {
-      console.log(Cookies.get("quiz-session.sig"));
       const quizQuestions = await axios.get(
         `${config.baseUrl}/api/${subject}`,
         {

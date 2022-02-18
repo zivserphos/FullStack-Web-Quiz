@@ -5,8 +5,8 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGooglePlusG,
-  faFacebook,
   faLinkedin,
+  faGithub,
 } from "@fortawesome/free-brands-svg-icons";
 import "./styles/sign-up.scss";
 import axios from "axios";
@@ -87,12 +87,9 @@ const SignUp = function () {
           <form action="#">
             <h1>Create Account</h1>
             <div className="social-container">
-              <a href={`${config.baseUrl}/auth/facebook`}>
+              <a href={`${config.baseUrl}/auth/github`}>
                 <div className="social">
-                  <FontAwesomeIcon
-                    icon={faFacebook}
-                    style={{ color: "darkBlue" }}
-                  />
+                  <FontAwesomeIcon icon={faGithub} style={{ color: "black" }} />
                 </div>
               </a>
               <a href={`${config.baseUrl}/auth/google`}>
@@ -137,12 +134,9 @@ const SignUp = function () {
           <form action="#">
             <h1>Sign in</h1>
             <div className="social-container">
-              <a href={`${config.baseUrl}/auth/facebook`}>
+              <a href={`${config.baseUrl}/auth/github`}>
                 <div className="social">
-                  <FontAwesomeIcon
-                    icon={faFacebook}
-                    style={{ color: "darkblue" }}
-                  />
+                  <FontAwesomeIcon icon={faGithub} style={{ color: "black" }} />
                 </div>
               </a>
               <a href={`${config.baseUrl}/auth/google`}>
