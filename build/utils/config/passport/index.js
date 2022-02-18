@@ -12,15 +12,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-param-reassign */
 require("./google-setup");
-require("./facebook-setup");
+require("./github-setup");
 require("./linkedin-setup");
 const passport_1 = __importDefault(require("passport"));
 const User_1 = __importDefault(require("../../../db/models/User"));
 passport_1.default.serializeUser((user, done) => {
+    console.log(user, "Zzz");
     done(null, user.id);
 });
 passport_1.default.deserializeUser((id, done) => __awaiter(void 0, void 0, void 0, function* () {
-    const user = yield User_1.default.findById(id);
+    const user = yield User_1.default.findOne({ email: id });
     done(null, user || null);
 }));

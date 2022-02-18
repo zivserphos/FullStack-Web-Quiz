@@ -14,6 +14,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.logout = void 0;
 const auth_1 = __importDefault(require("../services/auth"));
+const index_1 = __importDefault(require("../utils/config/index"));
+// function done(): (err: any) => void {
+//   throw new Error("Function not implemented.");
+// }
 const logout = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     if (!req.user)
         return res.redirect("/");
@@ -24,10 +28,16 @@ const logout = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
     return res.redirect("/sign-up");
 });
 exports.logout = logout;
-const login = (_req, res) => res.redirect("/");
+const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, _b;
+    if ((_a = req.user) === null || _a === void 0 ? void 0 : _a.email) {
+        const { accessToken } = yield auth_1.default.loginPassport((_b = req.user) === null || _b === void 0 ? void 0 : _b.email);
+        res.cookie(index_1.default.cookieKey, accessToken);
+    }
+    res.redirect("http://localhost:3000");
+});
 const loginJWT = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
-    console.log(email, password);
     try {
         const tokens = yield auth_1.default.login(email, password);
         return res.status(200).send(tokens);
@@ -45,7 +55,6 @@ const signUp = (req, res, next) => __awaiter(void 0, void 0, void 0, function* (
             last_name,
             password,
         });
-        console.log(user);
         return user
             ? res.status(200).send("added succesfully")
             : res.status(400).send("could not add user");

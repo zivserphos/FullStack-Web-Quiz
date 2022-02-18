@@ -7,7 +7,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable no-param-reassign */
 const mongoose_1 = __importDefault(require("mongoose"));
 const TokenSchema = new mongoose_1.default.Schema({
-    jwt: String,
+    accessToken: String,
+    refreshToken: String,
     userId: mongoose_1.default.Types.ObjectId,
 });
 TokenSchema.set("toJSON", {
