@@ -21,7 +21,7 @@ const auth_1 = __importDefault(require("../../../services/auth"));
 passport_1.default.use(new passport_linkedin_oauth2_1.Strategy({
     clientID: index_1.default.linkedinClientId,
     clientSecret: index_1.default.linkedinSecret,
-    callbackURL: "https://linkedin-quizzes.herokuapp.com/auth/linkedin/callback",
+    callbackURL: `http://localhost:3001/auth/linkedin/callback`,
     scope: ["r_emailaddress", "r_liteprofile"],
 }, (_accessToken, _refreshToken, profile, done) => process.nextTick(() => __awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;

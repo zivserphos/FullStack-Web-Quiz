@@ -15,9 +15,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.logout = void 0;
 const auth_1 = __importDefault(require("../services/auth"));
 const index_1 = __importDefault(require("../utils/config/index"));
-// function done(): (err: any) => void {
-//   throw new Error("Function not implemented.");
-// }
 const logout = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     if (!req.user)
         return res.redirect("/");
@@ -34,7 +31,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { accessToken } = yield auth_1.default.loginPassport((_b = req.user) === null || _b === void 0 ? void 0 : _b.email);
         res.cookie(index_1.default.cookieKey, accessToken);
     }
-    res.redirect("https://linkedin-quizzes.herokuapp.com");
+    res.redirect(`${index_1.default.baseUrl}`);
 });
 const loginJWT = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;
