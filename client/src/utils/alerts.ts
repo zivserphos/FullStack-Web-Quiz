@@ -39,3 +39,11 @@ export const failureSignUp = () =>
     showConfirmButton: false,
     timer: 5000,
   });
+
+export const userNotAuthenticatedAlert = () =>
+  Swal.fire({
+    position: "center",
+    title: "please sign-up for free in order to enjoy quizzes",
+    icon: "error",
+    showCancelButton: false,
+  });

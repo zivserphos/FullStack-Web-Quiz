@@ -32,6 +32,7 @@
         "tsx": "never"
       }
     ],
+    "no-unsafe-finally": "off",
     "no-unused-expressions": "off",
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": ["error"],

@@ -17,6 +17,7 @@ const userExtractor: Handler = async (req, res, next) => {
       const id = jwt.verify(req.token, config.secret) as JwtPayload;
       const user = await User.findById(id.userId);
       req.email = user.email;
+      next();
     }
   } catch (err) {
     genNewAccesToken(req, res, next);

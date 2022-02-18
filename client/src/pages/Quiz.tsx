@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -14,10 +15,12 @@ import {
   setIsOnQuiz,
 } from "../state/quiz/quiz-actions";
 import config from "../utils/config/index";
+import { userNotAuthenticatedAlert } from "../utils/alerts";
 
 const Quiz = function () {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [disableUser, setDisableUser] = useState<boolean>(false);
   const { subject } = useParams();
   const [currentQuestion, setCurrentQuestion] = useState<number>(0);
   const [displayQuestionIndex, setDisplayQuestionIndex] =
@@ -34,6 +37,11 @@ const Quiz = function () {
       e.returnValue = ""; // Legacy method for cross browser support
     }
     return ""; // Legacy method for cross browser support
+  };
+
+  const userNotAuthenticated = () => {
+    userNotAuthenticatedAlert();
+    setTimeout(() => navigate("/sign-up"), 4000);
   };
 
   const sendAns = (optionSelected: Option) => {
@@ -90,10 +98,15 @@ const Quiz = function () {
         setQuestions(quizQuestions.data || []);
       }
     };
-    initialQuiz();
-  }, [dispatch, navigate, subject]);
+    initialQuiz().catch((err) => {
+      if (err.response.status === 401) {
+        setDisableUser(true);
+        userNotAuthenticated();
+      }
+    });
+  }, [dispatch, navigate, subject, userNotAuthenticated]);
 
-  return questions ? (
+  return !disableUser ? (
     <div className="quiz">
       <div>
         <h1>{questions[currentQuestion]?.query || ""}</h1>
@@ -129,12 +142,7 @@ const Quiz = function () {
       </div>
     </div>
   ) : (
-    <div>
-      <h1>Could Not Upload Quiz , Please Try Again In A Minute</h1>
-      <button type="button" onClick={() => navigate("/")}>
-        Return To Main Menu
-      </button>
-    </div>
+    <div>PLEASE SIGN UP</div>
   );
 };
 

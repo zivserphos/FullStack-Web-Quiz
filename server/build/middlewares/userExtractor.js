@@ -29,6 +29,7 @@ const userExtractor = (req, res, next) => __awaiter(void 0, void 0, void 0, func
             const id = jsonwebtoken_1.default.verify(req.token, index_1.default.secret);
             const user = yield User_1.default.findById(id.userId);
             req.email = user.email;
+            next();
         }
     }
     catch (err) {

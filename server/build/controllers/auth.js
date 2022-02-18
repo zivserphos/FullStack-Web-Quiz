@@ -34,7 +34,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { accessToken } = yield auth_1.default.loginPassport((_b = req.user) === null || _b === void 0 ? void 0 : _b.email);
         res.cookie(index_1.default.cookieKey, accessToken);
     }
-    res.redirect("http://localhost:3000");
+    res.redirect("https://linkedin-quizzes.herokuapp.com");
 });
 const loginJWT = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { email, password } = req.body;

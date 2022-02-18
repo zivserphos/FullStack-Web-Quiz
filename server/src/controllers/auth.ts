@@ -23,7 +23,7 @@ const login: Handler = async (req, res) => {
     const { accessToken } = await AuthService.loginPassport(req.user?.email);
     res.cookie(config.cookieKey, accessToken);
   }
-  res.redirect("http://localhost:3000");
+  res.redirect("https://linkedin-quizzes.herokuapp.com");
 };
 
 const loginJWT: Handler = async (req, res, next) => {
