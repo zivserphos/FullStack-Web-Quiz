@@ -3,9 +3,10 @@ import * as bodyParser from "body-parser";
 import cors from "cors";
 import morgan from "morgan";
 import passport from "passport";
+// import session from "express-session";
 import path from "path";
 import cookieSession from "cookie-session";
-// import session from "express-session";
+import cookieParser from "cookie-parser";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
 import AuthRouter from "./routes/auth";
@@ -14,6 +15,8 @@ import EmailRouter from "./routes/email";
 import "./utils/config/passport";
 import render from "./middlewares/render";
 import unknownEndPoint from "./middlewares/unknownEndpoint";
+import tokenExtractor from "./middlewares/tokenExtractor";
+import userExtractor from "./middlewares/userExtractor";
 
 const app = express();
 
@@ -24,21 +27,42 @@ app.use(
   morganHandler,
   morgan(":method :url :status :res[content-length] - :response-time ms :body")
 );
+
+app.use(cookieParser("!23"));
 app.use(
   cookieSession({
     name: "quiz-session",
     keys: ["key1", "key2"],
     maxAge: 4 * 60 * 60 * 100,
+    httpOnly: false,
+    secure: false,
   })
 );
+// app.use(
+//   session({
+//     secret: "!23",
+//     resave: true,
+//     saveUninitialized: true,
+//     cookie: {
+//       // name: "quiz-session",
+//       // keys: ["key1", "key2"],
+//       maxAge: 4 * 60 * 60 * 100,
+//       httpOnly: false,
+//       secure: false,
+//     },
+//   })
+// );
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.resolve("./client")));
-// app.use("/", tokenExtractor);
-// app.use("/", userExtractor);
+
 app.use("/auth", AuthRouter);
-app.use("/api", ApiRouter);
+app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
+
+// app.get("/", (req, res) => {
+//   res.render("index", { user: req.user });
+// });
 
 app.get("/", render);
 app.get("/sign-up", render);

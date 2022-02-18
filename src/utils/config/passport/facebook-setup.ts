@@ -10,12 +10,6 @@ passport.use(
       callbackURL:
         "https://linkedin-quizzes.herokuapp.com/auth/facebook/callback",
     },
-    (_accessToken, _refreshToken, profile, done) =>
-      /*
- use the profile info (mainly profile id) to check if the user is registerd in ur db
- If yes select the user and pass him to the done callback
- If not create the user and then select him and pass to callback
-*/
-      done(null, profile)
+    (_accessToken, _refreshToken, profile, done) => done(null, profile)
   )
 );

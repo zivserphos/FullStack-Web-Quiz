@@ -2,6 +2,17 @@ GET http://localhost:3001/api/lambda HTTP/1.1
 ###
 GET http://localhost:3001/api/lambda/1 HTTP/1.1
 
+
+###
+POST   http://localhost:3001/auth/login
+Content-Type: application/json
+
+{
+
+    "email": "shalom@gmail.com",
+    "password": "@!4"
+}
+
 ### 
 POST http://localhost:3001/email
 Content-Type: application/json
@@ -20,3 +31,5 @@ Content-Type: application/json
     "email": "zivfromisrael@gmail.com",
     "password": "gggg"
 }
+###
+GET  http://localhost:3001/api/aaaa

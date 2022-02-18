@@ -3,7 +3,8 @@
 import mongoose, { Schema } from "mongoose";
 
 const TokenSchema: Schema = new mongoose.Schema({
-  jwt: String,
+  accessToken: String,
+  refreshToken: String,
   userId: mongoose.Types.ObjectId,
 });
 

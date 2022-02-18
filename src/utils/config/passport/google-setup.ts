@@ -35,6 +35,7 @@ passport.use(
         });
         return done(null, newUser);
       }
+
       return done(null, user);
     }
   )

@@ -2,6 +2,11 @@
 /* eslint-disable no-underscore-dangle */
 import { Handler } from "express";
 import AuthService from "../services/auth";
+import config from "../utils/config/index";
+
+// function done(): (err: any) => void {
+//   throw new Error("Function not implemented.");
+// }
 
 export const logout: Handler = async (req, res, next) => {
   if (!req.user) return res.redirect("/");
@@ -13,11 +18,16 @@ export const logout: Handler = async (req, res, next) => {
   return res.redirect("/sign-up");
 };
 
-const login: Handler = (_req, res) => res.redirect("http://localhost:3000");
+const login: Handler = async (req, res) => {
+  if (req.user?.email) {
+    const { accessToken } = await AuthService.loginPassport(req.user?.email);
+    res.cookie(config.cookieKey, accessToken);
+  }
+  res.redirect("http://localhost:3000");
+};
 
 const loginJWT: Handler = async (req, res, next) => {
   const { email, password } = req.body;
-  console.log(email, password);
   try {
     const tokens = await AuthService.login(email, password);
     return res.status(200).send(tokens);

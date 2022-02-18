@@ -1,14 +1,22 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-underscore-dangle */
 import fs from "fs";
 import QuizModel from "../db/models/Quiz";
+import User from "../db/models/User";
 
 const sendQuiz = async (quiz: Quiz, userEmail: string) => {
-  const userId = await QuizModel.find({ email: userEmail });
-  await QuizModel.create({
-    userId,
+  console.log(userEmail);
+  const user: any = await User.findOne({ email: userEmail });
+  const savedQuiz = await QuizModel.create({
+    userId: user._id,
     result: quiz.result,
     subject: quiz.subject,
     questions: quiz.questions,
   });
+  console.log(savedQuiz._id);
+  const userQuizzes = [...(user.quizzes || [])];
+  user.quizzes = [userQuizzes.concat(savedQuiz._id)];
+  user.save();
 };
 
 const genQuestions = (subject: string, limit: number) => {
