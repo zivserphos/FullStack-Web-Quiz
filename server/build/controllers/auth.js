@@ -31,6 +31,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const { accessToken } = yield auth_1.default.loginPassport((_b = req.user) === null || _b === void 0 ? void 0 : _b.email);
         res.cookie(index_1.default.cookieKey, accessToken);
     }
+    console.log(index_1.default.baseUrl);
     res.redirect(`${index_1.default.baseUrl}`);
 });
 const loginJWT = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
