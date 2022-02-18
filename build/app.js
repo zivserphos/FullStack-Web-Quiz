@@ -27,7 +27,6 @@ const bodyParser = __importStar(require("body-parser"));
 const cors_1 = __importDefault(require("cors"));
 const morgan_1 = __importDefault(require("morgan"));
 const passport_1 = __importDefault(require("passport"));
-// import session from "express-session";
 const path_1 = __importDefault(require("path"));
 const cookie_session_1 = __importDefault(require("cookie-session"));
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
@@ -54,29 +53,12 @@ app.use((0, cookie_session_1.default)({
     httpOnly: false,
     secure: false,
 }));
-// app.use(
-//   session({
-//     secret: "!23",
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: {
-//       // name: "quiz-session",
-//       // keys: ["key1", "key2"],
-//       maxAge: 4 * 60 * 60 * 100,
-//       httpOnly: false,
-//       secure: false,
-//     },
-//   })
-// );
 app.use(passport_1.default.initialize());
 app.use(passport_1.default.session());
 app.use(express_1.default.static(path_1.default.resolve("./client")));
 app.use("/auth", auth_1.default);
 app.use("/api", tokenExtractor_1.default, userExtractor_1.default, api_1.default);
 app.use("/email", email_1.default);
-// app.get("/", (req, res) => {
-//   res.render("index", { user: req.user });
-// });
 app.get("/", render_1.default);
 app.get("/sign-up", render_1.default);
 app.get("/about", render_1.default);

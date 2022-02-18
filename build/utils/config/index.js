@@ -21,5 +21,5 @@ exports.default = {
     z_s_password: process.env.ZS_PASSWORD || "",
     cookieKey: process.env.COOKIE_KEY || "",
     baseUrl: process.env.BASE_URL || "http://localhost:3000",
-    callbackURL: process.env.BASE_URL || "http://localhost:3001",
+    callbackURL: process.env.callbackURL || "http://localhost:3001",
 };
