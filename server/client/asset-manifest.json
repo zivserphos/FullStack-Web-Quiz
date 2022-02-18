@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.77a4348f.chunk.css",
+    "main.js": "/static/js/main.1e528e45.chunk.js",
+    "main.js.map": "/static/js/main.1e528e45.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.776c1e0d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.776c1e0d.js.map",
+    "static/js/2.0de578bb.chunk.js": "/static/js/2.0de578bb.chunk.js",
+    "static/js/2.0de578bb.chunk.js.map": "/static/js/2.0de578bb.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.77a4348f.chunk.css.map": "/static/css/main.77a4348f.chunk.css.map",
+    "static/js/2.0de578bb.chunk.js.LICENSE.txt": "/static/js/2.0de578bb.chunk.js.LICENSE.txt",
+    "static/media/adobe-acrobat.ff5e5ed1.png": "/static/media/adobe-acrobat.ff5e5ed1.png",
+    "static/media/adobe-premier.cb1a698a.png": "/static/media/adobe-premier.cb1a698a.png",
+    "static/media/angular.72ad61a9.png": "/static/media/angular.72ad61a9.png",
+    "static/media/bash.bb723c54.png": "/static/media/bash.bb723c54.png",
+    "static/media/cyber-security.de822c3f.png": "/static/media/cyber-security.de822c3f.png",
+    "static/media/eclipse.77397c6c.png": "/static/media/eclipse.77397c6c.png",
+    "static/media/frontend.577ba313.png": "/static/media/frontend.577ba313.png",
+    "static/media/javascript.db393457.png": "/static/media/javascript.db393457.png",
+    "static/media/kotlin.601864ec.png": "/static/media/kotlin.601864ec.png",
+    "static/media/matlab.833b9d38.png": "/static/media/matlab.833b9d38.png",
+    "static/media/microsoft-excel.873ca40e.png": "/static/media/microsoft-excel.873ca40e.png",
+    "static/media/php.00baeb44.png": "/static/media/php.00baeb44.png",
+    "static/media/wordpress.9c3464a3.png": "/static/media/wordpress.9c3464a3.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.776c1e0d.js",
+    "static/js/2.0de578bb.chunk.js",
+    "static/css/main.77a4348f.chunk.css",
+    "static/js/main.1e528e45.chunk.js"
+  ]
+}

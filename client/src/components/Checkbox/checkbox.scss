@@ -65,6 +65,18 @@
                 }
             }
 
+            &:checked {
+                & ~ .flipBox_boxOuter {
+                    animation: flipBox1 1s forwards linear;
+                    .flipBox_box {
+                        animation: flipBox2 1s forwards ease-in-out;
+                    }
+                }
+                & ~ .flipBox_shadow {
+                    animation: flipBox3 1s forwards ease-in-out;
+                }
+            }
+
             &:not(:checked) {
                 & ~ .flipBox_boxOuter {
                     animation: flipBox4 1s forwards linear;

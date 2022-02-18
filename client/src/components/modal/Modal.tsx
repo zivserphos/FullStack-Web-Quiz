@@ -13,7 +13,7 @@ const MydModalWithGrid = function (props: ModalProps) {
 
   const onHide = () => setExtraInfo(null);
 
-  return extraInfo ? (
+  return extraInfo || extraInfo === 0 ? (
     <ModalQuestion question={questions[extraInfo]} onHide={onHide} />
   ) : (
     <Modal
@@ -35,8 +35,9 @@ const MydModalWithGrid = function (props: ModalProps) {
           {questions
             ? questions.map((question: Question, i: number) => (
                 <ModalRow
+                  key={question.query}
                   question={question}
-                  i={i + 1}
+                  i={i}
                   openQuestionInfo={setExtraInfo}
                 />
               ))

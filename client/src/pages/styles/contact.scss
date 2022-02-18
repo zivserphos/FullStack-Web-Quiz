@@ -7,10 +7,10 @@
     }
     margin: 0;
     padding: 0;
-    background-color: #322d2d;
+    background-color: #6f9bbb;
     padding-bottom: 100px;
-    width: 100%;
-    height: 80%;
+    // width: 100%;
+    // height: 80%;
 
     .section-header {
         text-align: center;
@@ -50,15 +50,15 @@
 
     .send-button {
         margin-top: 15px;
-        height: 34px;
-        width: 400px;
+        // height: 34px;
+        width: 300px;
         overflow: hidden;
         transition: all 0.2s ease-in-out;
     }
 
     .alt-send-button {
-        width: 400px;
-        height: 34px;
+        width: 50%;
+        // height: 34px;
         transition: all 0.2s ease-in-out;
     }
 
@@ -81,31 +81,72 @@
     /* Location, Phone, Email Section */
     .contact-list {
         list-style-type: none;
-        margin-left: -30px;
+        // margin-left: -30px;
         padding-right: 20px;
     }
 
     .list-item {
         line-height: 4;
-        color: #aaa;
+        color: white;
     }
 
     .contact-text {
         font: 300 18px "Lato", sans-serif;
         letter-spacing: 1.9px;
-        color: #bbb;
+        color: white;
     }
 
-    .place {
-        margin-left: 62px;
+    @media (max-width: 850px) {
+        .contact-text {
+            font-size: 12px;
+        }
+        .place {
+            margin-left: 20%;
+        }
+
+        .phone {
+            margin-left: 20%;
+        }
+
+        .gmail {
+            margin-left: 3%;
+        }
+        .send-button {
+            width: 99%;
+        }
+    }
+    @media (max-width: 560px) {
+        .contact-text {
+            font-size: 10px;
+        }
+        .place {
+            margin-left: 10%;
+        }
+
+        .phone {
+            margin-left: 10%;
+        }
+
+        .gmail {
+            margin-left: 10%;
+        }
+        .send-button {
+            width: 99%;
+        }
     }
 
-    .phone {
-        margin-left: 56px;
-    }
+    @media (min-width: 850px) {
+        .place {
+            margin-left: 20%;
+        }
 
-    .gmail {
-        margin-left: 53px;
+        .phone {
+            margin-left: 20%;
+        }
+
+        .gmail {
+            margin-left: 1rem;
+        }
     }
 
     .contact-text a {

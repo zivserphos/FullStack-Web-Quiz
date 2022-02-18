@@ -5,6 +5,7 @@ import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import NavBar from "./components/NavBar";
 import Services from "./pages/Services";
+import Dashboard from "./pages/Dashboard";
 import ContactUs from "./pages/ContactUs";
 import Quiz from "./pages/Quiz";
 
@@ -14,12 +15,13 @@ const App = function () {
       <Router>
         <NavBar />
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/:subject" element={<Quiz />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </Router>
     </div>

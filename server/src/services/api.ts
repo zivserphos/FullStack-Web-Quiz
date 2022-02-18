@@ -1,4 +1,21 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable no-underscore-dangle */
 import fs from "fs";
+import QuizModel from "../db/models/Quiz";
+import User from "../db/models/User";
+
+const sendQuiz = async (quiz: Quiz, userEmail: string) => {
+  const user: any = await User.findOne({ email: userEmail });
+  const savedQuiz = await QuizModel.create({
+    userId: user._id,
+    result: quiz.result,
+    subject: quiz.subject,
+    questions: quiz.questions,
+  });
+  const userQuizzes = [...(user.quizzes || [])];
+  user.quizzes = [userQuizzes.concat(savedQuiz._id)];
+  user.save();
+};
 
 const genQuestions = (subject: string, limit: number) => {
   const contentFile = JSON.parse(
@@ -6,7 +23,7 @@ const genQuestions = (subject: string, limit: number) => {
   );
 
   const fileCopy = [...contentFile];
-  const quiz = [];
+  const quiz: Question[] = [];
   for (let i = 0; i < limit; i += 1) {
     const randomNum = Math.floor(Math.random() * fileCopy.length);
     quiz.push(fileCopy[randomNum]);
@@ -19,4 +36,4 @@ const genQuiz = (subject: string) => genQuestions(subject, 15);
 const genCustom = (subject: string, limit: number) =>
   genQuestions(subject, limit);
 
-export default { genQuiz, genCustom };
+export default { genQuiz, genCustom, sendQuiz };

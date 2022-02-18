@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-restricted-globals */
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
@@ -28,10 +28,6 @@ const NavBar = function () {
     }
   };
 
-  useEffect(() => {
-    console.log("is on quiz use effecct");
-  }, [isOnQuiz]);
-
   return (
     <div className="navBar">
       <nav>
@@ -49,34 +45,18 @@ const NavBar = function () {
           <TemporaryDrawer closeSideBar={() => setSideBar(false)} />
         ) : (
           <div className="navMenu">
-            <NavLink
-              to="/about"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/about")}
-            >
-              About
-            </NavLink>
-            <NavLink
-              to="/contact-us"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/contact-us")}
-            >
-              Contact-us
-            </NavLink>
-            <NavLink
-              to="/services"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/services")}
-            >
-              Services
-            </NavLink>
-            <NavLink
-              to="/sign-up"
-              className="navLink"
-              onClick={(e) => leaveRouter(e as unknown as Event, "/sign-up")}
-            >
-              Sign Up
-            </NavLink>
+            {["About", "Contact-us", "Services", "Sign-up", "Dashboard"].map(
+              (text) => (
+                <NavLink
+                  key={text}
+                  className="navLink"
+                  to={`/${text.toLowerCase()}`}
+                  onClick={(e) => leaveRouter(e as unknown as Event, "/")}
+                >
+                  {text}
+                </NavLink>
+              )
+            )}
           </div>
         )}
       </nav>

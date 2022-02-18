@@ -5,20 +5,24 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import { makeStyles } from "@material-ui/core/styles";
 import ListItemText from "@mui/material/ListItemText";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./side-bar.scss";
+import { useDispatch, useSelector } from "react-redux";
+import logo from "../../assests/images/logo.png";
+import { confirmAlert } from "../../utils/alerts";
+import { setIsOnQuiz } from "../../state/quiz/quiz-actions";
 
 const useStyles = makeStyles({
   listItemText: {
-    fontSize: "1.4rem",
-    color: "white",
+    fontSize: "1.4rem !important",
+    color: "white !important",
     textAlign: "center",
   },
   fullList: {
-    width: "auto",
+    width: "auto !important",
   },
   paper: {
-    background: "#2a2e39",
+    background: "#2a2e39 !important",
   },
 });
 
@@ -28,6 +32,9 @@ const TemporaryDrawer = function ({
   closeSideBar: () => void;
 }) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { isOnQuiz } = useSelector((state: Quiz) => state);
   const [state, setState] = React.useState({
     left: true,
   });
@@ -49,6 +56,17 @@ const TemporaryDrawer = function ({
       setState({ ...state, left: open });
     };
 
+  const leaveRouter = async (e: Event, link: string) => {
+    if (isOnQuiz) {
+      e.preventDefault();
+      const confirm = await confirmAlert();
+      if (confirm) {
+        dispatch(setIsOnQuiz(false));
+        navigate(link);
+      }
+    }
+  };
+
   const list = () => (
     <Box
       sx={{ width: 250 }}
@@ -58,11 +76,22 @@ const TemporaryDrawer = function ({
       className="side-bar"
     >
       <List>
-        {["Home", "About", "Contact-us", "Sign-Up"].map((text) => (
-          <nav>
+        <NavLink
+          className="navLink"
+          to="/"
+          onClick={(e) => leaveRouter(e as unknown as Event, "/")}
+        >
+          <div className="logo">
+            <img src={logo} alt="page logo" className="logo" />
+          </div>
+        </NavLink>
+        {["About", "Contact-us", "Services", "Sign-up", "Dashboard"].map(
+          (text) => (
             <NavLink
+              key={text}
               className="navLink"
-              to={text === "Home" ? "/" : `/${text}`}
+              to={`/${text.toLowerCase()}`}
+              onClick={(e) => leaveRouter(e as unknown as Event, "/")}
             >
               <ListItem button key={text} className="li-item">
                 <ListItemText
@@ -72,14 +101,14 @@ const TemporaryDrawer = function ({
                 />
               </ListItem>
             </NavLink>
-          </nav>
-        ))}
+          )
+        )}
       </List>
     </Box>
   );
 
   return (
-    <div style={{ background: "black" }}>
+    <div>
       <React.Fragment key="left">
         <Drawer
           anchor="left"

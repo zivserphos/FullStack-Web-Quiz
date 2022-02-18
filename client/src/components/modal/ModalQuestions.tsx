@@ -24,9 +24,23 @@ const ModalData = function ({
       </Modal.Header>
       <Modal.Body className="show-grid">
         <Container>
-          <h1>{question?.query || ""}</h1>
-          <h2>{question?.code || ""}</h2>
-          <CheckBox options={question?.options || ""} displayAns={2} />
+          {question.query.length > 200 ? (
+            <h3>{question?.query || ""}</h3>
+          ) : (
+            <h1>{question?.query || ""}</h1>
+          )}
+          {question?.code && question.code.length > 200 ? (
+            <h4>{question?.code || ""}</h4>
+          ) : (
+            <h2>{question?.code || ""}</h2>
+          )}
+
+          <CheckBox
+            options={question?.options || ""}
+            displayAns={2}
+            asQuestion={false}
+            correctAns={question.correctAns}
+          />
         </Container>
       </Modal.Body>
       <Modal.Footer>

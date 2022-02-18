@@ -1,26 +1,35 @@
-type Difficulty = "Easy" | "Medium" | "Hard";
+type Difficulty = "easy" | "medium" | "hard" | null;
 type CorrectAns = 1 | 2 | 3 | 4;
 
 declare global {
   interface Quiz {
+    questions: fullQuestionData[];
     subject: string;
-    difficulty: Difficulty;
-    numOfQuestions: number;
     result: number;
-    time: string;
-    userId?: string;
   }
 }
 
 declare global {
   interface Question {
-    difficulty?: Difficulty;
+    difficulty: Difficulty;
     query: string;
     code?: string;
     options: string[];
     correctAns: CorrectAns;
     optionsAsCode?: boolean;
-    id: number;
+    isCorrect?: boolean;
+    // id: number;
+  }
+
+  interface fullQuestionData {
+    difficulty?: Difficulty;
+    query: string;
+    code?: string;
+    options: string[];
+    correctAns: CorrectAns;
+    subject?: string;
+    isCorrect?: boolean;
+    optionsAsCode?: boolean;
   }
 }
 
