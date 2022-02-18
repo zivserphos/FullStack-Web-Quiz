@@ -12,6 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
 /* eslint-disable no-throw-literal */
 /* eslint-disable no-shadow */
@@ -29,6 +30,20 @@ const conflict = (cause) => ({
     status: 409,
     message: { error: cause },
 });
+const loginPassport = (email) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield User_1.default.findOne({ email });
+    if (!user)
+        throw { status: 400, message: "No such email or username" };
+    const userId = user._id;
+    const accessToken = jsonwebtoken_1.default.sign({ email, userId }, index_1.default.secret, {
+        expiresIn: "20s",
+    });
+    const refreshToken = jsonwebtoken_1.default.sign({ userId, email }, index_1.default.secret, {
+        expiresIn: index_1.default.refreshTime,
+    });
+    yield Token_1.default.findOneAndUpdate({ userId }, { refreshToken, accessToken, userId }, { upsert: true, new: true, setDefaultsOnInsert: true });
+    return { accessToken, refreshToken };
+});
 const login = (email, password) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield User_1.default.findOne({ email });
     if (!user)
@@ -36,14 +51,14 @@ const login = (email, password) => __awaiter(void 0, void 0, void 0, function* (
     const correctPassword = yield bcrypt_1.default.compreHashPASS(user.password, password);
     if (!correctPassword)
         throw { status: 400, message: "Bad password" };
-    const userId = user.id;
+    const userId = user._id;
     const accessToken = jsonwebtoken_1.default.sign({ email, userId }, index_1.default.secret, {
         expiresIn: index_1.default.accessTime,
     });
     const refreshToken = jsonwebtoken_1.default.sign({ userId, email }, index_1.default.secret, {
         expiresIn: index_1.default.refreshTime,
     });
-    yield Token_1.default.findOneAndUpdate({ userId }, { jwt: refreshToken, userId }, { upsert: true, new: true, setDefaultsOnInsert: true });
+    yield Token_1.default.findOneAndUpdate({ userId }, { refreshToken, accessToken, userId }, { upsert: true, new: true, setDefaultsOnInsert: true });
     return { accessToken, refreshToken };
 });
 const logout = (userId) => __awaiter(void 0, void 0, void 0, function* () {
@@ -89,4 +104,5 @@ exports.default = {
     login,
     signUpJWT,
     logout,
+    loginPassport,
 };

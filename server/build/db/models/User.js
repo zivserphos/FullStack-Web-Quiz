@@ -59,12 +59,12 @@ const UserSchema = new mongoose_1.default.Schema({
         },
     ],
 });
-// UserSchema.set("toJSON", {
-//   transform: (_, returnedObject) => {
-//     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-//     returnedObject.id = <string>returnedObject._id.toString();
-//     delete returnedObject._id;
-//   },
-// });
+UserSchema.set("toJSON", {
+    transform: (_, returnedObject) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+        returnedObject.id = returnedObject._id.toString();
+        delete returnedObject._id;
+    },
+});
 const User = mongoose_1.default.model("User", UserSchema);
 exports.default = User;
