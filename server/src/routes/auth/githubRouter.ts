@@ -4,10 +4,7 @@ import Auth from "../../controllers/auth";
 
 const router = Router();
 
-router.get(
-  "/",
-  passport.authenticate("github", { scope: ["profile", "email"] })
-);
+router.get("/", passport.authenticate("github", { scope: ["user:email"] }));
 
 router.get(
   "/callback",
