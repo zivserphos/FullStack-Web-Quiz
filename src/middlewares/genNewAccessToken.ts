@@ -25,10 +25,11 @@ const genNewAccesToken: Handler = async (req, _res, next) => {
       );
       req.token = updatedAccessToken;
       req.updateToken = true;
-      next();
+      return next();
     }
+    return next(jwtError());
   } catch (err) {
-    next(jwtError);
+    return next(jwtError());
   }
 };
 

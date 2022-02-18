@@ -19,7 +19,6 @@ passport.use(
         if (!profile.emails) return done("linkedin authentication failed");
         const email = profile.emails[0].value;
         const user = await User.findOne({ email });
-        console.log("linkedin");
         if (!user) {
           const newUser = await Auth.signUpWithPassport({
             first_name: profile.name?.givenName || "",

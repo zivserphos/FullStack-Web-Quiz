@@ -29,7 +29,6 @@ passport_1.default.use(new passport_linkedin_oauth2_1.Strategy({
         return done("linkedin authentication failed");
     const email = profile.emails[0].value;
     const user = yield User_1.default.findOne({ email });
-    console.log("linkedin");
     if (!user) {
         const newUser = yield auth_1.default.signUpWithPassport({
             first_name: ((_a = profile.name) === null || _a === void 0 ? void 0 : _a.givenName) || "",
