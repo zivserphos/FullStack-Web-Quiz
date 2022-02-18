@@ -19,7 +19,6 @@ const errorHandler: ErrorRequestHandler = (
   _next
 ) => {
   if (err instanceof JsonWebTokenError) return res.send(jwtError);
-  console.log(err);
   return "status" in err
     ? res.status(err.status).send(err.message)
     : res.status(500).send("internal serverError");

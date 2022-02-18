@@ -11,7 +11,6 @@ passport.serializeUser((user: Express.User, done) => {
 });
 
 passport.deserializeUser(async (id: string, done) => {
-  console.log("ejssuss");
   const user: UserInt = await User.findOne({ email: id });
 
   done(null, user || null);
