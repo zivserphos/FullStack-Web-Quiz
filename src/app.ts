@@ -3,7 +3,6 @@ import * as bodyParser from "body-parser";
 import cors from "cors";
 import morgan from "morgan";
 import passport from "passport";
-// import session from "express-session";
 import path from "path";
 import cookieSession from "cookie-session";
 import cookieParser from "cookie-parser";
@@ -38,20 +37,7 @@ app.use(
     secure: false,
   })
 );
-// app.use(
-//   session({
-//     secret: "!23",
-//     resave: true,
-//     saveUninitialized: true,
-//     cookie: {
-//       // name: "quiz-session",
-//       // keys: ["key1", "key2"],
-//       maxAge: 4 * 60 * 60 * 100,
-//       httpOnly: false,
-//       secure: false,
-//     },
-//   })
-// );
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.resolve("./client")));
@@ -59,10 +45,6 @@ app.use(express.static(path.resolve("./client")));
 app.use("/auth", AuthRouter);
 app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
-
-// app.get("/", (req, res) => {
-//   res.render("index", { user: req.user });
-// });
 
 app.get("/", render);
 app.get("/sign-up", render);
