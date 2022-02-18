@@ -19,6 +19,7 @@ const login: Handler = async (req, res) => {
     const { accessToken } = await AuthService.loginPassport(req.user?.email);
     res.cookie(config.cookieKey, accessToken);
   }
+  console.log(config.baseUrl);
   res.redirect(`${config.baseUrl}`);
 };
 
