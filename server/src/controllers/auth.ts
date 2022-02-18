@@ -4,10 +4,6 @@ import { Handler } from "express";
 import AuthService from "../services/auth";
 import config from "../utils/config/index";
 
-// function done(): (err: any) => void {
-//   throw new Error("Function not implemented.");
-// }
-
 export const logout: Handler = async (req, res, next) => {
   if (!req.user) return res.redirect("/");
   await AuthService.logout(req.email).catch((err) => next(err));
@@ -23,7 +19,7 @@ const login: Handler = async (req, res) => {
     const { accessToken } = await AuthService.loginPassport(req.user?.email);
     res.cookie(config.cookieKey, accessToken);
   }
-  res.redirect("https://linkedin-quizzes.herokuapp.com");
+  res.redirect(`${config.baseUrl}/auth/github/callback`);
 };
 
 const loginJWT: Handler = async (req, res, next) => {

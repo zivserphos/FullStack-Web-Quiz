@@ -10,8 +10,7 @@ passport.use(
     {
       clientID: config.linkedinClientId,
       clientSecret: config.linkedinSecret,
-      callbackURL:
-        "https://linkedin-quizzes.herokuapp.com/auth/linkedin/callback",
+      callbackURL: `${config.baseUrl}/auth/github/callback`,
       scope: ["r_emailaddress", "r_liteprofile"],
     },
     (_accessToken, _refreshToken, profile, done) =>

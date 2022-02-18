@@ -21,7 +21,7 @@ import userExtractor from "./middlewares/userExtractor";
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 app.use(bodyParser.text());
 app.use(
   morganHandler,
@@ -59,10 +59,6 @@ app.use(express.static(path.resolve("./client")));
 app.use("/auth", AuthRouter);
 app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
-
-// app.get("/", (req, res) => {
-//   res.render("index", { user: req.user });
-// });
 
 app.get("/", render);
 app.get("/sign-up", render);

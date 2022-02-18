@@ -37,6 +37,7 @@ const SignUp = function () {
           password,
         },
         {
+          withCredentials: true,
           headers: {
             "Content-Type": "application/json",
           },

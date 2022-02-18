@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable consistent-return */
 /* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
@@ -69,6 +70,7 @@ const Quiz = function () {
         },
       },
       {
+        withCredentials: true,
         headers: {
           authorization: `bearer ${Cookies.get(config.cookieKey)}`,
           "Content-Type": "application/json",
