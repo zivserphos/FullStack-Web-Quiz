@@ -15,8 +15,7 @@ passport.use(
     {
       clientID: config.googleClientId,
       clientSecret: config.googleSecret,
-      callbackURL:
-        "https://linkedin-quizzes.herokuapp.com/auth/google/callback",
+      callbackURL: `${config.baseUrl}/auth/github/callback`,
     },
     async (
       _accessToken: string,
