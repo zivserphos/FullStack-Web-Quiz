@@ -5,7 +5,6 @@ import QuizModel from "../db/models/Quiz";
 import User from "../db/models/User";
 
 const sendQuiz = async (quiz: Quiz, userEmail: string) => {
-  console.log(userEmail);
   const user: any = await User.findOne({ email: userEmail });
   const savedQuiz = await QuizModel.create({
     userId: user._id,
@@ -13,7 +12,6 @@ const sendQuiz = async (quiz: Quiz, userEmail: string) => {
     subject: quiz.subject,
     questions: quiz.questions,
   });
-  console.log(savedQuiz._id);
   const userQuizzes = [...(user.quizzes || [])];
   user.quizzes = [userQuizzes.concat(savedQuiz._id)];
   user.save();

@@ -6,10 +6,8 @@ import config from "../utils/config";
 const quizError = { status: 400, message: { error: "could not save quiz" } };
 
 export const sendQuiz: Handler = async (req, res, next) => {
-  console.log(req.email, req.token);
   res.send(
-    await apiService.sendQuiz(req.body.quiz, req.email).catch((err) => {
-      console.log(err);
+    await apiService.sendQuiz(req.body.quiz, req.email).catch(() => {
       next(quizError);
     })
   );

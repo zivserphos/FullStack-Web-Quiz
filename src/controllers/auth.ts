@@ -45,7 +45,6 @@ const signUp: Handler = async (req, res, next) => {
       last_name,
       password,
     });
-    console.log(user);
     return user
       ? res.status(200).send("added succesfully")
       : res.status(400).send("could not add user");
