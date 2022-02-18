@@ -10,7 +10,7 @@ passport.use(
     {
       clientID: config.linkedinClientId,
       clientSecret: config.linkedinSecret,
-      callbackURL: `${config.baseUrl}/auth/github/callback`,
+      callbackURL: `http://localhost:3001/auth/linkedin/callback`,
       scope: ["r_emailaddress", "r_liteprofile"],
     },
     (_accessToken, _refreshToken, profile, done) =>

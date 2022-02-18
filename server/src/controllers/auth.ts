@@ -19,7 +19,7 @@ const login: Handler = async (req, res) => {
     const { accessToken } = await AuthService.loginPassport(req.user?.email);
     res.cookie(config.cookieKey, accessToken);
   }
-  res.redirect(`${config.baseUrl}/auth/github/callback`);
+  res.redirect(`${config.baseUrl}`);
 };
 
 const loginJWT: Handler = async (req, res, next) => {

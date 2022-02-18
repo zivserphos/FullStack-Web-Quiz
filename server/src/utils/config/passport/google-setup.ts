@@ -15,7 +15,7 @@ passport.use(
     {
       clientID: config.googleClientId,
       clientSecret: config.googleSecret,
-      callbackURL: `${config.baseUrl}/auth/github/callback`,
+      callbackURL: `${config.callbackURL}/auth/google/callback`,
     },
     async (
       _accessToken: string,

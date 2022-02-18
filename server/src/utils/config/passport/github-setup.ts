@@ -7,8 +7,7 @@ passport.use(
     {
       clientID: config.githubClientId,
       clientSecret: config.githubSecret,
-      callbackURL:
-        "https://linkedin-quizzes.herokuapp.com/auth/github/callback",
+      callbackURL: `${config.callbackURL}/auth/github/callback`,
     },
     (_accessToken, _refreshToken, profile, done) => done(null, profile)
   )
