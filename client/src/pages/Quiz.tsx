@@ -1,7 +1,9 @@
+/* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
+import Cookies from "js-cookie";
 import MyModal from "../components/modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
@@ -60,6 +62,7 @@ const Quiz = function () {
       },
       {
         headers: {
+          authorization: `bearer ${Cookies.get(config.cookieKey)}`,
           "Content-Type": "application/json",
         },
       }
@@ -68,7 +71,15 @@ const Quiz = function () {
 
   useEffect(() => {
     const initialQuiz = async () => {
-      const quizQuestions = await axios.get(`${config.baseUrl}/api/${subject}`);
+      console.log(Cookies.get("quiz-session.sig"));
+      const quizQuestions = await axios.get(
+        `${config.baseUrl}/api/${subject}`,
+        {
+          headers: {
+            authorization: `bearer ${Cookies.get(config.cookieKey)}`,
+          },
+        }
+      );
       if (quizQuestions.data.length === 15) {
         dispatch(
           updateQuiz({

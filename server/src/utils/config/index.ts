@@ -16,4 +16,5 @@ export default {
   linkedinSecret: process.env.LINKEDIN_SECRET || "",
   z_s_email: process.env.ZS_EMAIL || "",
   z_s_password: process.env.ZS_PASSWORD || "",
+  cookieKey: process.env.COOKIE_KEY || "",
 };

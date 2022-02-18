@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
 /* eslint-disable no-throw-literal */
 /* eslint-disable no-shadow */
@@ -17,6 +18,29 @@ const conflict = (cause: string) => ({
   message: { error: cause },
 });
 
+const loginPassport = async (email: string): Promise<ValidLogin> => {
+  const user: UserInt | null = await UserModel.findOne({ email });
+
+  if (!user) throw { status: 400, message: "No such email or username" };
+
+  const userId = user._id;
+
+  const accessToken = jwt.sign({ email, userId }, config.secret, {
+    expiresIn: "20s",
+  });
+
+  const refreshToken = jwt.sign({ userId, email }, config.secret, {
+    expiresIn: config.refreshTime,
+  });
+
+  await Token.findOneAndUpdate(
+    { userId },
+    { refreshToken, accessToken, userId },
+    { upsert: true, new: true, setDefaultsOnInsert: true }
+  );
+  return { accessToken, refreshToken };
+};
+
 const login = async (email: string, password: string): Promise<ValidLogin> => {
   const user: UserInt | null = await UserModel.findOne({ email });
 
@@ -27,7 +51,7 @@ const login = async (email: string, password: string): Promise<ValidLogin> => {
   );
   if (!correctPassword) throw { status: 400, message: "Bad password" };
 
-  const userId = user.id;
+  const userId = user._id;
 
   const accessToken = jwt.sign({ email, userId }, config.secret, {
     expiresIn: config.accessTime,
@@ -39,7 +63,7 @@ const login = async (email: string, password: string): Promise<ValidLogin> => {
 
   await Token.findOneAndUpdate(
     { userId },
-    { jwt: refreshToken, userId },
+    { refreshToken, accessToken, userId },
     { upsert: true, new: true, setDefaultsOnInsert: true }
   );
   return { accessToken, refreshToken };
@@ -102,4 +126,5 @@ export default {
   login,
   signUpJWT,
   logout,
+  loginPassport,
 };

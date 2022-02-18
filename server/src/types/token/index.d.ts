@@ -1,6 +1,7 @@
 declare global {
   interface Token {
-    jwt: string;
+    accessToken: string;
+    refreshToken: string;
     userId: string;
   }
 }

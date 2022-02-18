@@ -1,10 +1,12 @@
 import { Handler } from "express";
 // import passport from "passport";
 import apiService from "../services/api";
+import config from "../utils/config";
 
 const quizError = { status: 400, message: { error: "could not save quiz" } };
 
 export const sendQuiz: Handler = async (req, res, next) => {
+  console.log(req.email, req.token);
   res.send(
     await apiService.sendQuiz(req.body.quiz, req.email).catch((err) => {
       console.log(err);
@@ -14,7 +16,7 @@ export const sendQuiz: Handler = async (req, res, next) => {
 };
 
 export const genQuiz: Handler = (req, res) => {
-  // console.log(passport.session());
+  if (req.updateToken) res.cookie(config.cookieKey, req.token);
   res.send(apiService.genQuiz(req.params.subject));
 };
 

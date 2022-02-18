@@ -30,7 +30,7 @@ const SignUp = function () {
 
   const login = async () => {
     try {
-      await axios.post(
+      const a = await axios.post(
         `${config.baseUrl}/auth/login`,
         {
           email,
@@ -42,6 +42,7 @@ const SignUp = function () {
           },
         }
       );
+      console.log(a.data);
       return navigate("/");
     } catch (err: any) {
       if (!err.response || !err.response.data.error) return failureSignUp();
