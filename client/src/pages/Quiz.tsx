@@ -106,7 +106,7 @@ const Quiz = function () {
         userNotAuthenticated();
       }
     });
-  }, [dispatch, navigate, subject, userNotAuthenticated]);
+  }, []);
 
   return !disableUser ? (
     <div className="quiz">
