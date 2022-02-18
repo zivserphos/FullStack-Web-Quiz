@@ -12,7 +12,6 @@ const jwtError = () => ({
 const genNewAccesToken: Handler = async (req, _res, next) => {
   try {
     const token = await Token.findOne({ accessToken: req.token });
-    console.log("here at gen new access");
     if (token) {
       const id = jwt.verify(token.refreshToken, config.secret) as JwtPayload;
       const user = await User.findById(id.userId);
