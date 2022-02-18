@@ -43,7 +43,7 @@ const tokenExtractor_1 = __importDefault(require("./middlewares/tokenExtractor")
 const userExtractor_1 = __importDefault(require("./middlewares/userExtractor"));
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({ origin: true, credentials: true }));
 app.use(bodyParser.text());
 app.use(morgan_2.default, (0, morgan_1.default)(":method :url :status :res[content-length] - :response-time ms :body"));
 app.use((0, cookie_parser_1.default)("!23"));
