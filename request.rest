@@ -32,4 +32,5 @@ Content-Type: application/json
     "password": "gggg"
 }
 ###
-GET  http://localhost:3001/api/aaaa
+GET  https://valid-cors.herokuapp.com/https://jobs.github.com/positions.json
+Origin: "*"

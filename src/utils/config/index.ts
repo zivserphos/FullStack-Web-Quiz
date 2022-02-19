@@ -19,4 +19,5 @@ export default {
   cookieKey: process.env.COOKIE_KEY || "",
   baseUrl: process.env.BASE_URL || "http://localhost:3000",
   callbackURL: process.env.callbackURL || "http://localhost:3001",
+  jobsUrl: process.env.JOBS_Url || "https://stackoverflow.com/jobs",
 };
