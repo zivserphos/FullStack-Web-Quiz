@@ -4,8 +4,10 @@ import { NavLink } from "react-router-dom";
 import QuizCard from "../components/QuizCard/QuizCard";
 import quizzesInfo from "../utils/quizzesInfo";
 import "./styles/home.scss";
+import config from "../utils/config";
 
 const Home = function () {
+  console.log(config.baseUrl);
   return (
     <div className="home">
       <h1>All Linkedin quizzes</h1>
