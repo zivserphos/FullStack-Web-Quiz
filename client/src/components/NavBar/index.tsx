@@ -5,7 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { confirmAlert } from "../../utils/alerts";
-import TemporaryDrawer from "../sideBar/SideBar";
+import TemporaryDrawer from "../SideBar/SideBar";
 import logo from "../../assests/images/logo.png";
 import { setIsOnQuiz } from "../../state/quiz/quiz-actions";
 import "./nav-bar.scss";

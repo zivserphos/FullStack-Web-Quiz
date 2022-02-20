@@ -6,7 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
-import MyModal from "../components/modal/Modal";
+import MyModal from "../components/Modal/Modal";
 import "./styles/quiz.scss";
 import CheckBox from "../components/Checkbox/CheckBox";
 import {
