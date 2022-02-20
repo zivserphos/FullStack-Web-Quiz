@@ -46,7 +46,7 @@ app.use(express.static(path.resolve("./client")));
 app.use("/auth", AuthRouter);
 app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
-app.use("/scraper", jobsRouter);
+app.use("/jobs", jobsRouter);
 
 app.get("/", render);
 app.get("/sign-up", render);
