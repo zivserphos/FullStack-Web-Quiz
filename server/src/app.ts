@@ -11,12 +11,12 @@ import errorHandler from "./middlewares/errorHandlers";
 import AuthRouter from "./routes/auth";
 import ApiRouter from "./routes/api";
 import EmailRouter from "./routes/email";
+import jobsRouter from "./routes/jobs";
 import "./utils/config/passport";
 import render from "./middlewares/render";
 import unknownEndPoint from "./middlewares/unknownEndpoint";
 import tokenExtractor from "./middlewares/tokenExtractor";
 import userExtractor from "./middlewares/userExtractor";
-import "./services/scraper";
 
 const app = express();
 
@@ -46,6 +46,7 @@ app.use(express.static(path.resolve("./client")));
 app.use("/auth", AuthRouter);
 app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
+app.use("/scraper", jobsRouter);
 
 app.get("/", render);
 app.get("/sign-up", render);

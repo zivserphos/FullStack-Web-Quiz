@@ -20,4 +20,6 @@ export default {
   baseUrl: process.env.BASE_URL || "http://localhost:3000",
   callbackURL: process.env.callbackURL || "http://localhost:3001",
   jobsUrl: process.env.JOBS_Url || "https://stackoverflow.com/jobs",
+  linkedinUsername: process.env.LINKEDIN_USERNAME || "",
+  linkedinPassword: process.env.LINKEDIN_PASSWORD || "",
 };
