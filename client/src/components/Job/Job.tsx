@@ -37,15 +37,15 @@ const Job = function ({ job }: { job: JobInt }) {
               {companyName}
             </Typography>
           </CardContent>
-          <Button
-            size="large"
-            variant="contained"
-            onClick={openPage}
-            style={{ marginBottom: "1rem", marginLeft: "1rem" }}
-          >
-            Job Details/Apply
-          </Button>
         </CardActionArea>
+        <Button
+          size="large"
+          variant="contained"
+          onClick={openPage}
+          style={{ marginBottom: "1rem", marginLeft: "1rem" }}
+        >
+          Job Details/Apply
+        </Button>
       </Card>
     </div>
   );

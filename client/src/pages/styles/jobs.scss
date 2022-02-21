@@ -1,0 +1,11 @@
+.jobs {
+    @media (max-width: 900px) {
+        .job-info {
+            display: none;
+        }
+        .input-mobile {
+            // display: none;
+            margin-top: 1rem;
+        }
+    }
+}
