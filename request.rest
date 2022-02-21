@@ -28,8 +28,9 @@ POST  http://localhost:3001/auth/login
 Content-Type: application/json
 
 {
-    "email": "zivfromisrael@gmail.com",
-    "password": "gggg"
+    "email": "some-fake-email@gmail.com",
+    "password": "some-fake-password"
 }
 ###
-GET  http://localhost:3001/api/aaaa
+GET https://www.linkedin.com/jobs/view/junior-front-end-developer-at-shield-2929155780/?trackingId=H9p3iXqm%2Bwtm7%2Fya%2FibaOQ%3D%3D&refId=kyA5EBf9gFy0tNzmJ1jRZg%3D%3D&pageNum=0&position=14&trk=public_jobs_jserp-result_search-card&originalSubdomain=il
+Origin: "*"
