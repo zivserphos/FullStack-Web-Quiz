@@ -5,6 +5,7 @@
 /* eslint-disable import/extensions */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Button } from "@mui/material";
 import config from "../utils/config";
 import Job from "../components/Job/Job";
 import "./styles/jobs.scss";
@@ -12,6 +13,9 @@ import PositionedMenu from "../components/DropdownMenu/Dropdown";
 
 const Jobs = function () {
   const [jobs, setJobs] = useState<JobInt[]>([]);
+  const [page, pageNumber] = useState<number>(0);
+
+  const jobsPerPage = 12;
   // const [jobInfo, setJobInfo] = useState();
   const [jobTitle, setJobTitle] = useState<string>("");
   useEffect(() => {
@@ -63,9 +67,43 @@ const Jobs = function () {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
           {jobs.length
-            ? jobs.map((job) => <Job key={job.companyInfo} job={job} />)
+            ? jobs
+                .slice(0, 12)
+                .map((job) => <Job key={job.companyInfo} job={job} />)
             : "loading"}
         </div>
+      </div>
+      <div className="next-jobs ">
+        <Button
+          size="large"
+          variant="contained"
+          autoCapitalize="none"
+          color="secondary"
+          // onClick={openPage}
+          style={{
+            marginBottom: "1rem",
+            marginLeft: "1rem",
+            textTransform: "none",
+            fontSize: "1.1rem",
+          }}
+        >
+          Previous
+        </Button>
+        <Button
+          size="large"
+          variant="contained"
+          autoCapitalize="none"
+          // onClick={openPage}
+          style={{
+            marginBottom: "1rem",
+            marginLeft: "1rem",
+            backgroundColor: "red",
+            textTransform: "none",
+            fontSize: "1.1rem",
+          }}
+        >
+          Next
+        </Button>
       </div>
     </div>
   );

@@ -30,6 +30,7 @@ const PositionedMenu = function ({
         color="success"
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
+        style={{ textTransform: "none", fontSize: "1.1rem" }}
       >
         {jobTitle || "Choose Job"}
       </Button>

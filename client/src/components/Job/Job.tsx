@@ -41,8 +41,14 @@ const Job = function ({ job }: { job: JobInt }) {
         <Button
           size="large"
           variant="contained"
+          color="info"
           onClick={openPage}
-          style={{ marginBottom: "1rem", marginLeft: "1rem" }}
+          style={{
+            marginBottom: "1rem",
+            marginLeft: "1rem",
+            textTransform: "none",
+            fontSize: "1.1rem",
+          }}
         >
           Job Details/Apply
         </Button>
