@@ -85,24 +85,22 @@ const TemporaryDrawer = function ({
             <img src={logo} alt="page logo" className="logo" />
           </div>
         </NavLink>
-        {["About", "Contact-us", "Services", "Sign-up", "Dashboard"].map(
-          (text) => (
-            <NavLink
-              key={text}
-              className="navLink"
-              to={`/${text.toLowerCase()}`}
-              onClick={(e) => leaveRouter(e as unknown as Event, "/")}
-            >
-              <ListItem button key={text} className="li-item">
-                <ListItemText
-                  primary={text}
-                  sx={{ fontSize: "1.4rem" }}
-                  classes={{ primary: classes.listItemText }}
-                />
-              </ListItem>
-            </NavLink>
-          )
-        )}
+        {["About", "Contact-us", "Jobs", "Sign-up", "Dashboard"].map((text) => (
+          <NavLink
+            key={text}
+            className="navLink"
+            to={`/${text.toLowerCase()}`}
+            onClick={(e) => leaveRouter(e as unknown as Event, "/")}
+          >
+            <ListItem button key={text} className="li-item">
+              <ListItemText
+                primary={text}
+                sx={{ fontSize: "1.4rem" }}
+                classes={{ primary: classes.listItemText }}
+              />
+            </ListItem>
+          </NavLink>
+        ))}
       </List>
     </Box>
   );

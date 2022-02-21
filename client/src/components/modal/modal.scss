@@ -1,23 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
 
 .review-modal {
+    .modal-dialog {
+        position: static;
+        background-color: pink;
+    }
+
     * {
         font-family: "Sora", sans-serif;
     }
     @import "~bootstrap/scss/bootstrap";
+
     .modal-content {
         position: absolute;
-        margin-bottom: -6rem;
-        height: 90vh;
+        height: 570px;
         overflow: auto;
-        margin-bottom: 30rem;
+        margin-bottom: 25rem;
     }
 
-    @media (max-width: 500px) {
-        #review-question {
-            height: 10vh;
-        }
+    #review-question {
+        height: 10vh;
+    }
 
+    @media (max-width: 1000px) {
         .modal-content {
             margin-bottom: 39rem;
         }

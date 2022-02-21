@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import SignUp from "./pages/SignUp";
 import NavBar from "./components/NavBar";
-import Services from "./pages/Services";
+import Jobs from "./pages/Jobs";
 import Dashboard from "./pages/Dashboard";
 import ContactUs from "./pages/ContactUs";
 import Quiz from "./pages/Quiz";
@@ -16,7 +16,7 @@ const App = function () {
         <NavBar />
         <Routes>
           <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
+          <Route path="/jobs" element={<Jobs />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/dashboard" element={<Dashboard />} />

@@ -1,6 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable consistent-return */
-/* eslint-disable max-len */
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -126,7 +123,7 @@ const Quiz = function () {
         <CheckBox
           correctAns={questions[currentQuestion]?.correctAns}
           options={questions[currentQuestion]?.options || ""}
-          sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
+          sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
           prevQuestion={prevQuestion}

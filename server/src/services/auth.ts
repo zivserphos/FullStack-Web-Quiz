@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
 /* eslint-disable no-throw-literal */
-/* eslint-disable no-shadow */
 import jwt from "jsonwebtoken";
 import validator from "email-validator";
 import config from "../utils/config/index";

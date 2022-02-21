@@ -45,7 +45,7 @@ const NavBar = function () {
           <TemporaryDrawer closeSideBar={() => setSideBar(false)} />
         ) : (
           <div className="navMenu">
-            {["About", "Contact-us", "Services", "Sign-up", "Dashboard"].map(
+            {["About", "Contact-us", "Jobs", "Sign-up", "Dashboard"].map(
               (text) => (
                 <NavLink
                   key={text}

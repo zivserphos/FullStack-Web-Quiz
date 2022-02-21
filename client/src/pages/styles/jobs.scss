@@ -1,0 +1,23 @@
+.jobs {
+    @media (max-width: 900px) {
+        .job-info {
+            display: none;
+        }
+        .input-mobile {
+            // display: none;
+            margin-top: 1rem;
+        }
+        .next-jobs {
+            margin-top: 1.5rem;
+            margin-right: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .dropdown-jobs-title {
+            display: "none";
+            display: "flex !important";
+            justify-content: "center !important";
+            margin-top: "1rem !important";
+        }
+    }
+}
