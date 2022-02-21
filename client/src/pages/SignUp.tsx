@@ -14,6 +14,7 @@ import config from "../utils/config/index";
 import { customAlert, failureSignUp, successfullSignUp } from "../utils/alerts";
 
 const SignUp = function () {
+  console.log(config.baseUrl);
   const [container, setContainer] = useState<string>("");
   const navigate = useNavigate();
   const [fullName, setFullname] = useState<string>("");

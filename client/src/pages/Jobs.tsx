@@ -71,9 +71,9 @@ const Jobs = function () {
         alignItems: "center",
       }}
     >
-      {/* <div className="input-mobile"> */}
       <div>
         <div
+          className="dropdown-jobs-title"
           style={{
             display: "flex",
             justifyContent: "center",

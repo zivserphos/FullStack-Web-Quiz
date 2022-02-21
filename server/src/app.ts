@@ -17,6 +17,8 @@ import render from "./middlewares/render";
 import unknownEndPoint from "./middlewares/unknownEndpoint";
 import tokenExtractor from "./middlewares/tokenExtractor";
 import userExtractor from "./middlewares/userExtractor";
+import "./services/scarpeJobDetails";
+import config from "./utils/config";
 
 const app = express();
 

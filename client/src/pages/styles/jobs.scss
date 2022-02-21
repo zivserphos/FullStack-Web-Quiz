@@ -13,5 +13,11 @@
             display: flex;
             justify-content: space-between;
         }
+        .dropdown-jobs-title {
+            display: "none";
+            display: "flex !important";
+            justify-content: "center !important";
+            margin-top: "1rem !important";
+        }
     }
 }
