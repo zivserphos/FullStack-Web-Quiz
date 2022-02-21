@@ -13,7 +13,6 @@ const Jobs = function () {
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [jobTitle, setJobTitle] = useState<string>("");
   useEffect(() => {
-    console.log(genJobSearchUrl(jobTitle, "israel", pageNumber));
     const initialJobs = async () => {
       const { data } = await axios.get(
         genJobSearchUrl(jobTitle, "israel", pageNumber)
@@ -35,8 +34,6 @@ const Jobs = function () {
   };
 
   const updateNextJobs = async () => {
-    console.log(pageNumber);
-    console.log(genJobSearchUrl(jobTitle, "israel", pageNumber));
     setPreviousJobs(jobs);
     if (nextJobs.length > 13) {
       setJobs(nextJobs.slice(0, 12));
@@ -54,7 +51,7 @@ const Jobs = function () {
   useEffect(() => {
     const jobsByTitle = async () => {
       if (!jobTitle) return;
-      console.log(genJobSearchUrl(jobTitle, "israel", pageNumber));
+
       const { data } = await axios.get(genJobSearchUrl(jobTitle, "israel", 0));
       setJobs(data);
       setPageNumber(0);

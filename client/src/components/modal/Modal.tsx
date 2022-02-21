@@ -1,23 +1,16 @@
 /* eslint-disable react/jsx-props-no-spreading */
+
 import React, { useState } from "react";
 import { Container, Modal, Button } from "react-bootstrap";
-import { makeStyles } from "@material-ui/core/styles";
 import { useSelector } from "react-redux";
 import ModalRow from "./ModalRow";
 import "./modal.scss";
 import ModalQuestion from "./ModalQuestions";
 import { genScores } from "../../utils/quiz";
 
-const useStyles = makeStyles({
-  root: {
-    backgroundColor: "pink !important",
-  },
-});
-
 const MydModalWithGrid = function (props: ModalProps) {
   const [extraInfo, setExtraInfo] = useState<number | null>(null);
   const { questions, numOfCorrectAns } = useSelector((state: Quiz) => state);
-  const classes = useStyles();
 
   const onHide = () => setExtraInfo(null);
 
@@ -30,7 +23,6 @@ const MydModalWithGrid = function (props: ModalProps) {
       aria-labelledby="contained-modal-title-vcenter"
       centered
       className="review-modal"
-      // style={{ margin: 0, position: "absolute", top: "50%", left: "50%" }}
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">

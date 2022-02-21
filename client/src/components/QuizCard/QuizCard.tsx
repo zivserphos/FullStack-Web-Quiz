@@ -20,7 +20,6 @@ const QuizCard = function ({
         <CardMedia
           component="img"
           style={{ aspectRatio: "1", objectFit: "unset" }}
-          // height="100%"
           image={logoImg}
           alt={`${subject} logo`}
         />

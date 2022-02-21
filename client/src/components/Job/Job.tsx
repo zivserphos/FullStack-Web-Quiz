@@ -27,7 +27,6 @@ const Job = function ({ job }: { job: JobInt }) {
             <Typography
               gutterBottom
               variant="h6"
-              // fontSize={subject.length > 10 ? 18.5 : 25}
               component="div"
               className="fonty"
             >

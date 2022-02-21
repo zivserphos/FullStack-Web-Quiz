@@ -123,7 +123,7 @@ const Quiz = function () {
         <CheckBox
           correctAns={questions[currentQuestion]?.correctAns}
           options={questions[currentQuestion]?.options || ""}
-          sendAns={currentQuestion === 4 ? sendQuiz : sendAns}
+          sendAns={currentQuestion === 14 ? sendQuiz : sendAns}
           index={currentQuestion}
           optionsAsCode={questions[currentQuestion]?.optionsAsCode}
           prevQuestion={prevQuestion}
