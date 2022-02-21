@@ -1,43 +1,63 @@
-/* eslint-disable react/no-danger */
-/* eslint-disable max-len */
-/* eslint-disable import/no-named-as-default */
-/* eslint-disable import/no-named-as-default-member */
-/* eslint-disable import/extensions */
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Button } from "@mui/material";
-import config from "../utils/config";
 import Job from "../components/Job/Job";
 import "./styles/jobs.scss";
 import PositionedMenu from "../components/DropdownMenu/Dropdown";
+import genJobSearchUrl from "../utils/jobs";
 
 const Jobs = function () {
   const [jobs, setJobs] = useState<JobInt[]>([]);
-  const [page, pageNumber] = useState<number>(0);
-
-  const jobsPerPage = 12;
-  // const [jobInfo, setJobInfo] = useState();
+  const [nextJobs, setNextJobs] = useState<JobInt[]>([]);
+  const [previousJobs, setPreviousJobs] = useState<JobInt[]>([]);
+  const [pageNumber, setPageNumber] = useState<number>(0);
   const [jobTitle, setJobTitle] = useState<string>("");
   useEffect(() => {
+    console.log(genJobSearchUrl(jobTitle, "israel", pageNumber));
     const initialJobs = async () => {
       const { data } = await axios.get(
-        `${config.baseUrl}/jobs?jobTitle=sales"&location=israel,israel&start=0`
+        genJobSearchUrl(jobTitle, "israel", pageNumber)
       );
-      setJobs(data);
-      // const job = await axios.get(
-      //   "https://www.linkedin.com/jobs/view/fullstack-javascript-developer-at-wix-com-2786331400/?trackingId=CIr%2F%2FxQE9UwJJ77ZECQClg%3D%3D&refId=RsdX0uLOs1Ruero2ir5fqw%3D%3D&pageNum=0&position=1&trk=public_jobs_jserp-result_search-card&originalSubdomain=il"
-      // );
-      // setJobInfo(job.data);
+      setJobs(data.slice(0, 12));
+      setNextJobs(data.slice(12, 24));
     };
     initialJobs();
   }, []);
 
+  const backToLastJobs = async () => {
+    setNextJobs(jobs);
+    setJobs(previousJobs);
+    setPageNumber((prev) => prev - 1);
+    const { data } = await axios.get(
+      genJobSearchUrl(jobTitle, "israel", pageNumber)
+    );
+    setPreviousJobs(data.slice(0, 12));
+  };
+
+  const updateNextJobs = async () => {
+    console.log(pageNumber);
+    console.log(genJobSearchUrl(jobTitle, "israel", pageNumber));
+    setPreviousJobs(jobs);
+    if (nextJobs.length > 13) {
+      setJobs(nextJobs.slice(0, 12));
+      setNextJobs((prev) => prev.slice(12, 24));
+      return setPageNumber((prev) => prev + 1);
+    }
+    setJobs(nextJobs);
+    setPageNumber((prev) => prev + 1);
+    const { data } = await axios.get(
+      genJobSearchUrl(jobTitle, "israel", pageNumber)
+    );
+    return setNextJobs(data);
+  };
+
   useEffect(() => {
     const jobsByTitle = async () => {
-      const { data } = await axios.get(
-        `${config.baseUrl}/jobs?jobTitle=${jobTitle}"&location=israel,israel&start=0`
-      );
+      if (!jobTitle) return;
+      console.log(genJobSearchUrl(jobTitle, "israel", pageNumber));
+      const { data } = await axios.get(genJobSearchUrl(jobTitle, "israel", 0));
       setJobs(data);
+      setPageNumber(0);
     };
     jobsByTitle();
   }, [jobTitle]);
@@ -79,7 +99,8 @@ const Jobs = function () {
           variant="contained"
           autoCapitalize="none"
           color="secondary"
-          // onClick={openPage}
+          onClick={backToLastJobs}
+          disabled={!pageNumber}
           style={{
             marginBottom: "1rem",
             marginLeft: "1rem",
@@ -93,7 +114,7 @@ const Jobs = function () {
           size="large"
           variant="contained"
           autoCapitalize="none"
-          // onClick={openPage}
+          onClick={updateNextJobs}
           style={{
             marginBottom: "1rem",
             marginLeft: "1rem",
