@@ -18,7 +18,6 @@ declare global {
     correctAns: CorrectAns;
     optionsAsCode?: boolean;
     isCorrect?: boolean;
-    // id: number;
   }
 
   interface fullQuestionData {
