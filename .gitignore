@@ -1,5 +1,4 @@
 node_modules
 request.rest
-client
 build
 .env
