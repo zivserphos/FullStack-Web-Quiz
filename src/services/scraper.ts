@@ -45,6 +45,7 @@ const mainScraper = async (
   start: number
 ) => {
   const res = await axios.get(genUrlToscrape(jobTitle, location, start));
+  console.log(genUrlToscrape(jobTitle, location, start));
   const $ = cheerio.load(res.data);
   const jobs: Job[] = [];
   $(".jobs-search__results-list > li > div ").each((_, elem) =>
