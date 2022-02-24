@@ -35,6 +35,7 @@ const scrapeFromJob = ($, elem) => ({
 });
 const mainScraper = (jobTitle, location, start) => __awaiter(void 0, void 0, void 0, function* () {
     const res = yield axios_1.default.get(genUrlToscrape(jobTitle, location, start));
+    console.log(genUrlToscrape(jobTitle, location, start));
     const $ = cheerio_1.default.load(res.data);
     const jobs = [];
     $(".jobs-search__results-list > li > div ").each((_, elem) => jobs.push(scrapeFromJob($, elem)));
