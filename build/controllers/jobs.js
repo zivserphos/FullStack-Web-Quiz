@@ -13,8 +13,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const scraper_1 = __importDefault(require("../services/scraper"));
-const getJobs = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { jobTitle, location, start } = req.query;
-    res.send(yield (0, scraper_1.default)(jobTitle, location, Number(start)));
+const getJobs = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { jobTitle, location, start } = req.query;
+        res.send(yield (0, scraper_1.default)(jobTitle, location, Number(start)));
+    }
+    catch (err) {
+        next({
+            status: 503,
+            message: { error: "Services Currently not Available" },
+        });
+    }
 });
 exports.default = getJobs;
