@@ -1,5 +1,20 @@
 import axios from "axios";
 import cheerio from "cheerio";
+import FullStackDeveloperModel from "../../db/models/jobs/fullstack-deceloper";
+import DataAnalystModel from "../../db/models/jobs/data-analyst";
+import DevopsModel from "../../db/models/jobs/devops";
+import BackendDeveloperModel from "../../db/models/jobs/baceknd-developer";
+import FrontendDeveloperModel from "../../db/models/jobs/frontend-developer";
+import SalesModel from "../../db/models/jobs/sales";
+
+const jobTitles = [
+  "Fullstack developer",
+  "Data Analyst",
+  "Devops Engineer",
+  "Backend Developer",
+  "Frontend Developer",
+  "Sales",
+];
 
 const genUrlToscrape = (jobTitle: string, location: string, start = 0) =>
   `https://www.linkedin.com/jobs/search?keywords=${jobTitle.replace(
@@ -44,9 +59,7 @@ const mainScraper = async (
   location: string,
   start: number
 ) => {
-  console.log("666");
   const res = await axios.get(genUrlToscrape(jobTitle, location, start));
-  // console.log(genUrlToscrape(jobTitle, location, start));
   const $ = cheerio.load(res.data);
   const jobs: Job[] = [];
   $(".jobs-search__results-list > li > div ").each((_, elem) =>
@@ -58,3 +71,32 @@ const mainScraper = async (
 };
 
 export default mainScraper;
+
+jobTitles.forEach(async (jobTitle) => {
+  const firstJobs = mainScraper(jobTitle, "israel", 0);
+  const secondJobs = mainScraper(jobTitle, "israel", 24);
+  if (jobTitle === "Fullstack developer") {
+    await FullStackDeveloperModel.insertMany(firstJobs);
+    await FullStackDeveloperModel.insertMany(secondJobs);
+  }
+  if (jobTitle === "Data Analyst") {
+    await DataAnalystModel.insertMany(firstJobs);
+    await DataAnalystModel.insertMany(secondJobs);
+  }
+  if (jobTitle === "Devops Engineer") {
+    await DevopsModel.insertMany(firstJobs);
+    await DevopsModel.insertMany(secondJobs);
+  }
+  if (jobTitle === "Backend Developer") {
+    await BackendDeveloperModel.insertMany(firstJobs);
+    await BackendDeveloperModel.insertMany(secondJobs);
+  }
+  if (jobTitle === "Frontend developer") {
+    await FrontendDeveloperModel.insertMany(firstJobs);
+    await FrontendDeveloperModel.insertMany(secondJobs);
+  }
+  if (jobTitle === "Sales") {
+    await SalesModel.insertMany(firstJobs);
+    await SalesModel.insertMany(secondJobs);
+  }
+});
