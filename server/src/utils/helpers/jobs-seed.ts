@@ -1,6 +1,7 @@
+/* eslint-disable no-await-in-loop */
 import axios from "axios";
 import cheerio from "cheerio";
-import FullStackDeveloperModel from "../../db/models/jobs/fullstack-deceloper";
+import FullStackDeveloperModel from "../../db/models/jobs/fullstack-developer";
 import DataAnalystModel from "../../db/models/jobs/data-analyst";
 import DevopsModel from "../../db/models/jobs/devops";
 import BackendDeveloperModel from "../../db/models/jobs/baceknd-developer";
@@ -59,26 +60,38 @@ const mainScraper = async (
   location: string,
   start: number
 ) => {
+  console.log(genUrlToscrape(jobTitle, location, start));
   const res = await axios.get(genUrlToscrape(jobTitle, location, start));
   const $ = cheerio.load(res.data);
   const jobs: Job[] = [];
   $(".jobs-search__results-list > li > div ").each((_, elem) =>
     jobs.push(scrapeFromJob($, elem))
   );
-  console.log("shit shit hsit");
-  console.log(jobs.length);
   return jobs;
 };
 
-export default mainScraper;
+// jobTitles.forEach(async (jobTitle) => {
+//   if (jobTitle === "sales") {
+//     for (let i = 0; i < 4; i += 1) {
+//       const jobs = await mainScraper("sales", "israel", i * 24);
+//       SalesModel.insertMany(jobs);
+//     }
+//   }
+// });
 
 jobTitles.forEach(async (jobTitle) => {
-  const firstJobs = mainScraper(jobTitle, "israel", 0);
-  const secondJobs = mainScraper(jobTitle, "israel", 24);
-  if (jobTitle === "Fullstack developer") {
+  const firstJobs = await mainScraper(jobTitle.replace(" ", "+"), "israel", 0);
+  const secondJobs = await mainScraper(
+    jobTitle.replace(" ", "+"),
+    "israel",
+    24
+  );
+
+  if (jobTitle === "Fullstack%20Developer") {
     await FullStackDeveloperModel.insertMany(firstJobs);
     await FullStackDeveloperModel.insertMany(secondJobs);
   }
+
   if (jobTitle === "Data Analyst") {
     await DataAnalystModel.insertMany(firstJobs);
     await DataAnalystModel.insertMany(secondJobs);

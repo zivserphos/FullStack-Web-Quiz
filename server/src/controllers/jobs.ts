@@ -4,6 +4,7 @@ import scraper from "../services/scraper";
 const getJobs: Handler = async (req, res, next) => {
   try {
     const { jobTitle, location, start } = req.query;
+    console.log(req.query);
     res.send(
       await scraper(jobTitle as string, location as string, Number(start))
     );
