@@ -9,7 +9,7 @@ import FrontendDeveloperModel from "../../db/models/jobs/frontend-developer";
 import SalesModel from "../../db/models/jobs/sales";
 
 const jobTitles = [
-  "Fullstack developer",
+  "Fullstack Developer",
   "Data Analyst",
   "Devops Engineer",
   "Backend Developer",
@@ -70,15 +70,6 @@ const mainScraper = async (
   return jobs;
 };
 
-// jobTitles.forEach(async (jobTitle) => {
-//   if (jobTitle === "sales") {
-//     for (let i = 0; i < 4; i += 1) {
-//       const jobs = await mainScraper("sales", "israel", i * 24);
-//       SalesModel.insertMany(jobs);
-//     }
-//   }
-// });
-
 jobTitles.forEach(async (jobTitle) => {
   const firstJobs = await mainScraper(jobTitle.replace(" ", "+"), "israel", 0);
   const secondJobs = await mainScraper(
@@ -87,7 +78,7 @@ jobTitles.forEach(async (jobTitle) => {
     24
   );
 
-  if (jobTitle === "Fullstack%20Developer") {
+  if (jobTitle === "Fullstack Developer") {
     await FullStackDeveloperModel.insertMany(firstJobs);
     await FullStackDeveloperModel.insertMany(secondJobs);
   }
