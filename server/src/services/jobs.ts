@@ -22,7 +22,6 @@ const getCorrectJobs = async (
     return DevopsModel.find().skip(Number(start)).limit(24);
   if (jobTitle === "Data Analyst")
     return DataAnalystModel.find().skip(Number(start)).limit(24);
-  console.log(jobTitle);
   throw Error;
 };
 
