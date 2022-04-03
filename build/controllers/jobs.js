@@ -12,11 +12,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const scraper_1 = __importDefault(require("../services/scraper"));
+const jobs_1 = __importDefault(require("../services/jobs"));
 const getJobs = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { jobTitle, location, start } = req.query;
-        res.send(yield (0, scraper_1.default)(jobTitle, location, Number(start)));
+        res.send(yield (0, jobs_1.default)(jobTitle, location, Number(start)));
     }
     catch (err) {
         next({
