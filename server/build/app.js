@@ -41,7 +41,6 @@ const render_1 = __importDefault(require("./middlewares/render"));
 const unknownEndpoint_1 = __importDefault(require("./middlewares/unknownEndpoint"));
 const tokenExtractor_1 = __importDefault(require("./middlewares/tokenExtractor"));
 const userExtractor_1 = __importDefault(require("./middlewares/userExtractor"));
-require("./services/scarpeJobDetails");
 const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use((0, cors_1.default)({ origin: true, credentials: true }));
