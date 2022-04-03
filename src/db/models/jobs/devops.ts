@@ -33,5 +33,5 @@ DevopsSchema.set("toJSON", {
   },
 });
 
-const Devops = mongoose.model("jobs-dataAnalyst", DevopsSchema);
+const Devops = mongoose.model("jobs-devops", DevopsSchema);
 export default Devops;
