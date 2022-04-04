@@ -6,7 +6,7 @@ import {
   faLinkedin,
   faGithub,
 } from "@fortawesome/free-brands-svg-icons";
-import Cookies from "js-cookie";
+import Cookies from "universal-cookie";
 import "./styles/sign-up.scss";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -19,6 +19,7 @@ const SignUp = function () {
   const [fullName, setFullname] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const cookies = new Cookies();
 
   const handleSignUp = () => {
     setContainer("right-panel-active");
@@ -42,7 +43,7 @@ const SignUp = function () {
           },
         }
       );
-      Cookies.set("IMLIVINGTHEDREAM", res.data.accessToken);
+      cookies.set("IMLIVINGTHEDREAM", res.data.accessToken, { path: "/" });
       return navigate("/");
     } catch (err: any) {
       if (!err.response || !err.response.data.error) return failureSignUp();
