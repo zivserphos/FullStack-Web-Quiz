@@ -35,7 +35,7 @@ const loginPassport = (email) => __awaiter(void 0, void 0, void 0, function* () 
         throw { status: 400, message: "No such email or username" };
     const userId = user._id;
     const accessToken = jsonwebtoken_1.default.sign({ email, userId }, index_1.default.secret, {
-        expiresIn: "20s",
+        expiresIn: "240s",
     });
     const refreshToken = jsonwebtoken_1.default.sign({ userId, email }, index_1.default.secret, {
         expiresIn: index_1.default.refreshTime,
