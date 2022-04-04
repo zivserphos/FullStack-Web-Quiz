@@ -6,6 +6,7 @@ const jwtError = () => ({
 });
 const tokenExtractor = (req, _res, next) => {
     const authorization = req.get("authorization");
+    console.log(authorization);
     if (!authorization || !authorization.toLowerCase().startsWith("bearer "))
         throw jwtError();
     req.token = authorization.substring(7);
