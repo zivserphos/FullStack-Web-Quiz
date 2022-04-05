@@ -5,6 +5,7 @@ import Job from "../components/Job/Job";
 import "./styles/jobs.scss";
 import PositionedMenu from "../components/DropdownMenu/Dropdown";
 import genJobSearchUrl from "../utils/jobs";
+import { customAlert } from "../utils/alerts";
 
 const Jobs = function () {
   const [jobs, setJobs] = useState<JobInt[]>([]);
@@ -12,50 +13,71 @@ const Jobs = function () {
   const [previousJobs, setPreviousJobs] = useState<JobInt[]>([]);
   const [pageNumber, setPageNumber] = useState<number>(0);
   const [jobTitle, setJobTitle] = useState<string>("");
+  const notAvilable = () =>
+    customAlert("Services currently not available", "error");
+
   useEffect(() => {
     const initialJobs = async () => {
-      const { data } = await axios.get(
-        genJobSearchUrl(jobTitle, "israel", pageNumber)
-      );
-      setJobs(data.slice(0, 12));
-      setNextJobs(data.slice(12, 24));
+      try {
+        const { data } = await axios.get(
+          genJobSearchUrl(jobTitle, "israel", pageNumber)
+        );
+        setJobs(data.slice(0, 12));
+        return setNextJobs(data.slice(12, 24));
+      } catch (err) {
+        return notAvilable();
+      }
     };
     initialJobs();
   }, []);
 
   const backToLastJobs = async () => {
-    setNextJobs(jobs);
-    setJobs(previousJobs);
-    setPageNumber((prev) => prev - 1);
-    const { data } = await axios.get(
-      genJobSearchUrl(jobTitle, "israel", pageNumber)
-    );
-    setPreviousJobs(data.slice(0, 12));
+    try {
+      setNextJobs(jobs);
+      setJobs(previousJobs);
+      setPageNumber((prev) => prev - 1);
+      const { data } = await axios.get(
+        genJobSearchUrl(jobTitle, "israel", pageNumber)
+      );
+      return setPreviousJobs(data.slice(0, 12));
+    } catch (err) {
+      return notAvilable();
+    }
   };
 
   const updateNextJobs = async () => {
-    setPreviousJobs(jobs);
-    if (nextJobs.length > 13) {
-      setJobs(nextJobs.slice(0, 12));
-      setNextJobs((prev) => prev.slice(12, 24));
-      return setPageNumber((prev) => prev + 1);
+    try {
+      setPreviousJobs(jobs);
+      if (nextJobs.length > 13) {
+        setJobs(nextJobs.slice(0, 12));
+        setNextJobs((prev) => prev.slice(12, 24));
+        return setPageNumber((prev) => prev + 1);
+      }
+      setJobs(nextJobs);
+      setPageNumber((prev) => prev + 1);
+      const { data } = await axios.get(
+        genJobSearchUrl(jobTitle, "israel", pageNumber)
+      );
+      return setNextJobs(data);
+    } catch (err) {
+      return notAvilable();
     }
-    setJobs(nextJobs);
-    setPageNumber((prev) => prev + 1);
-    const { data } = await axios.get(
-      genJobSearchUrl(jobTitle, "israel", pageNumber)
-    );
-    return setNextJobs(data);
   };
 
   useEffect(() => {
     const jobsByTitle = async () => {
-      if (!jobTitle) return;
-
-      const { data } = await axios.get(genJobSearchUrl(jobTitle, "israel", 0));
-      setJobs(data);
-      setPageNumber(0);
+      try {
+        if (!jobTitle) return;
+        const { data } = await axios.get(
+          genJobSearchUrl(jobTitle, "israel", 0)
+        );
+        setJobs(data);
+        setPageNumber(0);
+      } catch (err) {
+        notAvilable();
+      }
     };
+
     jobsByTitle();
   }, [jobTitle]);
 

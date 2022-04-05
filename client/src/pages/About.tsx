@@ -10,7 +10,7 @@ const About = function () {
         alignItems: "center",
       }}
     >
-      <h1>about what you want me talk?</h1>
+      <h1>A Portfolio Page In Progress</h1>
     </div>
   );
 };

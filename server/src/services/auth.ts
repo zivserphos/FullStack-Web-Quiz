@@ -25,7 +25,7 @@ const loginPassport = async (email: string): Promise<ValidLogin> => {
   const userId = user._id;
 
   const accessToken = jwt.sign({ email, userId }, config.secret, {
-    expiresIn: "20s",
+    expiresIn: "240s",
   });
 
   const refreshToken = jwt.sign({ userId, email }, config.secret, {
