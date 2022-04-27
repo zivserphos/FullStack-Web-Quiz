@@ -2,6 +2,8 @@
 A responsive Website that containe many quizzes in different topics all realted to full stack development,
 also contain a section for job search section in the field of software engineering / sales. 
 
+* About page is currently on progress *
+
 LINK TO THE PROJECT: https://linkedin-quizzes.herokuapp.com/
 
 *HOMEPAGE*
