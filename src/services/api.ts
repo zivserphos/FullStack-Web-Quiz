@@ -1,10 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable no-use-before-define */
 /* eslint-disable no-underscore-dangle */
 import fs from "fs";
+import { faker } from "@faker-js/faker";
 import QuizModel from "../db/models/Quiz";
 import User from "../db/models/User";
 
 const sendQuiz = async (quiz: Quiz, userEmail: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const user: any = await User.findOne({ email: userEmail });
   const savedQuiz = await QuizModel.create({
     userId: user._id,
@@ -16,6 +19,16 @@ const sendQuiz = async (quiz: Quiz, userEmail: string) => {
   user.quizzes = [userQuizzes.concat(savedQuiz._id)];
   user.save();
 };
+
+const genFakeQuiz = (subject: string): FakeQuiz => ({
+  questions: genQuiz(subject),
+  subject,
+  date: faker.date.between(
+    "2022-01-01T00:00:00.000Z",
+    "2022-05-08T00:00:00.000Z"
+  ),
+  result: Math.random() > 0.82 ? 15 : Math.ceil(Math.random() * 14),
+});
 
 const genQuestions = (subject: string, limit: number) => {
   const contentFile = JSON.parse(
@@ -32,8 +45,22 @@ const genQuestions = (subject: string, limit: number) => {
   return quiz;
 };
 
+const genFakeUser = (num: number) => {
+  const fakeUsers: FakeUser[] = [];
+  for (let i = 0; i < num; i += 1) {
+    fakeUsers.push({
+      date: faker.date.between(
+        "2022-05-01T00:00:00.000Z",
+        "2022-06-01T00:00:00.000Z"
+      ),
+      email: faker.internet.email(),
+    });
+  }
+  return fakeUsers;
+};
+
 const genQuiz = (subject: string) => genQuestions(subject, 15);
 const genCustom = (subject: string, limit: number) =>
   genQuestions(subject, limit);
 
-export default { genQuiz, genCustom, sendQuiz };
+export default { genQuiz, genCustom, sendQuiz, genFakeQuiz, genFakeUser };

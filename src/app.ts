@@ -8,6 +8,7 @@ import cookieSession from "cookie-session";
 import cookieParser from "cookie-parser";
 import morganHandler from "./middlewares/morgan";
 import errorHandler from "./middlewares/errorHandlers";
+import fakeRouter from "./routes/fake";
 import AuthRouter from "./routes/auth";
 import ApiRouter from "./routes/api";
 import EmailRouter from "./routes/email";
@@ -47,6 +48,7 @@ app.use("/auth", AuthRouter);
 app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
 app.use("/jobs", jobsRouter);
+app.use("/fake", fakeRouter);
 
 app.get("/", render);
 app.get("/sign-up", render);
