@@ -1,4 +1,5 @@
 import React from "react";
+import BarC from "../components/BarChart/BarChart";
 
 const Dashboard = function () {
   return (
@@ -10,7 +11,7 @@ const Dashboard = function () {
         alignItems: "center",
       }}
     >
-      <h1>wait for that dashboardddd</h1>
+      <BarC />
     </div>
   );
 };
