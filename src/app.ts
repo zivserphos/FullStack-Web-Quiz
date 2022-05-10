@@ -44,8 +44,6 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.static(path.resolve("./client")));
 
-console.log(path.resolve("./client"));
-
 app.use("/auth", AuthRouter);
 app.use("/api", tokenExtractor, userExtractor, ApiRouter);
 app.use("/email", EmailRouter);
