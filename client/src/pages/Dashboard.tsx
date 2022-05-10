@@ -6,6 +6,9 @@ import "./styles/dashboard.scss";
 const Dashboard = function () {
   return (
     <div className="dashboard">
+      <button type="button" className="is-button is-primary is-lg">
+        xxx
+      </button>
       <div
         style={{
           display: "flex",

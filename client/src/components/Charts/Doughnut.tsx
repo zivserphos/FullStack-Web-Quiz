@@ -70,12 +70,8 @@ const Doughnut = function () {
     fetchFakeQuizzes();
   }, []);
 
-  useEffect(() => {
-    console.log(fakeQuizzes);
-  }, [fakeQuizzes]);
-
   return (
-    <div style={{ width: "40%", height: "30%" }}>
+    <div style={{ width: "40%", height: "30%" }} className="doughnuts">
       {fakeQuizzes ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Pie
