@@ -3,6 +3,7 @@ import { Bar as BarJS, Line } from "react-chartjs-2";
 import axios from "axios";
 import { Chart, registerables } from "chart.js";
 import "./styles/bar-chart.scss";
+import config from "../../utils/config";
 
 Chart.register(...registerables);
 
@@ -10,7 +11,7 @@ const dataForLineChart = (data: number[], months: string[]) => ({
   labels: months,
   datasets: [
     {
-      label: "User Registration Per Month",
+      label: `User Registration Per Month (total: )`,
       data,
       fill: false,
       borderColor: "rgb(75, 192, 192)",
@@ -72,8 +73,7 @@ const BarC = function () {
   useEffect(() => {
     const getFakeStats = async () => {
       const { data: fakeUsersData }: { data: FakeDateStats[] } =
-        await axios.get(`http://localhost:3001/fake/stats/users`);
-      console.log(fakeUsersData);
+        await axios.get(`${config.baseUrl}/fake/stats/users`);
 
       setFakeDates(fakeUsersData);
     };
@@ -84,22 +84,16 @@ const BarC = function () {
     setDisplay(true);
   }, []);
   useEffect(() => {
-    const a = fakeDates
+    const numUsers = fakeDates
       ? fakeDates.reduce(
           (acc, curr: FakeDateStats) => acc + Object.values(curr)[0],
           0
         )
       : 0;
-    setAllUsers(Number(a));
+    setAllUsers(Number(numUsers));
   }, [fakeDates]);
   return (
     <div className="bar-charts">
-      {/* <div className="container">
-        <h1>{`Total Amount Of Users: ${fakeDates.reduce(
-          (acc, curr) => acc + Object.values(curr)[0],
-          0
-        )}`}</h1>
-      </div> */}
       <div>
         <h1>Users Registration Statistics</h1>
         {fakeDates ? (

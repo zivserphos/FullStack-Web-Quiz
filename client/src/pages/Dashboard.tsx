@@ -6,9 +6,6 @@ import "./styles/dashboard.scss";
 const Dashboard = function () {
   return (
     <div className="dashboard">
-      <button type="button" className="is-button is-primary is-lg">
-        xxx
-      </button>
       <div
         style={{
           display: "flex",
@@ -24,6 +21,18 @@ const Dashboard = function () {
       <div className="doughnut-wrapper">
         <Doughnut />
       </div>
+      {/* <div className="display-data"> {
+        numOfUsers && 
+      }
+        <u>Total Amount Of Users:</u> {numOfUsers} <br />
+        <u>Total Amount Of Quizzes Been Taken:</u>
+        {quizzes.filter((quiz) => quiz.result !== 15)} <br />
+        <u>Perfect Quizzes:</u> {quizzes.filter((quiz) => quiz.result === 15)}
+        <br />
+        <u>Subject With Most Perfect Quizzes:</u> {bestSubject()} AWS(5) <br />
+        <u>Most Users Registed In:</u>
+        {bestMonth()} (73)
+      </div> */}
     </div>
   );
 };

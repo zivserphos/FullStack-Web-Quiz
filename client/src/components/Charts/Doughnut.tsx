@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-// import axios from "axios";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Doughnut as DoughnutComponent, Pie } from "react-chartjs-2";
 import colors from "../../utils/colors";
+import config from "../../utils/config";
 import "./styles/doughnut.scss";
 
 const dataForPie = (data: number[]) => ({
-  labels: ["Perfect Quiz", "Not A Perfect Quiz"],
+  labels: [`Perfect Quiz`, "Not A Perfect Quiz"],
   datasets: [
     {
       label: "The ratio of perfect quizzes to those not",
@@ -15,12 +15,6 @@ const dataForPie = (data: number[]) => ({
       backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
       hoverOffset: 4,
     },
-    // {
-    //   label: "perfect quizzes by subject",
-    //   data,
-    //   backgroundColor: ["rgb(255, 205, 86)", "green"],
-    //   hoverOffset: 4,
-    // },
   ],
 });
 
@@ -63,7 +57,7 @@ const Doughnut = function () {
   useEffect(() => {
     const fetchFakeQuizzes = async () => {
       const { data: fetchedQuizzes }: { data: FakeQuiz[] } = await axios.get(
-        "http://localhost:3001/fake/stats/quizzes"
+        `${config.baseUrl}/fake/stats/quizzes`
       );
       setFakeQuizzes(fetchedQuizzes);
     };
@@ -79,9 +73,10 @@ const Doughnut = function () {
             options={{ responsive: true, maintainAspectRatio: true }}
           />
           <div>
-            <h1 style={{ textAlign: "right" }}>
-              Perfect Quizzes Divided Into Subjects
-            </h1>
+            <h2 style={{ textAlign: "right" }}>
+              Perfect Quizzes Divided Into Subjects (total:
+              {fakeQuizzes.filter((quiz) => quiz.result === 15).length})
+            </h2>
             <DoughnutComponent
               data={dataForDoughnut(perfectQuizzesPerSubject())}
               options={{ responsive: true, maintainAspectRatio: true }}
