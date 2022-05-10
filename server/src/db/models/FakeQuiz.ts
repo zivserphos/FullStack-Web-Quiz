@@ -22,13 +22,13 @@ const FakeQuizSchema: Schema = new mongoose.Schema({
   ],
 });
 
-FakeQuizSchema.set("toJSON", {
-  transform: (_, returnedObject) => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    returnedObject.id = <string>returnedObject._id.toString();
-    delete returnedObject._id;
-  },
-});
+// FakeQuizSchema.set("toJSON", {
+//   transform: (_, returnedObject) => {
+//     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
+//     returnedObject.id = <string>returnedObject._id.toString();
+//     delete returnedObject._id;
+//   },
+// });
 
 const FakeQuiz = mongoose.model("FakeQuiz", FakeQuizSchema);
 export default FakeQuiz;

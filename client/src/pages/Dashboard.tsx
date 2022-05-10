@@ -1,5 +1,6 @@
 import React from "react";
-import BarC from "../components/BarChart/BarChart";
+import BarC from "../components/Charts/BarChart";
+import Doughnut from "../components/Charts/Doughnut";
 
 const Dashboard = function () {
   return (
@@ -9,9 +10,13 @@ const Dashboard = function () {
         justifyContent: "center",
         height: "90vh",
         alignItems: "center",
+        flexWrap: "wrap",
       }}
     >
-      <BarC />
+      <div>
+        <BarC />
+        <Doughnut />
+      </div>
     </div>
   );
 };

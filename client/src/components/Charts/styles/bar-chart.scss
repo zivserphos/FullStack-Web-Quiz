@@ -1,0 +1,20 @@
+.dashboard {
+    .wrap-user-stats {
+        justify-content: center;
+    }
+    // .container {
+    //     max-width: 500px;
+    //     margin: 30px auto;
+    //     overflow: auto;
+    //     border: 1px solid steelblue;
+    //     padding: 30px;
+    //     border-radius: 5px;
+    // }
+    h1 {
+        display: flex;
+        justify-content: center;
+        font-family: sans-serif;
+        font-size: 2.5rem;
+        background-color: azure;
+    }
+}
