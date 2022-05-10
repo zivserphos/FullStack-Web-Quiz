@@ -2,7 +2,7 @@ interface FakeQuiz {
   date: Date;
   subject: string;
   result: number;
-  questions: Question[];
+  // questions: Question[];
 }
 
 interface FakeUser {

@@ -93,7 +93,7 @@ const BarC = function () {
     setAllUsers(Number(a));
   }, [fakeDates]);
   return (
-    <div className="dashboard">
+    <div className="bar-charts">
       {/* <div className="container">
         <h1>{`Total Amount Of Users: ${fakeDates.reduce(
           (acc, curr) => acc + Object.values(curr)[0],

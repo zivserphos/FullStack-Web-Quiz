@@ -1,4 +1,9 @@
-.dashboard {
+.bar-charts {
+    display: "flex";
+    justify-content: "center";
+    height: "90vh";
+    align-items: "center";
+    flex-wrap: "wrap";
     .wrap-user-stats {
         justify-content: center;
     }
