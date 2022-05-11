@@ -74,8 +74,7 @@ const BarC = function () {
     const getFakeStats = async () => {
       const { data: fakeUsersData }: { data: FakeDateStats[] } =
         await axios.get(`${config.baseUrl}/fake/stats/users`);
-
-      setFakeDates(fakeUsersData);
+      setFakeDates(fakeUsersData.length ? fakeUsersData : []);
     };
     getFakeStats();
   }, []);
@@ -84,7 +83,7 @@ const BarC = function () {
     setDisplay(true);
   }, []);
   useEffect(() => {
-    const numUsers = fakeDates
+    const numUsers = Array.isArray(fakeDates)
       ? fakeDates.reduce(
           (acc, curr: FakeDateStats) => acc + Object.values(curr)[0],
           0
@@ -102,25 +101,29 @@ const BarC = function () {
             style={{ display: display ? "flex" : "block" }}
           >
             <div>
-              <Line
-                data={dataForLineChart(
-                  fakeDates.map((month) => Object.values(month)[0]),
-                  fakeDates.map((month) => Object.keys(month)[0])
-                )}
-                height="25%"
-                width="35%"
-              />
+              {Array.isArray(fakeDates) && (
+                <Line
+                  data={dataForLineChart(
+                    fakeDates.map((month) => Object.values(month)[0]),
+                    fakeDates.map((month) => Object.keys(month)[0])
+                  )}
+                  height="25%"
+                  width="35%"
+                />
+              )}
             </div>
             <div>
-              <BarJS
-                data={dataForBarChart(
-                  fakeDates.map((month) => Object.values(month)[0]),
-                  fakeDates.map((month) => Object.keys(month)[0]),
-                  allUsers
-                )}
-                height="25%"
-                width="35%"
-              />
+              {Array.isArray(fakeDates) && (
+                <BarJS
+                  data={dataForBarChart(
+                    fakeDates.map((month) => Object.values(month)[0]),
+                    fakeDates.map((month) => Object.keys(month)[0]),
+                    allUsers
+                  )}
+                  height="25%"
+                  width="35%"
+                />
+              )}
             </div>
           </div>
         ) : (

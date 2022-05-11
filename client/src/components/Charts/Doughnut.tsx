@@ -34,10 +34,12 @@ const Doughnut = function () {
   const [fakeQuizzes, setFakeQuizzes] = useState<FakeQuiz[]>([]);
 
   const ratioOfQuizzes = () => {
-    const perfectQuizzes = fakeQuizzes.reduce(
-      (accu, quiz) => (quiz.result === 15 ? accu + 1 : accu),
-      0
-    );
+    const perfectQuizzes = Array.isArray(fakeQuizzes)
+      ? fakeQuizzes.reduce(
+          (accu, quiz) => (quiz.result === 15 ? accu + 1 : accu),
+          0
+        )
+      : 0;
     return [perfectQuizzes, fakeQuizzes.length - perfectQuizzes];
   };
 
@@ -59,14 +61,14 @@ const Doughnut = function () {
       const { data: fetchedQuizzes }: { data: FakeQuiz[] } = await axios.get(
         `${config.baseUrl}/fake/stats/quizzes`
       );
-      setFakeQuizzes(fetchedQuizzes);
+      setFakeQuizzes(fetchedQuizzes.length ? fetchedQuizzes : []);
     };
     fetchFakeQuizzes();
   }, []);
 
   return (
     <div style={{ width: "40%", height: "30%" }} className="doughnuts">
-      {fakeQuizzes ? (
+      {Array.isArray(fakeQuizzes) ? (
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Pie
             data={dataForPie(ratioOfQuizzes())}
@@ -75,7 +77,9 @@ const Doughnut = function () {
           <div>
             <h2 style={{ textAlign: "right" }}>
               Perfect Quizzes Divided Into Subjects (total:
-              {fakeQuizzes.filter((quiz) => quiz.result === 15).length})
+              {fakeQuizzes.length > 0 &&
+                fakeQuizzes.filter((quiz) => quiz.result === 15).length}
+              )
             </h2>
             <DoughnutComponent
               data={dataForDoughnut(perfectQuizzesPerSubject())}
