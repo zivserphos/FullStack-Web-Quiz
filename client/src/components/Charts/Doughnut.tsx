@@ -2,21 +2,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Doughnut as DoughnutComponent, Pie } from "react-chartjs-2";
+import { dataForPie } from "../../utils/charts";
 import colors from "../../utils/colors";
 import config from "../../utils/config";
 import "./styles/doughnut.scss";
-
-const dataForPie = (data: number[]) => ({
-  labels: [`Perfect Quiz`, "Not A Perfect Quiz"],
-  datasets: [
-    {
-      label: "The ratio of perfect quizzes to those not",
-      data,
-      backgroundColor: ["rgb(255, 99, 132)", "rgb(54, 162, 235)"],
-      hoverOffset: 4,
-    },
-  ],
-});
 
 const dataForDoughnut = (data: { [key: string]: number }) => ({
   labels: Object.keys(data),
