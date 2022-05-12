@@ -20,7 +20,7 @@ const sendQuiz = async (quiz: Quiz, userEmail: string) => {
   user.quizzes = [userQuizzes.concat(savedQuiz._id)];
   user.save();
   const fakeSubject = quizzesSubjects[Math.random() * quizzesSubjects.length];
-  FakeQuiz.insertMany({
+  await FakeQuiz.insertMany({
     subject: fakeSubject,
     result: Math.random() > 0.82 ? 15 : Math.ceil(Math.random() * 14),
     date: new Date(),

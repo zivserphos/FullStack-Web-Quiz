@@ -83,7 +83,7 @@ const signUpWithPassport = async ({
   const exists = await UserModel.find({ email });
 
   if (exists.length > 0) throw { status: 400, message: "email already exists" };
-  FakeUser.insertMany({
+  await FakeUser.insertMany({
     date: new Date(),
     email,
   });
@@ -113,7 +113,7 @@ const signUpJWT = async ({
   if (!validator.validate(email)) throw badRequest("Invalid email");
   const exists = await UserModel.find({ email });
   if (exists.length > 0) throw conflict("email already exists");
-  FakeUser.insertMany({
+  await FakeUser.insertMany({
     date: new Date(),
     email,
   });
