@@ -4,6 +4,8 @@
 import fs from "fs";
 import QuizModel from "../db/models/Quiz";
 import User from "../db/models/User";
+import FakeQuiz from "../db/models/FakeQuiz";
+import { quizzesSubjects } from "../utils/helpers/mock-data";
 
 const sendQuiz = async (quiz: Quiz, userEmail: string) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -17,6 +19,13 @@ const sendQuiz = async (quiz: Quiz, userEmail: string) => {
   const userQuizzes = [...(user.quizzes || [])];
   user.quizzes = [userQuizzes.concat(savedQuiz._id)];
   user.save();
+  const fakeSubject = quizzesSubjects[Math.random() * quizzesSubjects.length];
+  FakeQuiz.insertMany({
+    subject: fakeSubject,
+    result: Math.random() > 0.82 ? 15 : Math.ceil(Math.random() * 14),
+    date: new Date(),
+    questions: genQuiz(fakeSubject),
+  });
 };
 
 const genQuestions = (subject: string, limit: number) => {

@@ -21,6 +21,7 @@ const index_1 = __importDefault(require("../utils/config/index"));
 const Token_1 = __importDefault(require("../db/models/Token"));
 const User_1 = __importDefault(require("../db/models/User"));
 const bcrypt_1 = __importDefault(require("./bcrypt"));
+const FakeUser_1 = __importDefault(require("../db/models/FakeUser"));
 const badRequest = (cause) => ({
     status: 400,
     message: { error: cause },
@@ -68,6 +69,10 @@ const signUpWithPassport = ({ first_name, last_name, email, password, }) => __aw
     const exists = yield User_1.default.find({ email });
     if (exists.length > 0)
         throw { status: 400, message: "email already exists" };
+    FakeUser_1.default.insertMany({
+        date: new Date(),
+        email,
+    });
     const hashPassword = yield bcrypt_1.default.genHashPass(password);
     const user = yield User_1.default.create({
         first_name,
@@ -89,6 +94,10 @@ const signUpJWT = ({ first_name, last_name, email, password, }) => __awaiter(voi
     const exists = yield User_1.default.find({ email });
     if (exists.length > 0)
         throw conflict("email already exists");
+    FakeUser_1.default.insertMany({
+        date: new Date(),
+        email,
+    });
     const hashPassword = yield bcrypt_1.default.genHashPass(password);
     const user = yield User_1.default.create({
         first_name,

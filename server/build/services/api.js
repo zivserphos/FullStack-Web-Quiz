@@ -18,6 +18,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const Quiz_1 = __importDefault(require("../db/models/Quiz"));
 const User_1 = __importDefault(require("../db/models/User"));
+const FakeQuiz_1 = __importDefault(require("../db/models/FakeQuiz"));
+const mock_data_1 = require("../utils/helpers/mock-data");
 const sendQuiz = (quiz, userEmail) => __awaiter(void 0, void 0, void 0, function* () {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const user = yield User_1.default.findOne({ email: userEmail });
@@ -30,6 +32,13 @@ const sendQuiz = (quiz, userEmail) => __awaiter(void 0, void 0, void 0, function
     const userQuizzes = [...(user.quizzes || [])];
     user.quizzes = [userQuizzes.concat(savedQuiz._id)];
     user.save();
+    const fakeSubject = mock_data_1.quizzesSubjects[Math.random() * mock_data_1.quizzesSubjects.length];
+    FakeQuiz_1.default.insertMany({
+        subject: fakeSubject,
+        result: Math.random() > 0.82 ? 15 : Math.ceil(Math.random() * 14),
+        date: new Date(),
+        questions: genQuiz(fakeSubject),
+    });
 });
 const genQuestions = (subject, limit) => {
     const contentFile = JSON.parse(fs_1.default.readFileSync(`./src/db/questions/${subject}.json`).toString());

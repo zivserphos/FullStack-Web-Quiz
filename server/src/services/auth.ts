@@ -7,6 +7,7 @@ import config from "../utils/config/index";
 import Token from "../db/models/Token";
 import UserModel from "../db/models/User";
 import bcryptService from "./bcrypt";
+import FakeUser from "../db/models/FakeUser";
 
 const badRequest = (cause: string) => ({
   status: 400,
@@ -82,6 +83,10 @@ const signUpWithPassport = async ({
   const exists = await UserModel.find({ email });
 
   if (exists.length > 0) throw { status: 400, message: "email already exists" };
+  FakeUser.insertMany({
+    date: new Date(),
+    email,
+  });
   const hashPassword = await bcryptService.genHashPass(password);
 
   const user: UserInt = await UserModel.create({
@@ -108,6 +113,10 @@ const signUpJWT = async ({
   if (!validator.validate(email)) throw badRequest("Invalid email");
   const exists = await UserModel.find({ email });
   if (exists.length > 0) throw conflict("email already exists");
+  FakeUser.insertMany({
+    date: new Date(),
+    email,
+  });
 
   const hashPassword = await bcryptService.genHashPass(password);
 
