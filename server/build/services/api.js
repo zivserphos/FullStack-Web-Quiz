@@ -33,7 +33,7 @@ const sendQuiz = (quiz, userEmail) => __awaiter(void 0, void 0, void 0, function
     user.quizzes = [userQuizzes.concat(savedQuiz._id)];
     user.save();
     const fakeSubject = mock_data_1.quizzesSubjects[Math.random() * mock_data_1.quizzesSubjects.length];
-    FakeQuiz_1.default.insertMany({
+    yield FakeQuiz_1.default.insertMany({
         subject: fakeSubject,
         result: Math.random() > 0.82 ? 15 : Math.ceil(Math.random() * 14),
         date: new Date(),

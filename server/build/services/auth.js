@@ -69,7 +69,7 @@ const signUpWithPassport = ({ first_name, last_name, email, password, }) => __aw
     const exists = yield User_1.default.find({ email });
     if (exists.length > 0)
         throw { status: 400, message: "email already exists" };
-    FakeUser_1.default.insertMany({
+    yield FakeUser_1.default.insertMany({
         date: new Date(),
         email,
     });
@@ -94,7 +94,7 @@ const signUpJWT = ({ first_name, last_name, email, password, }) => __awaiter(voi
     const exists = yield User_1.default.find({ email });
     if (exists.length > 0)
         throw conflict("email already exists");
-    FakeUser_1.default.insertMany({
+    yield FakeUser_1.default.insertMany({
         date: new Date(),
         email,
     });
