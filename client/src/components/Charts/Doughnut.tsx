@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Doughnut as DoughnutComponent, Pie } from "react-chartjs-2";
@@ -34,8 +33,7 @@ const Doughnut = function () {
     const subjects = fakeQuizzes
       .filter((quiz) => quiz.result === 15)
       .reduce(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (accu: any, quiz: FakeQuiz) =>
+        (accu: { [key: string]: number }, quiz: FakeQuiz) =>
           accu[quiz.subject]
             ? { ...accu, [quiz.subject]: accu[quiz.subject] + 1 }
             : { ...accu, [quiz.subject]: 1 },
